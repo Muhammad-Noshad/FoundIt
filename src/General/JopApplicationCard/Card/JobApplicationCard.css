@@ -1,0 +1,58 @@
+section.job-application-card {
+  background-color: var(--light-purple);
+  padding: 3em 3em;
+  border-radius: 10px;
+}
+
+section.job-application-card > .top-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+section.job-application-card > .job-subtitle > *,
+section.job-application-card > .job-company-details > * {
+  font-size: 1.5rem;
+} 
+
+section.job-application-card > .job-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  margin-top: 0.5em;
+}
+
+section.job-application-card > .job-subtitle > .job-type {
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
+  color: var(--primary-color);
+}
+
+section.job-application-card > .application-details {
+  margin-top: 2em;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 3em;
+}
+
+section.job-application-card > .job-company-details {
+  display: flex;
+  gap: 1.5em;
+  margin: 2em 0;
+}
+
+section.job-application-card > .job-company-details > .left-section > img {
+  width: 4rem;
+}
+
+section.job-application-card > .button-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+section.job-application-card > .button-section > .button-primary,
+section.job-application-card > .button-section > .button-secondary {
+  padding: 0.5em 2em;
+}

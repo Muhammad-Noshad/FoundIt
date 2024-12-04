@@ -1,0 +1,28 @@
+.job-search {
+  padding-top: 16em;
+  padding-bottom: 6em;
+}
+
+.job-search > .additional-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.job-search > h1,
+.job-search > p {
+  text-align: center;
+}
+
+.job-search > p.subtitle {
+  margin-bottom: 2.5em;
+}
+
+.job-search > .jobs-list {
+  margin-top: 3em;
+}
+
+.job-search > p.no-jobs {
+  margin-top: 2.5em;
+}

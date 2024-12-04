@@ -1,0 +1,35 @@
+.search-bar {
+  background-color: var(--lightest-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 4em;
+  border-radius: 20px;
+}
+
+.search-bar > .inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar > .inputs > input {
+  padding: 0.5em 1.5em;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.search-bar > .inputs > input:first-of-type {
+  border-right: 2px solid var(--light-color);
+}
+
+.search-bar > .inputs > input:last-of-type {
+  border-left: 2px solid var(--light-color);
+}
+
+.search-bar > button {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}

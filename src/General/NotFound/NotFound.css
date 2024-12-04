@@ -1,0 +1,18 @@
+section.not-found > .wrapper {
+  margin-top: 25%;
+  transform: translateY(-50%);
+}
+
+section.not-found > .wrapper > * {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+section.not-found > .wrapper > h1 {
+  margin-bottom: 0.2em;
+}
+
+section.not-found > .wrapper > h6 {
+  margin-bottom: 1em;
+}

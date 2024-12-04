@@ -1,0 +1,31 @@
+header {
+  background-color: var(--primary-color);
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  padding: 4em 4em;
+}
+
+header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+header > .container > .left-section > a > img {
+  width: 15rem;
+}
+
+header > .container > .right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+
+header > .container > .right-section > p:hover {
+  cursor: pointer;
+  color: var(--secondary-color);
+  transition: color 0.15s ease-in-out;
+}

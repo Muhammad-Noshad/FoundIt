@@ -1,0 +1,20 @@
+.job-application-detail-modal > .modal-content > h1,
+.job-application-detail-modal > .modal-content > h6,
+.job-application-detail-modal > .modal-content > p:last-of-type {
+  text-align: center;
+}
+
+.job-application-detail-modal > .modal-content > h6:first-of-type {
+  margin-top: 2em;
+}
+
+.job-application-detail-modal > .modal-content > button {
+  margin: 0 auto;
+  display: block;
+  padding: 0.5em 4.5em;
+  margin-bottom: 2em;
+}
+
+.job-application-detail-modal > .modal-content > h6 {
+  margin-bottom: 0.25em;
+}

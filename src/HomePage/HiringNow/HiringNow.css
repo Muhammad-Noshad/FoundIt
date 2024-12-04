@@ -1,0 +1,27 @@
+section.hiring-now {
+  padding: 6em 0;
+}
+
+section.hiring-now > .container > .top-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  margin-bottom: 3em;
+}
+
+section.hiring-now > .container > .top-section > h6:first-of-type,
+section.hiring-now > .container > .top-section > h6:last-of-type {
+  border-bottom: 2px solid var(--dark-color);
+  flex: 1;
+}
+
+section.hiring-now > .container > .bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+}
+
+section.hiring-now > .container > .bottom-section > img {
+  width: 15rem;
+}

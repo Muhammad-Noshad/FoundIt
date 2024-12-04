@@ -1,0 +1,27 @@
+footer {
+  padding-top: 6em;
+  padding-bottom: 2em;
+  background-color: var(--light-purple);
+}
+
+footer > .container > .top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+footer > .container > .top-section > .right-section > h6 {
+  font-size: 3.5rem;
+}
+
+footer > .container > .top-section > .left-section > img {
+  width: 15rem;
+  margin-bottom: 0.5em;
+}
+
+footer > .container > .bottom-section > p {
+  border-top: 1px solid var(--light-color);
+  padding-top: 1.5em;
+  text-align: center;
+}

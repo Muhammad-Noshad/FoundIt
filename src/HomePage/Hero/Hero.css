@@ -1,0 +1,24 @@
+section.hero {
+  padding: 6em 0;
+  padding-top: 16em;
+}
+
+.hero > .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.hero > .container > .left-section {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 3em;
+}
+
+section.hero > .container > .right-section {
+  flex: 0.5;
+}

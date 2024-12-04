@@ -1,0 +1,17 @@
+.job-salary-filter {
+  background-color: var(--lightest-color);
+  padding: 1.5em 0;
+  border-radius: 20px;
+}
+
+.job-salary-filter > input {
+  border: none;
+  outline: none;
+  background-color: var(--lightest-color);
+  text-align: center;
+  padding: 0 0.5em;
+}
+
+.job-salary-filter > input:first-of-type {
+  border-right: 2px solid var(--light-color);
+}

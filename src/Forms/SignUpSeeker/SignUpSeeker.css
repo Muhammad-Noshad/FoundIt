@@ -1,0 +1,55 @@
+section.sign-up-seeker {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  padding: 6em;
+  width: fit-content;
+  margin: 4em auto;
+  border-radius: 25px;
+}
+
+section.sign-up-seeker > h1,
+section.sign-up-seeker > p {
+  text-align: center;
+}
+
+section.sign-up-seeker > p {
+  margin-bottom: 1.5em;
+}
+
+section.sign-up-seeker > .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+}
+
+section.sign-up-seeker > .wrapper > .left-section,
+section.sign-up-seeker > .wrapper > .right-section {
+  flex: 1;
+}
+
+section.sign-up-seeker > .wrapper > .left-section > form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  margin-bottom: 2em;
+}
+
+section.sign-up-seeker > .wrapper > .left-section > form > div > input {
+  padding: 0.5em;
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+  margin-top: 0.25em;
+  width: 100%;
+}
+
+section.sign-up-seeker > .wrapper > .left-section > form > button {
+  padding: 0.5em 2em;
+  width: 100%;
+}
+
+section.sign-up-seeker > .wrapper > .left-section > form > a {
+  text-align: center;
+  display: block;
+  margin-top: 1.5em;
+}

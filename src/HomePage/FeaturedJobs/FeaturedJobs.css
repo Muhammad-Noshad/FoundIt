@@ -1,0 +1,22 @@
+.featured-jobs {
+  padding: 6em 0;
+}
+
+.featured-jobs > .container > h1,
+.featured-jobs > .container > p,
+.featured-jobs > .container > a {
+  display: block;
+  text-align: center;
+}
+
+.featured-jobs > .container > h1 {
+  margin-bottom: 0.25em;
+}
+
+.featured-jobs > .container > .job-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  margin: 3em 0;
+}

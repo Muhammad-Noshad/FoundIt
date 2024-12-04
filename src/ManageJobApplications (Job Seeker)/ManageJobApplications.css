@@ -1,0 +1,28 @@
+.manage-job-applications {
+  padding-top: 16em;
+  padding-bottom: 6em;
+}
+
+.manage-job-applications > h1,
+.manage-job-applications > p {
+  text-align: center;
+}
+
+.manage-job-applications > p.subtitle {
+  margin-bottom: 2.5em;
+}
+
+.manage-job-applications > .additional-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.manage-job-applications > .job-applications-list {
+  margin-top: 3em;
+}
+
+.manage-job-applications > p.no-job-applications {
+  margin-top: 2.5em;
+}
