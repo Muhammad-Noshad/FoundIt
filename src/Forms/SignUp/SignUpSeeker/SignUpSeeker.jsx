@@ -1,12 +1,12 @@
 import "./SignUpSeeker.css";
 
-import signUpImg from "../../images/SignIn/sign-in-1.svg";
+import signUpImg from "../../../images/SignIn/sign-in-1.svg";
 
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import validationSchema from "./validationSchema";
-import API from "../../API/API";
+import API from "../../../API/API";
 import { toast } from "react-toastify";
 
 const SignUpSeeker = () => {
@@ -17,7 +17,6 @@ const SignUpSeeker = () => {
     email: '',
     password: ''
   };
-
 
   const onSubmit = async(values) => {
     setIsSubmitting(true);

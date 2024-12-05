@@ -153,6 +153,11 @@ button.disabled {
   pointer-events: none;
 }
 
+button.button-secondary.disabled {
+  border-color: var(--light-color);
+  color: var(--primary-color);
+}
+
 .trash {
   width: 1.5rem;
   cursor: pointer;

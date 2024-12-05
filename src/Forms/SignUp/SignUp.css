@@ -1,0 +1,41 @@
+.sign-up > .wrapper {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  padding: 6em;
+  width: fit-content;
+  margin: 4em auto;
+  border-radius: 25px;
+}
+
+.sign-up > .wrapper > h1,
+.sign-up > .wrapper > p {
+  text-align: center;
+}
+
+.sign-up > .wrapper > p {
+  margin-bottom: 1.5em;
+}
+
+.sign-up > .wrapper > a > button {
+  display: block;
+  width: 100%;
+}
+
+.sign-up > .wrapper > .divider {
+  display: flex;
+  justify-content: space-between;
+  margin: 2em 0;
+  align-items: center;
+  gap: 1em;
+}
+
+.sign-up > .wrapper > .divider > h6:first-of-type,
+.sign-up > .wrapper > .divider > h6:last-of-type{
+  border-bottom: 2px solid var(--dark-color);
+  flex: 1;
+}
+
+.sign-up > .wrapper > a {
+  text-align: center;
+  display: block;
+  margin-top: 1.5em;
+}

@@ -10,7 +10,9 @@ import Header from "./General/Header/Header";
 import Footer from "./General/Footer/Footer";
 import HomePage from "./HomePage/HomePage";
 import SignIn from "./Forms/SignIn/SignIn";
-import SignUpSeeker from "./Forms/SignUpSeeker/SignUpSeeker";
+import SignUp from "./Forms/SignUp/SignUp";
+import SignUpSeeker from "./Forms/SignUp/SignUpSeeker/SignUpSeeker";
+import SignUpPoster from "./Forms/SignUp/SignUpPoster/SignUpPoster";
 import NotFound from "./General/NotFound/NotFound";
 import JobSearch from "./JobSearch/JobSearch";
 import ManageJobApplications from "./ManageJobApplications (Job Seeker)/ManageJobApplications";
@@ -26,7 +28,7 @@ function App() {
     });
   }, [location.pathname]);
 
-  const excludedPaths = ["/sign-in", "/sign-up", "/404"];
+  const excludedPaths = ["/sign-in", "/sign-up", "/sign-up-seeker", "/sign-up-poster", "/404"];
   const isExcludedPath = excludedPaths.includes(location.pathname);
 
   return (
@@ -38,7 +40,9 @@ function App() {
       }
       <Routes>
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUpSeeker />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-up-seeker" element={<SignUpSeeker />} />
+        <Route path="/sign-up-poster" element={<SignUpPoster />} />
         {
           user 
             ? <>
