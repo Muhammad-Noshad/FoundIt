@@ -10,7 +10,8 @@ import JobSalaryFilter from "../JobSearch/SalaryFilter/JobSalaryFilter";
 import ApplicationStatusFilter from "./ApplicationStatusFilter/ApplicationStatusFilter";
 
 const ManageJobApplications = () => {
-  const [filteredJobApplications, setFilteredJobApplications] = useState(jobApplicationStore.getState().jobApplications);
+  const { jobApplications } = jobApplicationStore();
+  const [filteredJobApplications, setFilteredJobApplications] = useState(jobApplications);
   const [jobTitle, setJobTitle] = useState("");
   const [jobLocation, setJobLocation] = useState("");
   const [jobType, setJobType] = useState("");
@@ -32,7 +33,7 @@ const ManageJobApplications = () => {
       filter = filter.filter(value => parseFloat(value.postedJob.jobSalary) >= parseFloat(minSalary) && parseFloat(value.postedJob.jobSalary) <= parseFloat(maxSalary));
 
     setFilteredJobApplications(filter);
-  }, [jobTitle, jobLocation, companyName, jobType, maxSalary, minSalary, applicationStatus]);
+  }, [jobTitle, jobLocation, companyName, jobType, maxSalary, minSalary, applicationStatus, jobApplications]);
 
 
   return (
