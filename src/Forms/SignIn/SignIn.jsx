@@ -10,13 +10,15 @@ import API from "../../API/API";
 import userStore from "../../Store/userStore";
 import postedJobStore from "../../Store/postedJobStore";
 import jobApplicationStore from "../../Store/jobApplicationStore";
+import companyStore from "../../Store/companyStore";
 import { useState } from "react";
 
 
 const SignIn = () => {
   const navigate = useNavigate();
   const setUser  = userStore((state) => state.setUser);  
-  const fetchPostedJobs = postedJobStore((state) => state.fetchPostedJobs);
+  const {fetchPostedJobs, fetchPostedJobsById} = postedJobStore();
+  const {setCompany} = companyStore();
   const fetchJobApplicationsById = jobApplicationStore((state) => state.fetchJobApplicationsById);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -32,8 +34,16 @@ const SignIn = () => {
       const response = await API.post("/auth/login", values);
       toast.success("Sign In Successful!");
       setUser(response.data);
-      fetchPostedJobs();
-      fetchJobApplicationsById(response.data.userId);
+
+      if(response.data.role === "JobSeeker") {
+        fetchPostedJobs();
+        fetchJobApplicationsById(response.data.userId);
+      }
+      else if(response.data.role == "Employer") {
+        await fetchPostedJobsById(response.data.userId);
+        setCompany(postedJobStore.getState().postedJobs[0].company);
+      }
+
       navigate("/");
     }
     catch(error) {

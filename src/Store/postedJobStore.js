@@ -13,6 +13,15 @@ const postedJobStore = create((set) => ({
       console.error('Error fetching posts:', error);
     }
   },
+  fetchPostedJobsById: async (userId) => {
+    try {
+      const response = await API.get(`/posted-job/${userId}`);
+      set({ postedJobs: response.data });
+    }
+    catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  },
 }));
 
 export default postedJobStore;

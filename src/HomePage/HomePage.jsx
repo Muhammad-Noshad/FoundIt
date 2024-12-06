@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <section className="home-page">
       {
-        user.role === "JobSeeker"
+        user?.role === "JobSeeker"
         &&
         <>
           <JobSeekerHero />
@@ -20,7 +20,7 @@ const HomePage = () => {
         </>
       }
       {
-        user.role === "Employer"
+        user?.role === "Employer"
         &&
         <>
           <JobPosterHero />

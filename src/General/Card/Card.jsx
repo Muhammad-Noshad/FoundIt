@@ -1,6 +1,7 @@
 import "./Card.css";
 
 import { useState } from "react";
+import companyStore from "../../Store/companyStore";
 
 import JobDetailModal from "../JobDetailModal/JobDetailModal";
 import JobApplyModal from "../JobApplyModal/JobApplyModal";
@@ -10,6 +11,7 @@ import logo from "../../images/icon/Foundit-icon.svg"
 const Card = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation}) => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
+  const { company } = companyStore();
 
   return (
     <section className="card">
@@ -25,7 +27,7 @@ const Card = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName
       </div>
       <div className="job-company-details">
         <div className="left-section">
-          <img src={logo} alt="logo" />  
+          <img src={company?.companyLogo || logo} alt="logo" />  
         </div>
         <div className="right-section">
           <h6 className="job-company-name">{companyName}</h6>
