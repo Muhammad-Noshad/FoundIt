@@ -3,15 +3,22 @@ import founditLogo from "../../images/icon/logo-color.svg";
 import { Link, useNavigate } from "react-router-dom";
 import userStore from "../../Store/userStore";
 import postedJobStore from "../../Store/postedJobStore";
+import jobApplicationStore from "../../Store/jobApplicationStore";
+import companyStore from "../../Store/companyStore";
 
 const Header = () => {
   const setUser = userStore((state) => state.setUser);
   const setPostedJobs = postedJobStore((state) => state.setPostedJobs);
+  const setJobApplications = jobApplicationStore((state) => state.setJobApplications);
+  const setCompany = companyStore((state) => state.setCompany);
+  
   const navigate = useNavigate();
 
   const logOut = () => {
     setUser(null);
     setPostedJobs([]);
+    setCompany(null);
+    setJobApplications(null);
     navigate("/sign-in");
   }
 
