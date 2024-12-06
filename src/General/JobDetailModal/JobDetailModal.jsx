@@ -1,11 +1,15 @@
 import "./JobDetailModal.css";
 
+import companyStore from "../../Store/companyStore";
+
 import logo from "../../images/icon/Foundit-icon.svg";
 
 const JobDetailModal = ({ isModalOpen, onClose, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation }) => {
   if(!isModalOpen) {
     return null;
   }
+
+  const { company } = companyStore();
 
   return (
     <section className="job-detail-modal modal-overlay">
@@ -23,7 +27,7 @@ const JobDetailModal = ({ isModalOpen, onClose, jobTitle, jobType, jobSalary, jo
         </div>
         <div className="job-company-details">
           <div className="left-section">
-            <img src={logo} alt="logo" />  
+            <img src={company?.companyLogo || logo} alt="logo" />  
           </div>
           <div className="right-section">
             <h6 className="job-company-name">{companyName}</h6>
