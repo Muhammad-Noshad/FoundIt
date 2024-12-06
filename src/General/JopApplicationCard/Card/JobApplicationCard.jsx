@@ -22,7 +22,7 @@ const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDe
 
   const handleApplicationDeletion = async() => {
     try {
-      await API.delete(`/job-application/${applicationId}`);
+      const response = await API.delete(`/job-application/${applicationId}`);
       toast.success("Application deleted successfully!");
       jobApplicationStore.getState().fetchJobApplicationsById(userStore.getState().user.userId);
     }
