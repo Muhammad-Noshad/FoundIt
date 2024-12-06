@@ -1,10 +1,10 @@
 import "./HiringNow.css";
 
-import googleLogo from "../../images/HiringNow/google.svg";
-import microsoftLogo from "../../images/HiringNow/microsoft.svg";
-import flipkartIcon from "../../images/HiringNow/flipkart.svg";
-import youtubeIcon from "../../images/HiringNow/youtube.svg";
-import ibmIcon from "../../images/HiringNow/ibm.svg";
+import googleLogo from "../../../images/HiringNow/google.svg";
+import microsoftLogo from "../../../images/HiringNow/microsoft.svg";
+import flipkartIcon from "../../../images/HiringNow/flipkart.svg";
+import youtubeIcon from "../../../images/HiringNow/youtube.svg";
+import ibmIcon from "../../../images/HiringNow/ibm.svg";
 
 const HiringNow = () => {
   return (

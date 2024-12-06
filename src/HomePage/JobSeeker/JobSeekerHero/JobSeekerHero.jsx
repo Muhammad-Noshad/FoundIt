@@ -1,7 +1,7 @@
-import "./Hero.css";
-import heroImg1 from "../../images/Hero/hero-img-1.svg";
+import "./JobSeekerHero.css";
+import heroImg1 from "../../../images/Hero/hero-img-1.svg";
 
-const Hero = () => {
+const JobSeekerHero = () => {
   return (
     <section className="hero background-gradient">
       <div className="container">
@@ -18,4 +18,4 @@ const Hero = () => {
   );
 }
  
-export default Hero;
+export default JobSeekerHero;

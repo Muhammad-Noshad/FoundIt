@@ -2,8 +2,8 @@ import "./FeaturedJobs.css";
 
 import { Link } from "react-router-dom";
 
-import Card from "../../General/Card/Card";
-import postedJobStore from "../../Store/postedJobStore";
+import Card from "../../../General/Card/Card";
+import postedJobStore from "../../../Store/postedJobStore";
 
 const FeaturedJobs = () => {
   const postedJobs = postedJobStore((state) => state.postedJobs);
