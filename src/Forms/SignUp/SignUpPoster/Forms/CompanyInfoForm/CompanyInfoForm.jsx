@@ -25,6 +25,17 @@ const CompanyInfoForm = ({ companyInfo, setCompanyInfo, setStep, onSubmit, isSub
       {({ values, setFieldValue }) => (
         <Form>
           <div>
+            <label htmlFor="companyName">Company Name</label>
+            <Field
+              type="text"
+              id="companyName"
+              name="companyName"
+              placeholder="Enter company name"
+            />
+            <ErrorMessage name="companyName" component="div" className="error" />
+          </div>
+
+          <div>
             <label htmlFor="companyLocation">Company Location</label>
             <Field
               type="text"
@@ -37,17 +48,6 @@ const CompanyInfoForm = ({ companyInfo, setCompanyInfo, setStep, onSubmit, isSub
               component="div"
               className="error"
             />
-          </div>
-
-          <div>
-            <label htmlFor="companyName">Company Name</label>
-            <Field
-              type="text"
-              id="companyName"
-              name="companyName"
-              placeholder="Enter company name"
-            />
-            <ErrorMessage name="companyName" component="div" className="error" />
           </div>
 
           <div>

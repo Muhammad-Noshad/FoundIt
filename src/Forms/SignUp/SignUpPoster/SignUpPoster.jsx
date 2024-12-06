@@ -39,15 +39,18 @@ const SignUpPoster = () => {
   const onSubmit = async() => {
     setIsSubmitting(true);
     try {
-      Object.entries(userDetails).forEach(([key, value]) => {
-        formData.append(key, value);
-      });
+      const formData = new FormData();
 
-      Object.entries(companyDetails).forEach(([key, value]) => {
-        formData.append(key, value);
-      });
+      const {companyLogo, ...otherCompanyInfo} = companyInfo;
 
-      const response = await API.post("/job-application", formData, {
+      formData.append("companyLogo", companyLogo);
+
+      formData.append("companyInfo", JSON.stringify(otherCompanyInfo));
+
+      userInfo.role = "Employer";
+      formData.append("userInfo", JSON.stringify(userInfo));
+
+      const response = await API.post("/auth/sign-up/job-poster", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -55,7 +58,7 @@ const SignUpPoster = () => {
       toast.success("Sign Up Successful!");
     }
     catch(error) {
-      toast.error(error.response.data.name);
+      toast.error(error.response.data.message);
       console.log("An error occured", error);
     }
     setIsSubmitting(false);

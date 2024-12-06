@@ -21,7 +21,7 @@ const SignUpSeeker = () => {
   const onSubmit = async(values) => {
     setIsSubmitting(true);
     try {
-      const response = await API.post("/auth/register", { ...values, role: "JobSeeker" });
+      const response = await API.post("/auth/sign-up/job-seeker", { ...values, role: "JobSeeker" });
       toast.success("Sign Up Successful!");
     }
     catch(error) {
