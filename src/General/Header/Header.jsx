@@ -7,7 +7,7 @@ import jobApplicationStore from "../../Store/jobApplicationStore";
 import companyStore from "../../Store/companyStore";
 
 const Header = () => {
-  const setUser = userStore((state) => state.setUser);
+  const { user, setUser } = userStore();
   const setPostedJobs = postedJobStore((state) => state.setPostedJobs);
   const setJobApplications = jobApplicationStore((state) => state.setJobApplications);
   const setCompany = companyStore((state) => state.setCompany);
@@ -34,12 +34,30 @@ const Header = () => {
           <Link to="/">
             <p>Home</p>
           </Link>
-          <Link to="/job-search">
+          {
+            user?.role === "JobSeeker"
+            &&
+            <>
+            <Link to="/job-search">
             <p>Find Jobs</p>
-          </Link>
-          <Link to="/manage-job-applications">
-            <p>Manage Job Applications</p>
-          </Link>
+            </Link>
+            <Link to="/manage-job-applications">
+              <p>Manage Job Applications</p>
+            </Link>
+            </>
+          }
+          {
+            user?.role === "Employer"
+            &&
+            <>
+            <Link to="/manage-job-posts">
+            <p>Manage Job Posts</p>
+            </Link>
+            <Link to="/manage-job-applications">
+              <p>Manage Job Applications</p>
+            </Link>
+            </>
+          }
           <p onClick={logOut}>Log Out</p>
         </div>
       </div>
