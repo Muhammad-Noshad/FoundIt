@@ -24,6 +24,7 @@ const FeaturedJobs = () => {
                 jobDescription={value.jobDescription}
                 companyName={value.company.companyName}
                 companyLocation={value.company.companyLocation}
+                companyLogo={value.company.companyLogo}
                 key={index}
               />
             )

@@ -15,6 +15,7 @@ const JobApplicationsList = ({ jobApplications }) => {
             jobDescription={value.postedJob.jobDescription}
             companyName={value.postedJob.company.companyName}
             companyLocation={value.postedJob.company.companyLocation}
+            companyLogo={value.postedJob.company.companyLogo}
             appliedDate={value.creationDate.split("T")[0]}
             cv={value.cv}
             additionalComments={value.jobSeekerComment}

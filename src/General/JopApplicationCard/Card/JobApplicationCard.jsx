@@ -14,7 +14,7 @@ import API from "../../../API/API";
 
 import logo from "../../../images/icon/Foundit-icon.svg"
 
-const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, appliedDate, cv, additionalComments, status}) => {
+const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo, appliedDate, cv, additionalComments, status}) => {
   const [isJobDetailModalOpen, setIsJobDetailModalOpen] = useState(false);
   const [isApplicationDetailModalOpen, setIsApplicationDetailModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
@@ -63,7 +63,7 @@ const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDe
       </div>
       <div className="job-company-details">
         <div className="left-section">
-          <img src={logo} alt="logo" />  
+          <img src={companyLogo || logo} alt="logo" />  
         </div>
         <div className="right-section">
           <h6 className="job-company-name">{companyName}</h6>

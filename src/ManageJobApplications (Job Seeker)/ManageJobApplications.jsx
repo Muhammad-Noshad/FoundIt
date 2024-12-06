@@ -23,14 +23,14 @@ const ManageJobApplications = () => {
   useEffect(() => {
     let filter = jobApplicationStore.getState().jobApplications;
 
-    filter = filter.filter(value => value.postedJob.jobType.toLowerCase().includes(jobType.toLowerCase()));
-    filter = filter.filter(value => value.status.toLowerCase().includes(applicationStatus.toLowerCase()));
-    filter = filter.filter(value => value.postedJob.company.companyName.toLowerCase().includes(companyName.toLowerCase()));    
-    filter = filter.filter(value => value.postedJob.company.companyLocation.toLowerCase().includes(jobLocation.toLowerCase()));
-    filter = filter.filter(value => value.postedJob.jobTitle.toLowerCase().includes(jobTitle.toLowerCase()));
+    filter = filter?.filter(value => value.postedJob.jobType.toLowerCase().includes(jobType.toLowerCase()));
+    filter = filter?.filter(value => value.status.toLowerCase().includes(applicationStatus.toLowerCase()));
+    filter = filter?.filter(value => value.postedJob.company.companyName.toLowerCase().includes(companyName.toLowerCase()));    
+    filter = filter?.filter(value => value.postedJob.company.companyLocation.toLowerCase().includes(jobLocation.toLowerCase()));
+    filter = filter?.filter(value => value.postedJob.jobTitle.toLowerCase().includes(jobTitle.toLowerCase()));
 
     if(!(minSalary === "" || maxSalary === ""))
-      filter = filter.filter(value => parseFloat(value.postedJob.jobSalary) >= parseFloat(minSalary) && parseFloat(value.postedJob.jobSalary) <= parseFloat(maxSalary));
+      filter = filter?.filter(value => parseFloat(value.postedJob.jobSalary) >= parseFloat(minSalary) && parseFloat(value.postedJob.jobSalary) <= parseFloat(maxSalary));
 
     setFilteredJobApplications(filter);
   }, [jobTitle, jobLocation, companyName, jobType, maxSalary, minSalary, applicationStatus, jobApplications]);
