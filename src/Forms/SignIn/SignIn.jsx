@@ -37,8 +37,8 @@ const SignIn = () => {
       navigate("/");
     }
     catch(error) {
+      console.error("An error", error);
       toast.error(error.response.data.message);
-      console.log("An error", error);
     }
 
     setIsSubmitting(false);

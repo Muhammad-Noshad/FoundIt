@@ -25,8 +25,8 @@ const SignUpSeeker = () => {
       toast.success("Sign Up Successful!");
     }
     catch(error) {
+      console.error("An error occured", error);
       toast.error(error.response.data.name);
-      console.log("An error occured", error);
     }
     setIsSubmitting(false);
   };

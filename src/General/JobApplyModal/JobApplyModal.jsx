@@ -50,8 +50,8 @@ const JobApplyModal = ({ isModalOpen, onClose, jobId }) => {
       fetchJobApplicationsById(user.userId);
     } 
     catch (error) {
-      toast.error(error.response.data.message);
       console.error("An error occurred", error);
+      toast.error(error.response.data.message);
     }
     setIsSubmitting(false);
     onClose();

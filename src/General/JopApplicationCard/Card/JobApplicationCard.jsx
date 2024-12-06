@@ -27,8 +27,8 @@ const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDe
       jobApplicationStore.getState().fetchJobApplicationsById(userStore.getState().user.userId);
     }
     catch(error) {
+      console.error("An error occurred", error);
       toast.error(error.response.data.message);
-      console.log("An error occurred", error);
     }
     setIsConfirmed(false);
   }
