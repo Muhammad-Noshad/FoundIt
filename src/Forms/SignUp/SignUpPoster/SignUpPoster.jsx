@@ -36,7 +36,7 @@ const SignUpPoster = () => {
     companyLogo: undefined
   });
 
-  const onSubmit = async() => {
+  const onSubmit = async(companyInfo) => {
     setIsSubmitting(true);
     try {
       const formData = new FormData();

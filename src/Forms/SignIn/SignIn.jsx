@@ -41,7 +41,7 @@ const SignIn = () => {
       }
       else if(response.data.role == "Employer") {
         await fetchPostedJobsById(response.data.userId);
-        setCompany(postedJobStore.getState().postedJobs[0].company);
+        setCompany(response.data.company);
       }
 
       navigate("/");

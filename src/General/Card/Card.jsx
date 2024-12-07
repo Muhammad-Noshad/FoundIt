@@ -5,8 +5,6 @@ import { useState } from "react";
 import JobDetailModal from "../JobDetailModal/JobDetailModal";
 import JobApplyModal from "../JobApplyModal/JobApplyModal";
 
-import logo from "../../images/icon/Foundit-icon.svg"
-
 const Card = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
@@ -25,7 +23,7 @@ const Card = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName
       </div>
       <div className="job-company-details">
         <div className="left-section">
-          <img src={companyLogo || logo} alt="logo" />  
+          <img src={companyLogo} alt="logo" />  
         </div>
         <div className="right-section">
           <h6 className="job-company-name">{companyName}</h6>
@@ -45,6 +43,7 @@ const Card = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName
         jobDescription={jobDescription}
         companyName={companyName}
         companyLocation={companyLocation}
+        companyLogo={companyLogo}
       />
       <JobApplyModal
         isModalOpen={isApplyModalOpen}

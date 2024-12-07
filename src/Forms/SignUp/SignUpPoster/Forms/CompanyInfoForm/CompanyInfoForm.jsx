@@ -6,9 +6,8 @@ import { useState } from "react";
 const CompanyInfoForm = ({ companyInfo, setCompanyInfo, setStep, onSubmit, isSubmitting }) => {
   const [selectedFileName, setSelectedFileName] = useState(companyInfo.companyLogo?.name || "");
 
-  const handleSubmit = (values) => {
-    setCompanyInfo(values);
-    onSubmit();
+  const handleSubmit = async(values) => {
+    onSubmit(values);
   };
 
   const handlePrev = (values) => {
