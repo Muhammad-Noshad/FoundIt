@@ -7,6 +7,7 @@ import userStore from "../../Store/userStore";
 const NotFound = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { user } = userStore();
 
   useEffect(() => {
     if (location.pathname !== "/404") {
@@ -15,7 +16,7 @@ const NotFound = () => {
   }, [location.pathname, navigate]);
 
   const redirect = () => {
-    if(userStore.getState().user) {
+    if(user) {
       navigate("/");
     }
     else {

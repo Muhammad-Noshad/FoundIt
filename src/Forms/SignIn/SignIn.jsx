@@ -40,7 +40,7 @@ const SignIn = () => {
         fetchJobApplicationsById(response.data.userId);
       }
       else if(response.data.role == "Employer") {
-        await fetchPostedJobsById(response.data.userId);
+        fetchPostedJobsById(response.data.company.companyId);
         setCompany(response.data.company);
       }
 

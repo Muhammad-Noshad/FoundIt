@@ -1,0 +1,6 @@
+.manage-job-posts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, min(46rem));
+  justify-content: center;
+  gap: 3em;
+}

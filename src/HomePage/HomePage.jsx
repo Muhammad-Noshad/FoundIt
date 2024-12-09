@@ -1,5 +1,5 @@
 import JobSeekerHero from "./JobSeeker/JobSeekerHero/JobSeekerHero";
-import FeaturedJobs from "./JobSeeker/FeaturedJobs/FeaturedJobs";
+import FeaturedJobs from "./Common/FeaturedJobs/FeaturedJobs";
 import HiringNow from "./JobSeeker/HiringNow/HiringNow";
 
 import JobPosterHero from "./JobPoster/JobPosterHero/JobPosterHero";
@@ -15,7 +15,11 @@ const HomePage = () => {
         &&
         <>
           <JobSeekerHero />
-          <FeaturedJobs />
+          <FeaturedJobs 
+            title={"Featured Jobs"}
+            subtitle={"Apply for jobs from the top employers."}
+            linkTo={"/job-search"}
+          />
           <HiringNow />
         </>
       }
@@ -24,7 +28,11 @@ const HomePage = () => {
         &&
         <>
           <JobPosterHero />
-          <FeaturedJobs />
+          <FeaturedJobs 
+            title={"Recent Job Posts"}
+            subtitle={"These are the jobs you posted recently."}
+            linkTo={"/manage-job-posts"}
+          />
         </>
       }
     </section>

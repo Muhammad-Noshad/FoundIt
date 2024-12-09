@@ -16,10 +16,11 @@ import SignUpPoster from "./Forms/SignUp/SignUpPoster/SignUpPoster";
 import NotFound from "./General/NotFound/NotFound";
 import JobSearch from "./JobSearch/JobSearch";
 import ManageJobApplications from "./ManageJobApplications (Job Seeker)/ManageJobApplications";
+import ManageJobPosts from "./ManageJobPosts (Job Poster)/ManageJobPosts";
 
 function App() {
   const location = useLocation();
-  const user = userStore.getState().user;
+  const { user } = userStore();
 
   useEffect(() => {
     window.scrollTo({
@@ -44,13 +45,26 @@ function App() {
         <Route path="/sign-up-seeker" element={<SignUpSeeker />} />
         <Route path="/sign-up-poster" element={<SignUpPoster />} />
         {
-          user 
-            ? <>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/job-search" element={<JobSearch />} />
-                <Route path="/manage-job-applications" element={<ManageJobApplications />} />
-              </>
-            : <Route path="/" element={<Navigate to="/sign-in" />} />
+          user?.role === "Employer" 
+            && 
+          <>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/manage-job-posts" element={<ManageJobPosts />} />
+          </>
+        }
+        {
+          user?.role === "JobSeeker" 
+          &&
+          <>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/job-search" element={<JobSearch />} />
+            <Route path="/manage-job-applications" element={<ManageJobApplications />} />
+          </>
+        }
+        {
+          !user 
+          &&
+          <Route path="/" element={<Navigate to="/sign-in" />} />
         }
         <Route path="*" element={<NotFound />} />
       </Routes>

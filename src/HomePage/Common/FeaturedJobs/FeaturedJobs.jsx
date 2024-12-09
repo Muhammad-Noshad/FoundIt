@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import Card from "../../../General/Card/Card";
 import postedJobStore from "../../../Store/postedJobStore";
 
-const FeaturedJobs = () => {
+const FeaturedJobs = ({ title, subtitle, linkTo }) => {
   const postedJobs = postedJobStore((state) => state.postedJobs);
 
   return (
     <section className="featured-jobs">
       <div className="container">
-        <h1>Featured Jobs</h1>
-        <p className="dark">Apply for jobs from the top employers.</p>
+        <h1>{title}</h1>
+        <p className="dark">{subtitle}</p>
         <div className="job-cards">
           {
             postedJobs.slice(0, 3).map((value, index) =>
@@ -30,7 +30,7 @@ const FeaturedJobs = () => {
             )
           }
         </div>
-        <Link className="link" to="/job-search">View all</Link>
+        <Link className="link" to={linkTo}>View all</Link>
       </div>
     </section>
   );
