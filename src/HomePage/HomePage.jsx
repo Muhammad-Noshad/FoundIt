@@ -1,5 +1,5 @@
 import JobSeekerHero from "./JobSeeker/JobSeekerHero/JobSeekerHero";
-import FeaturedJobs from "./Common/FeaturedJobs/FeaturedJobs";
+import FeaturedJobs from "./General/FeaturedJobs/FeaturedJobs";
 import HiringNow from "./JobSeeker/HiringNow/HiringNow";
 
 import JobPosterHero from "./JobPoster/JobPosterHero/JobPosterHero";
