@@ -15,6 +15,7 @@ const FeaturedJobs = ({ title, subtitle, linkTo }) => {
         <p className="dark">{subtitle}</p>
         <div className="job-cards">
           {
+            postedJobs.length?
             postedJobs.slice(0, 3).map((value, index) =>
               <PostedJobCard 
                 jobId={value.jobId}
@@ -28,6 +29,8 @@ const FeaturedJobs = ({ title, subtitle, linkTo }) => {
                 key={index}
               />
             )
+            :
+            <p className="dark no-jobs">No jobs to show!</p>
           }
         </div>
         <Link className="link" to={linkTo}>View all</Link>
