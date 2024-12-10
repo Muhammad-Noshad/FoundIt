@@ -19,8 +19,8 @@ const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription
       // jobApplicationStore.getState().fetchJobApplicationsById(userStore.getState().user.userId);
     }
     catch(error) {
+      toast.error(error?.response?.data?.message || "An error occurred");
       console.error("An error occurred", error);
-      toast.error(error.response.data.message);
     }
     setIsConfirmed(false);
   }

@@ -58,8 +58,8 @@ const SignUpPoster = () => {
       toast.success("Sign Up Successful!");
     }
     catch(error) {
+      toast.error(error?.response?.data?.message || "An error occurred");
       console.error("An error occured", error);
-      toast.error(error.response.data.message);
     }
     setIsSubmitting(false);
   };
