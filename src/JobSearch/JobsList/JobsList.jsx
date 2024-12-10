@@ -1,13 +1,13 @@
 import "./JobsList.css";
 
-import Card from "../../General/Card/Card";
+import PostedJobCard from "../../Cards/JobSeeker/PostedJobCard/PostedJobCard";
 
 const JobsList = ({ postedJobs }) => {
   return (
     <section className="jobs-list">
       {
         postedJobs.map((value, index) => 
-          <Card 
+          <PostedJobCard
             jobId={value.jobId}
             jobTitle={value.jobTitle} 
             jobType={value.jobType}

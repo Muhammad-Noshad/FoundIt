@@ -1,16 +1,16 @@
-import "./Card.css";
+import "./PostedJobCard.css";
 
 import { useState } from "react";
 
-import JobDetailModal from "../../Modals/JobDetailModal/JobDetailModal";
-import JobApplyModal from "../../Modals/JobApplyModal/JobApplyModal";
+import JobDetailModal from "../../../Modals/JobDetailModal/JobDetailModal";
+import JobApplyModal from "../../../Modals/JobApplyModal/JobApplyModal";
 
-const Card = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
+const PostedJobCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
 
   return (
-    <section className="card">
+    <section className="posted-job-card">
       <h6 className="job-title">{jobTitle}</h6>
       <div className="job-subtitle">
         {
@@ -54,4 +54,4 @@ const Card = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName
   );
 }
  
-export default Card;
+export default PostedJobCard;

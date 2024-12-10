@@ -1,6 +1,6 @@
 import "./ManageJobPostsList.css";
 
-import ManageJobPostCard from "../ManageJobPostCard/ManageJobPostCard";
+import ManageJobPostCard from "../../Cards/JobPoster/ManageJobPostCard/ManageJobPostCard";
 
 const ManageJobPostsList = ({ postedJobs }) => {
   return (

@@ -2,7 +2,7 @@ import "./FeaturedJobs.css";
 
 import { Link } from "react-router-dom";
 
-import Card from "../../../General/Card/Card";
+import PostedJobCard from "../../../Cards/JobSeeker/PostedJobCard/PostedJobCard";
 import postedJobStore from "../../../Store/postedJobStore";
 
 const FeaturedJobs = ({ title, subtitle, linkTo }) => {
@@ -16,7 +16,7 @@ const FeaturedJobs = ({ title, subtitle, linkTo }) => {
         <div className="job-cards">
           {
             postedJobs.slice(0, 3).map((value, index) =>
-              <Card 
+              <PostedJobCard 
                 jobId={value.jobId}
                 jobTitle={value.jobTitle} 
                 jobType={value.jobType}
