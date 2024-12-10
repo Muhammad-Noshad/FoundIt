@@ -15,8 +15,8 @@ import SignUpSeeker from "./Forms/SignUp/SignUpSeeker/SignUpSeeker";
 import SignUpPoster from "./Forms/SignUp/SignUpPoster/SignUpPoster";
 import NotFound from "./General/NotFound/NotFound";
 import JobSearch from "./JobSearch/JobSearch";
-import ManageJobApplications from "./ManageJobApplications (Job Seeker)/ManageJobApplications";
-import ManageJobPosts from "./ManageJobPosts (Job Poster)/ManageJobPosts";
+import ManageJobApplications from "./ManageJobApplications/JobSeeker/ManageJobApplications (JobSeeker)";
+import ManageJobPosts from "./ManageJobPosts/ManageJobPosts";
 
 function App() {
   const location = useLocation();

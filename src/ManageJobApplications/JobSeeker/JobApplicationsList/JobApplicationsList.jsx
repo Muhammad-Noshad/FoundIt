@@ -1,6 +1,6 @@
 import "./JobApplicationsList.css";
 
-import JobApplicationCard from "../../Cards/JobSeeker/JopApplicationCard/JobApplicationCard";
+import JobApplicationCard from "../../../Cards/JobSeeker/JopApplicationCard/JobApplicationCard";
 
 const JobApplicationsList = ({ jobApplications }) => {
   return (

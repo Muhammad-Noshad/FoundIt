@@ -1,13 +1,13 @@
-import "./ManageJobApplications.css";
+import "./ManageJobApplications (JobSeeker).css";
 
 import { useState, useEffect } from "react";
-import jobApplicationStore from "../Store/jobApplicationStore";
+import jobApplicationStore from "../../Store/jobApplicationStore";
 
 import JobApplicationsList from "./JobApplicationsList/JobApplicationsList";
-import SearchBar from "../Filters/SearchBar/SearchBar";
-import JobTypeFilter from "../Filters/JobTypeFilter/JobTypeFilter";
-import JobSalaryFilter from "../Filters/JobSalaryFilter/JobSalaryFilter";
-import ApplicationStatusFilter from "../Filters/ApplicationStatusFilter/ApplicationStatusFilter";
+import SearchBar from "../../Filters/SearchBar/SearchBar";
+import JobTypeFilter from "../../Filters/JobTypeFilter/JobTypeFilter";
+import JobSalaryFilter from "../../Filters/JobSalaryFilter/JobSalaryFilter";
+import ApplicationStatusFilter from "../../Filters/ApplicationStatusFilter/ApplicationStatusFilter";
 
 const ManageJobApplications = () => {
   const { jobApplications } = jobApplicationStore();
