@@ -4,8 +4,8 @@ import trashImg from "../../images/icon/trash.svg";
 
 import { useState } from "react";
 
-import JobDetailModal from "../../General/JobDetailModal/JobDetailModal";
-import ConfirmationModal from "../../General/ConfirmationModal/ConfirmationModal";
+import JobDetailModal from "../../Modals/JobDetailModal/JobDetailModal";
+import ConfirmationModal from "../../Modals/ConfirmationModal/ConfirmationModal";
 
 const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);

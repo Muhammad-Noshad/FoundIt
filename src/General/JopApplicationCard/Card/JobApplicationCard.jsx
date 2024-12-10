@@ -5,9 +5,9 @@ import trashImg from "../../../images/icon/trash.svg";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-import JobDetailModal from "../../JobDetailModal/JobDetailModal";
-import JobApplicationDetailModal from "../../JobApplicationDetailModal/JobApplyModal/JobApplicationDetailModal";
-import ConfirmationModal from "../../ConfirmationModal/ConfirmationModal";
+import JobDetailModal from "../../../Modals/JobDetailModal/JobDetailModal";
+import JobApplicationDetailModal from "../../../Modals/JobApplicationDetailModal/JobApplicationDetailModal";
+import ConfirmationModal from "../../../Modals/ConfirmationModal/ConfirmationModal";
 import jobApplicationStore from "../../../Store/jobApplicationStore";
 import userStore from "../../../Store/userStore";
 import API from "../../../API/API";

@@ -2,8 +2,8 @@ import "./Card.css";
 
 import { useState } from "react";
 
-import JobDetailModal from "../JobDetailModal/JobDetailModal";
-import JobApplyModal from "../JobApplyModal/JobApplyModal";
+import JobDetailModal from "../../Modals/JobDetailModal/JobDetailModal";
+import JobApplyModal from "../../Modals/JobApplyModal/JobApplyModal";
 
 const Card = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
