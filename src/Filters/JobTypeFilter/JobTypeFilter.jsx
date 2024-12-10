@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import "./JobTypeFilter.css";
+import { useEffect, useRef } from "react";
 
 const JobTypeFilter = ({ jobType, setJobType }) => {
   const filterRef = useRef(null);

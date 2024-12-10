@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import "./ApplicationStatusFilter.css";
+import { useEffect, useRef } from "react";
 
 const ApplicationStatusFilter = ({ applicationStatus, setApplicationStatus }) => {
   const filterRef = useRef(null);

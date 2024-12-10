@@ -3,10 +3,10 @@ import "./ManageJobPosts.css";
 import { useState, useEffect } from "react";
 import postedJobStore from "../Store/postedJobStore";
 
-import SearchBar from "../General/SearchBar/SearchBar";
+import SearchBar from "../Filters/SearchBar/SearchBar";
 import ManageJobPostsList from "./ManageJobPostsList/ManageJobPostsList";
-import JobTypeFilter from "../JobSearch/JobTypeFilter/JobTypeFilter";
-import JobSalaryFilter from "../JobSearch/SalaryFilter/JobSalaryFilter";
+import JobTypeFilter from "../Filters/JobTypeFilter/JobTypeFilter";
+import JobSalaryFilter from "../Filters/JobSalaryFilter/JobSalaryFilter";
 
 const ManageJobPosts = () => {
   const [filteredJobs, setFilteredJobs] = useState(postedJobStore.getState().postedJobs);
