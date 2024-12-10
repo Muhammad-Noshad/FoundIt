@@ -3,7 +3,7 @@ import "./JobSearch.css";
 import { useState, useEffect } from "react";
 import postedJobStore from "../Store/postedJobStore";
 
-import SearchBar from "./SearchBar/SearchBar";
+import SearchBar from "../General/SearchBar/SearchBar";
 import JobsList from "./JobsList/JobsList";
 import JobTypeFilter from "./JobTypeFilter/JobTypeFilter";
 import JobSalaryFilter from "./SalaryFilter/JobSalaryFilter";
@@ -36,12 +36,9 @@ const JobSearch = () => {
       <h1>Job Search</h1>
       <p className="dark subtitle">Search for your desired job matching skills.</p>
       <SearchBar 
-        jobTitle={jobTitle}
-        setJobTitle={setJobTitle}
-        jobLocation={jobLocation}
-        setJobLocation={setJobLocation}
-        companyName={companyName}
-        setCompanyName={setCompanyName}
+        values={[jobTitle, jobLocation, companyName]}
+        setters={[setJobTitle, setJobLocation, setCompanyName]}
+        placeholders={["Enter Job Title", "Enter Job Location", "Enter Company Name"]}
       />
       <div className="additional-filters">
         <JobTypeFilter 

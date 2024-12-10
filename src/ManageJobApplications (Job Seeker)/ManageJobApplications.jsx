@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import jobApplicationStore from "../Store/jobApplicationStore";
 
 import JobApplicationsList from "./JobApplicationsList/JobApplicationsList";
-import SearchBar from "../JobSearch/SearchBar/SearchBar";
+import SearchBar from "../General/SearchBar/SearchBar";
 import JobTypeFilter from "../JobSearch/JobTypeFilter/JobTypeFilter";
 import JobSalaryFilter from "../JobSearch/SalaryFilter/JobSalaryFilter";
 import ApplicationStatusFilter from "./ApplicationStatusFilter/ApplicationStatusFilter";
@@ -41,12 +41,9 @@ const ManageJobApplications = () => {
       <h1>Manage Job Applications</h1>
       <p className="dark subtitle">Manage your Job Applications.</p>
       <SearchBar 
-        jobTitle={jobTitle}
-        setJobTitle={setJobTitle}
-        jobLocation={jobLocation}
-        setJobLocation={setJobLocation}
-        companyName={companyName}
-        setCompanyName={setCompanyName}
+        values={[jobTitle, jobLocation, companyName]}
+        setters={[setJobTitle, setJobLocation, setCompanyName]}
+        placeholders={["Enter Job Title", "Enter Job Location", "Enter Company Name"]}
       />
       <div className="additional-filters">
         <JobTypeFilter 

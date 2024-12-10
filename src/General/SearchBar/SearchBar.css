@@ -21,12 +21,8 @@
   text-align: center;
 }
 
-.search-bar > .inputs > input:first-of-type {
+.search-bar > .inputs > input:not(:last-of-type) {
   border-right: 2px solid var(--light-color);
-}
-
-.search-bar > .inputs > input:last-of-type {
-  border-left: 2px solid var(--light-color);
 }
 
 .search-bar > button {
