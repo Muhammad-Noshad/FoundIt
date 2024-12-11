@@ -7,14 +7,18 @@ import SearchBar from "../Filters/SearchBar/SearchBar";
 import ManageJobPostsList from "./ManageJobPostsList/ManageJobPostsList";
 import JobTypeFilter from "../Filters/JobTypeFilter/JobTypeFilter";
 import JobSalaryFilter from "../Filters/JobSalaryFilter/JobSalaryFilter";
+import CreateJobPostModal from "../Modals/CreateJobPostModal/CreateJobPostModal";
 
 const ManageJobPosts = () => {
-  const [filteredJobs, setFilteredJobs] = useState(postedJobStore.getState().postedJobs);
+  const { postedJobs } = postedJobStore();
+  const [filteredJobs, setFilteredJobs] = useState(postedJobs);
   const [jobTitle, setJobTitle] = useState("");
   const [jobLocation, setJobLocation] = useState("");
   const [jobType, setJobType] = useState("");
   const [minSalary, setMinSalary] = useState("");
   const [maxSalary, setMaxSalary] = useState("");
+  const [isCreateJobModalOpen, setIsCreateJobModalOpen] = useState(false);
+
 
   useEffect(() => {
     let filter = postedJobStore.getState().postedJobs;
@@ -27,13 +31,18 @@ const ManageJobPosts = () => {
       filter = filter.filter(value => parseFloat(value.jobSalary) >= parseFloat(minSalary) && parseFloat(value.jobSalary) <= parseFloat(maxSalary));
 
     setFilteredJobs(filter);
-  }, [jobTitle, jobLocation, jobType, maxSalary, minSalary]);
+  }, [jobTitle, jobLocation, jobType, maxSalary, minSalary, postedJobs]);
 
   return (
     <section className="manage-job-posts container">
       <h1>Manage Job Posts</h1>
       <p className="dark subtitle">Manage your posted jobs.</p>
-      <button className="button-primary">Create New Job Post</button>
+      <button 
+        className="button-primary"
+        onClick={() => setIsCreateJobModalOpen(true)}
+      >
+        Create New Job Post
+      </button>
       <SearchBar 
         values={[jobTitle, jobLocation]}
         setters={[setJobTitle, setJobLocation]}
@@ -57,6 +66,10 @@ const ManageJobPosts = () => {
         :
         <p className="dark no-jobs">No jobs to show! Try changing the filters.</p>
       }
+      <CreateJobPostModal
+        isModalOpen={isCreateJobModalOpen}
+        onClose={() => setIsCreateJobModalOpen(false)}
+      />
     </section>
   );
 }

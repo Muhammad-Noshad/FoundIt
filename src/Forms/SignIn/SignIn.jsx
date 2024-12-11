@@ -17,8 +17,8 @@ import { useState } from "react";
 const SignIn = () => {
   const navigate = useNavigate();
   const setUser  = userStore((state) => state.setUser);  
-  const {fetchPostedJobs, fetchPostedJobsById} = postedJobStore();
-  const {setCompany} = companyStore();
+  const { fetchPostedJobs, fetchPostedJobsByCompanyId } = postedJobStore();
+  const { setCompany } = companyStore();
   const fetchJobApplicationsById = jobApplicationStore((state) => state.fetchJobApplicationsById);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -40,7 +40,7 @@ const SignIn = () => {
         fetchJobApplicationsById(response.data.userId);
       }
       else if(response.data.role == "Employer") {
-        fetchPostedJobsById(response.data.company.companyId);
+        fetchPostedJobsByCompanyId(response.data.company.companyId);
         setCompany(response.data.company);
       }
 
