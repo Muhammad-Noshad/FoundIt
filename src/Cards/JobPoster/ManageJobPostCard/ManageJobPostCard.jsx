@@ -3,20 +3,28 @@ import "./ManageJobPostCard.css";
 import trashImg from "../../../images/icon/trash.svg";
 
 import { useState } from "react";
+import { toast } from "react-toastify";
+import API from "../../../API/API";
+
+import postedJobStore from "../../../Store/postedJobStore";
+import companyStore from "../../../Store/companyStore";
 
 import JobDetailModal from "../../../Modals/JobDetailModal/JobDetailModal";
 import ConfirmationModal from "../../../Modals/ConfirmationModal/ConfirmationModal";
 
 const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
+  const { company } = companyStore();
+  const { fetchPostedJobsByCompanyId } = postedJobStore();
+
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
   const handleJobPostDeletion = async() => {
     try {
-      // const response = await API.delete(`/job-application/${applicationId}`);
-      toast.success("Application deleted successfully!");
-      // jobApplicationStore.getState().fetchJobApplicationsById(userStore.getState().user.userId);
+      const response = await API.delete(`/posted-job/${jobId}`);
+      toast.success("Job Post deleted successfully!");
+      fetchPostedJobsByCompanyId(company?.companyId);
     }
     catch(error) {
       toast.error(error?.response?.data?.message || "An error occurred");
