@@ -18,3 +18,9 @@
 .job-detail-modal > .modal-content > p.job-description {
   text-align: justify;
 }
+
+.job-detail-modal > .modal-content > .job-description > h1:not(:first-of-type),
+.job-detail-modal > .modal-content > .job-description > h2:not(:first-of-type),
+.job-detail-modal > .modal-content > .job-description > h3:not(:first-of-type) {
+  margin-top: 1em;
+}

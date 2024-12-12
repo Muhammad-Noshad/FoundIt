@@ -11,7 +11,7 @@ const validationSchema = Yup.object({
   jobType: Yup.string()
     .required("Please select a job type"),
   jobDescription: Yup.string()
-    .max(500, "Additional comments should not exceed 500 characters"),
+    .max(5000, "Job Description should not exceed 5000 characters"),
 });
 
 export default validationSchema;

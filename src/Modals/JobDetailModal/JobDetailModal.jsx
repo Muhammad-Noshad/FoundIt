@@ -1,5 +1,7 @@
 import "./JobDetailModal.css";
 
+import DOMPurify from "dompurify";
+
 const JobDetailModal = ({ isModalOpen, onClose, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo }) => {
   if(!isModalOpen) {
     return null;
@@ -28,7 +30,10 @@ const JobDetailModal = ({ isModalOpen, onClose, jobTitle, jobType, jobSalary, jo
             <p className="job-company-location dark">{companyLocation}</p>
           </div>
         </div>
-        <p className="job-description">{jobDescription}</p>
+        <div 
+          className="job-description" 
+          dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(jobDescription)}}
+        />
       </div>
     </section>
   );
