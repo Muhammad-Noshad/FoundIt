@@ -1,0 +1,28 @@
+.manage-job-posts {
+  padding-top: 16em;
+  padding-bottom: 6em;
+}
+
+.manage-job-posts > .additional-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.manage-job-posts > h1,
+.manage-job-posts > p {
+  text-align: center;
+}
+
+.manage-job-posts > p.subtitle {
+  margin-bottom: 2.5em;
+}
+
+.manage-job-posts > .jobs-list {
+  margin-top: 3em;
+}
+
+.manage-job-posts > p.no-jobs {
+  margin-top: 2.5em;
+}

@@ -9,7 +9,7 @@ import JobTypeFilter from "../../Filters/JobTypeFilter/JobTypeFilter";
 import JobSalaryFilter from "../../Filters/JobSalaryFilter/JobSalaryFilter";
 import ApplicationStatusFilter from "../../Filters/ApplicationStatusFilter/ApplicationStatusFilter";
 
-const ManageJobApplications = () => {
+const ManageJobApplicationsSeeker = () => {
   const { jobApplications } = jobApplicationStore();
   const [filteredJobApplications, setFilteredJobApplications] = useState(jobApplications);
   const [jobTitle, setJobTitle] = useState("");
@@ -71,4 +71,4 @@ const ManageJobApplications = () => {
   );
 }
  
-export default ManageJobApplications;
+export default ManageJobApplicationsSeeker;

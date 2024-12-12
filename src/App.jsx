@@ -15,7 +15,8 @@ import SignUpSeeker from "./Forms/SignUp/SignUpSeeker/SignUpSeeker";
 import SignUpPoster from "./Forms/SignUp/SignUpPoster/SignUpPoster";
 import NotFound from "./General/NotFound/NotFound";
 import JobSearch from "./JobSearch/JobSearch";
-import ManageJobApplications from "./ManageJobApplications/JobSeeker/ManageJobApplications (JobSeeker)";
+import ManageJobApplicationsSeeker from "./ManageJobApplications/JobSeeker/ManageJobApplications (JobSeeker)";
+import ManageJobApplicationsPoster from "./ManageJobApplications/JobPoster/ManageJobApplications (JobPoster)";
 import ManageJobPosts from "./ManageJobPosts/ManageJobPosts";
 
 function App() {
@@ -46,10 +47,11 @@ function App() {
         <Route path="/sign-up-poster" element={<SignUpPoster />} />
         {
           user?.role === "Employer" 
-            && 
+          && 
           <>
             <Route path="/" element={<HomePage />} />
             <Route path="/manage-job-posts" element={<ManageJobPosts />} />
+            <Route path="/manage-job-applications" element={<ManageJobApplicationsPoster />} />
           </>
         }
         {
@@ -58,7 +60,7 @@ function App() {
           <>
             <Route path="/" element={<HomePage />} />
             <Route path="/job-search" element={<JobSearch />} />
-            <Route path="/manage-job-applications" element={<ManageJobApplications />} />
+            <Route path="/manage-job-applications" element={<ManageJobApplicationsSeeker />} />
           </>
         }
         {
