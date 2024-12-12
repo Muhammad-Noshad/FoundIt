@@ -1,0 +1,66 @@
+.edit-job-post-modal > .modal-content > h1 {
+  text-align: center;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form {
+  width: 100%;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  margin-bottom: 2em;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form > div > input,
+.edit-job-post-modal > .modal-content > .wrapper > form > div > textarea {
+  padding: 0.5em;
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+  margin-top: 0.25em;
+  width: 100%;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form > div > div > label:first-of-type {
+  margin-right: 0.75em;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form > div > div > input[type="radio"] {
+  display: none;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form > div > div > input[type="radio"] + label {
+  margin-top: 0.25em;
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.5em 0.75em;
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  /* width: 50%; */
+  transition: all 0.15s ease-in-out;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form > div > div > input[type="radio"]:checked + label {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form > div > .quill {
+  width: 100%;
+  margin-top: 0.25em;
+}
+
+.edit-job-post-modal > .modal-content > .wrapper > form > button {
+  padding: 0.5em 2em;
+  width: 100%;
+}
+

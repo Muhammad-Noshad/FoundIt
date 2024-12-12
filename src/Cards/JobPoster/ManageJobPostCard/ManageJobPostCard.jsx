@@ -11,12 +11,14 @@ import companyStore from "../../../Store/companyStore";
 
 import JobDetailModal from "../../../Modals/JobDetailModal/JobDetailModal";
 import ConfirmationModal from "../../../Modals/ConfirmationModal/ConfirmationModal";
+import EditJobPostModal from "../../../Modals/EditJobPostModal/EditJobPostModal";
 
 const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
   const { company } = companyStore();
   const { fetchPostedJobsByCompanyId } = postedJobStore();
 
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
@@ -68,7 +70,7 @@ const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription
       </div>
       <div className="button-section">
         <button className="button-secondary" onClick={() => setIsDetailModalOpen(true)}>View Details</button>
-        <button className="button-primary">Edit Job Post</button>
+        <button className="button-primary" onClick={() => setIsEditModalOpen(true)}>Edit Job Post</button>
       </div>
       <JobDetailModal 
         isModalOpen={isDetailModalOpen}
@@ -80,6 +82,11 @@ const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription
         companyName={companyName}
         companyLocation={companyLocation}
         companyLogo={companyLogo}
+      />
+      <EditJobPostModal 
+        isModalOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        jobValues={{jobTitle, jobSalary, jobDescription, jobType, jobId}}
       />
       <ConfirmationModal
         setIsConfirmed={setIsConfirmed}
