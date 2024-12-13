@@ -1,6 +1,6 @@
-.job-applications-list {
+.job-applications-list-poster {
   display: grid;
-  grid-template-columns: repeat(auto-fit, min(58rem));
+  grid-template-columns: repeat(auto-fit, min(45rem));
   justify-content: center;
   gap: 3em;
 }

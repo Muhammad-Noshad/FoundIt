@@ -1,4 +1,4 @@
-.job-applications-list {
+.job-applications-list-seeker {
   display: grid;
   grid-template-columns: repeat(auto-fit, min(58rem));
   justify-content: center;

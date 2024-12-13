@@ -4,7 +4,7 @@ import JobApplicationCard from "../../../Cards/JobSeeker/JopApplicationCard/JobA
 
 const JobApplicationsList = ({ jobApplications }) => {
   return (
-    <section className="job-applications-list">
+    <section className="job-applications-list-seeker">
       {
         jobApplications.map((value, index) => 
           <JobApplicationCard 

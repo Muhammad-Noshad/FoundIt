@@ -1,21 +1,17 @@
 import "./JobApplicationsList.css";
 
-import JobApplicationCard from "../../../../Cards/JobSeeker/JopApplicationCard/JobApplicationCard";
+import ManageJobApplicationCard from "../../../../Cards/JobPoster/ManageJopApplicationCard/ManageJobApplicationCard";
 
 const JobApplicationsList = ({ jobApplications }) => {
   return (
-    <section className="job-applications-list">
+    <section className="job-applications-list-poster">
       {
         jobApplications.map((value, index) => 
-          <JobApplicationCard 
+          <ManageJobApplicationCard 
+            jobId={value.postedJob.jobId}
             applicationId={value.applicationId}
-            jobTitle={value.postedJob.jobTitle} 
-            jobType={value.postedJob.jobType}
-            jobSalary={value.postedJob.jobSalary}
-            jobDescription={value.postedJob.jobDescription}
-            companyName={value.postedJob.company.companyName}
-            companyLocation={value.postedJob.company.companyLocation}
-            companyLogo={value.postedJob.company.companyLogo}
+            applicantName={`${value.user.firstName} ${value.user.lastName}`}
+            applicantEmail={value.user.email} 
             appliedDate={value.creationDate.split("T")[0]}
             cv={value.cv}
             additionalComments={value.jobSeekerComment}

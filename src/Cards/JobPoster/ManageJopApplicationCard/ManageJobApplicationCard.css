@@ -1,0 +1,49 @@
+section.manage-job-application-card {
+  background-color: var(--light-purple);
+  padding: 3em 3em;
+  border-radius: 10px;
+}
+
+section.manage-job-application-card > h6 {
+  margin-bottom: 0.25em;
+}
+
+section.manage-job-application-card > p {
+  margin-bottom: 0.5em;
+}
+
+section.manage-job-application-card > .applicant-email{  
+  font-size: 1.5rem;
+} 
+
+section.manage-job-application-card > .application-status{  
+  display: inline-block;
+} 
+
+section.manage-job-application-card > .button-section {
+  margin-top: 2em;
+}
+
+section.manage-job-application-card > .button-section button {
+  width: 100%;
+}
+
+section.manage-job-application-card > .button-section > button:first-of-type {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+section.manage-job-application-card > .button-section > .application-status-button-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+section.manage-job-application-card > .button-section > .application-status-button-section {
+  width: 100%;
+}
+
+section.manage-job-application-card > .button-section button { 
+  padding: 0.5em 2em;
+}
