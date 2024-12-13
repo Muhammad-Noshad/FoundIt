@@ -19,6 +19,7 @@ const JobApplicationsList = ({ jobApplications }) => {
             appliedDate={value.creationDate.split("T")[0]}
             cv={value.cv}
             additionalComments={value.jobSeekerComment}
+            employerComments={value.employerComment}
             status={value.status}
             key={index}
           />

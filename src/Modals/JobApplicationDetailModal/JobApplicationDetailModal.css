@@ -1,11 +1,11 @@
 .job-application-detail-modal > .modal-content > h1,
 .job-application-detail-modal > .modal-content > h6,
-.job-application-detail-modal > .modal-content > p:last-of-type {
+.job-application-detail-modal > .modal-content > p:not(:first-of-type) {
   text-align: center;
 }
 
-.job-application-detail-modal > .modal-content > h6:first-of-type {
-  margin-top: 2em;
+.job-application-detail-modal > .modal-content > h6 {
+  margin-top: 1.5em;
 }
 
 .job-application-detail-modal > .modal-content > button {
