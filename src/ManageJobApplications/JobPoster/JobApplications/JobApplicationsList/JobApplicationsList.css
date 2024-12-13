@@ -1,0 +1,6 @@
+.job-applications-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, min(58rem));
+  justify-content: center;
+  gap: 3em;
+}

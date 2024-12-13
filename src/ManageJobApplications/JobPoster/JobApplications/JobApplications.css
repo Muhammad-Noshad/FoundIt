@@ -1,0 +1,19 @@
+.job-applications > .additional-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.job-applications > .additional-filters > button.button-primary {
+  padding: 0.5em 2em;
+}
+
+.job-applications > .job-applications-list {
+  margin-top: 3em;
+}
+
+.job-applications > p.no-job-applications {
+  margin-top: 2.5em;
+  text-align: center;
+}

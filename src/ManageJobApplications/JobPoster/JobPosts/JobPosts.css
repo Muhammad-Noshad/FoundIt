@@ -1,0 +1,15 @@
+.job-posts > .additional-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.job-posts > .jobs-list {
+  margin-top: 3em;
+}
+
+.job-posts > p.no-jobs {
+  margin-top: 2.5em;
+  text-align: center;
+}

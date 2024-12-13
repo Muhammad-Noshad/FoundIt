@@ -1,6 +1,15 @@
 import "./PostedJobViewApplicationCard.css";
 
-const PostedJobViewApplicationCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
+import jobApplicationStore from "../../../Store/jobApplicationStore";
+
+const PostedJobViewApplicationCard = ({ jobId, jobTitle, jobType, jobSalary, companyName, companyLocation, companyLogo, setMode }) => {
+  const { fetchJobApplicationsByPostId } = jobApplicationStore();
+
+  const handleViewJobApplications = async() => {
+    await fetchJobApplicationsByPostId(jobId);
+    setMode("JobApplications");
+  }
+
   return (
     <section className="posted-job-view-application-card">
       <h6 className="job-title">{jobTitle}</h6>
@@ -22,7 +31,12 @@ const PostedJobViewApplicationCard = ({ jobId, jobTitle, jobType, jobSalary, job
           <p className="job-company-location dark">{companyLocation}</p>
         </div>
       </div>
-      <button className="button-primary">View Job Applications</button>
+      <button 
+        className="button-primary"
+        onClick={handleViewJobApplications}
+      >
+        View Job Applications
+      </button>
     </section>
   );
 }
