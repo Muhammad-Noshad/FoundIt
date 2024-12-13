@@ -22,7 +22,7 @@ const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDe
     try {
       const response = await API.delete(`/job-application/${applicationId}`);
       toast.success("Application deleted successfully!");
-      jobApplicationStore.getState().fetchJobApplicationsById(userStore.getState().user.userId);
+      jobApplicationStore.getState().fetchJobApplicationsByUserId(userStore.getState().user.userId);
     }
     catch(error) {
       toast.error(error?.response?.data?.message || "An error occurred");

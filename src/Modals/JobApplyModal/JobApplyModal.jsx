@@ -18,7 +18,7 @@ const JobApplyModal = ({ isModalOpen, onClose, jobId }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState("");
   const user = userStore(state => state.user);
-  const fetchJobApplicationsById = jobApplicationStore(state => state.fetchJobApplicationsById);
+  const fetchJobApplicationsByUserId = jobApplicationStore(state => state.fetchJobApplicationsByUserId);
 
   const initialValues = {
     cv: undefined,
@@ -47,7 +47,7 @@ const JobApplyModal = ({ isModalOpen, onClose, jobId }) => {
         },
       });
       toast.success("Job Applied Successully!");
-      fetchJobApplicationsById(user.userId);
+      fetchJobApplicationsByUserId(user.userId);
     } 
     catch (error) {
       toast.error(error?.response?.data?.message || "An error occurred");

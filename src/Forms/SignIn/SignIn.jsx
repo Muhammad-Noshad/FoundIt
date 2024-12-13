@@ -19,7 +19,7 @@ const SignIn = () => {
   const setUser  = userStore((state) => state.setUser);  
   const { fetchPostedJobs, fetchPostedJobsByCompanyId } = postedJobStore();
   const { setCompany } = companyStore();
-  const fetchJobApplicationsById = jobApplicationStore((state) => state.fetchJobApplicationsById);
+  const fetchJobApplicationsByUserId = jobApplicationStore((state) => state.fetchJobApplicationsByUserId);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
@@ -37,7 +37,7 @@ const SignIn = () => {
 
       if(response.data.role === "JobSeeker") {
         fetchPostedJobs();
-        fetchJobApplicationsById(response.data.userId);
+        fetchJobApplicationsByUserId(response.data.userId);
       }
       else if(response.data.role == "Employer") {
         fetchPostedJobsByCompanyId(response.data.company.companyId);

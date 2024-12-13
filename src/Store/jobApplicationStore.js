@@ -4,7 +4,7 @@ import API from "../API/API";
 const jobApplicationStore = create((set) => ({
   jobApplications: [],
   setJobApplications: (data) => set({ jobApplications: data }),
-  fetchJobApplicationsById: async (userId) => {
+  fetchJobApplicationsByUserId: async (userId) => {
     try {
       const response = await API.get(`/job-application/${userId}`);
       set({ jobApplications: response.data });
