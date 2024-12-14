@@ -28,13 +28,34 @@ const ManageProfilePoster = () => {
     companyLogo: undefined,
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async(values) => {
     setIsSubmitting(true);
     try {
-      if(!values.companyLogo) {
-        values.companyLogo = company.companyLogo;
+      const userData = {
+        userId: user?.userId,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        password: values.password,
+        role: "Employer"
+      };
+
+      const companyData = {
+        companyId: company.companyId,
+        companyName: values.companyName,
+        companyLocation: values.companyLocation,
+        positionInCompany: values.positionInCompany,
+        companyLogo: values.companyLogo? null: company?.companyLogo,
+      };
+
+      const formData = new FormData();
+      formData.append("user", JSON.stringify(userData));
+      formData.append("company", JSON.stringify(companyData));
+      if(values.companyLogo) {
+        formData.append("companyLogo", values.companyLogo);
       }
-      console.log(values);
+
+      const response = await API.post("/user", formData);
       toast.success("Profile Edited Successfully!")
     }
     catch(error) {
@@ -168,7 +189,7 @@ const ManageProfilePoster = () => {
                       accept="image/*"
                       onChange={(event) => {
                         setFieldValue("companyLogo", event.target.files[0]);
-                        setSelectedFileName(event.currentTarget.files[0].name);
+                        setSelectedFileName(event.currentTarget.files[0]?.name);
                       }}
                       readOnly={mode === "View"}
                     />

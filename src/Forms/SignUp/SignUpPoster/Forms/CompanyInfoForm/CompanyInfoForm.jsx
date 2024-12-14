@@ -74,7 +74,7 @@ const CompanyInfoForm = ({ companyInfo, setCompanyInfo, setStep, onSubmit, isSub
               accept="image/*"
               onChange={(event) => {
                 setFieldValue("companyLogo", event.target.files[0]);
-                setSelectedFileName(event.currentTarget.files[0].name);
+                setSelectedFileName(event.currentTarget.files[0]?.name);
               }}
             />
             <p className="dark">Chosen File: {selectedFileName || "None"}</p>
