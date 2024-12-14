@@ -223,7 +223,7 @@ button.button-secondary.disabled {
   border-radius: 20px;
   padding: 4em;
   width: 50%;
-  height: 80%;
+  max-height: 80%;
 }
 
 .modal-cross {

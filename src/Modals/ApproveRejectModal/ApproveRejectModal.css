@@ -8,6 +8,10 @@
   margin-top: 2em;
 }
 
+.approve-reject-modal > .modal-content > .wrapper > form {
+  width: 100%;
+}
+
 .approve-reject-modal > .modal-content > .wrapper > form > div {
   display: flex;
   flex-direction: column;
