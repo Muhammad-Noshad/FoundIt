@@ -11,7 +11,7 @@ const userStore = create((set) => ({
       set({ user: response.data });
     }
     catch (error) {
-      console.error('Error fetching posts:', error);
+      console.error('Error fetching user:', error);
     }
   },
 }));

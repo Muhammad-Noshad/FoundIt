@@ -12,8 +12,8 @@ import validationSchema from "./validationSchema";
 import API from "../../API/API";
 
 const ManageProfilePoster = () => {
-  const { user, setUser } = userStore();
-  const { company, setCompany } = companyStore();
+  const { user, fetchUserById } = userStore();
+  const { company, fetchCompanyById } = companyStore();
   const { fetchPostedJobsByCompanyId } = postedJobStore();
 
   const [mode, setMode] = useState("View");
@@ -30,22 +30,6 @@ const ManageProfilePoster = () => {
     positionInCompany: company?.positionInCompany,
     companyLogo: undefined,
   };
-
-  const fetchUserById = async(userId) => {
-    
-  }
-
-  const refreshData = async() => {
-    try {
-      const response = await API.get(`/user/${user.userId}`);
-      setUser(response.data);
-      setCompany(response.data?.company);
-      fetchPostedJobsByCompanyId(company.companyId);
-    }
-    catch(error) {
-      console.error("An error occured", error);
-    }
-  }
 
   const handleSubmit = async(values) => {
     setIsSubmitting(true);
@@ -76,7 +60,10 @@ const ManageProfilePoster = () => {
 
       const response = await API.post("/user", formData);
       toast.success("Profile Edited Successfully!");
-      refreshData();
+      
+      fetchUserById(user.userId);
+      fetchCompanyById(company.companyId);
+      fetchPostedJobsByCompanyId(company.companyId);
     }
     catch(error) {
       toast.error(error?.response?.data?.message || "An error occurred");
