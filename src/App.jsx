@@ -19,6 +19,7 @@ import ManageJobApplicationsSeeker from "./ManageJobApplications/JobSeeker/Manag
 import ManageJobApplicationsPoster from "./ManageJobApplications/JobPoster/ManageJobApplications (JobPoster)";
 import ManageJobPosts from "./ManageJobPosts/ManageJobPosts";
 import ManageProfilePoster from "./ManageProfile/JobPoster/ManageProfilePoster";
+import ManageProfileSeeker from "./ManageProfile/JobSeeker/ManageProfileSeeker";
 
 function App() {
   const location = useLocation();
@@ -63,6 +64,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/job-search" element={<JobSearch />} />
             <Route path="/manage-job-applications" element={<ManageJobApplicationsSeeker />} />
+            <Route path="/manage-profile" element={<ManageProfileSeeker />} />
           </>
         }
         {

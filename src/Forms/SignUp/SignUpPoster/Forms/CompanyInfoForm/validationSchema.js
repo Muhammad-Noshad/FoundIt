@@ -26,11 +26,11 @@ const validationSchema = Yup.object({
     )
     .test(
       'fileSize',
-      'File size must be less than 2MB',
+      'File size must be less than 1MB',
       (value) => {
         if (!value) return false;
         const fileSize = value?.size || value?.[0]?.size;
-        return fileSize && fileSize <= 2 * 1024 * 1024;
+        return fileSize && fileSize <= 1 * 1024 * 1024;
       }
     ),
 });
