@@ -5,7 +5,7 @@ import { useState } from "react";
 import JobApplicationDetailModal from "../../../Modals/JobApplicationDetailModal/JobApplicationDetailModal";
 import ApproveRejectModal from "../../../Modals/ApproveRejectModal/ApproveRejectModal";
 
-const ManageJobApplicationCard = ({ jobId, applicationId, applicantName, applicantEmail, appliedDate, cv, additionalComments, status}) => {
+const ManageJobApplicationCard = ({ jobId, applicationId, applicantName, applicantEmail, appliedDate, cv, additionalComments, status, employerComments}) => {
   const [isApplicationDetailModalOpen, setIsApplicationDetailModalOpen] = useState(false);
   const [isApproveRejectModalOpen, setIsApproveRejectModalOpen] = useState(false);
   const [mode, setMode] = useState("Approve");
@@ -46,6 +46,8 @@ const ManageJobApplicationCard = ({ jobId, applicationId, applicantName, applica
         onClose={() => setIsApplicationDetailModalOpen(false)}
         cv={cv}
         additionalComments={additionalComments}
+        status={status}
+        employerComments={employerComments}
       />
       <ApproveRejectModal
         jobId={jobId}
