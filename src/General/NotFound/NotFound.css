@@ -1,6 +1,8 @@
-section.not-found > .wrapper {
-  margin-top: 25%;
-  transform: translateY(-50%);
+section.not-found {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 section.not-found > .wrapper > * {
