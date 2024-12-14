@@ -1,12 +1,13 @@
 import "./ApproveRejectModal.css";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import validationSchema from "./validationSchema";
-import jobApplicationStore from "../../Store/jobApplicationStore";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
+import jobApplicationStore from "../../Store/jobApplicationStore";
 import API from "../../API/API";
 
 const ApproveRejectModal = ({ isModalOpen, onClose, applicationId, mode, jobId }) => {
@@ -15,7 +16,10 @@ const ApproveRejectModal = ({ isModalOpen, onClose, applicationId, mode, jobId }
   }
 
   const { fetchJobApplicationsByPostId } = jobApplicationStore();
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [values, setValues] = useState("");
 
   const initialValues = {
     additionalComments: "",
@@ -49,6 +53,12 @@ const ApproveRejectModal = ({ isModalOpen, onClose, applicationId, mode, jobId }
     onClose();
   };
 
+  useEffect(() => {
+    if(isConfirmed) {
+      onSubmit(values)
+    }
+  }, [isConfirmed])
+
   return (
     <section className="approve-reject-modal modal-overlay">
       <div className="modal-content">
@@ -64,7 +74,7 @@ const ApproveRejectModal = ({ isModalOpen, onClose, applicationId, mode, jobId }
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
-          {() => (
+          {({ values }) => (
             <div className="wrapper">
               <Form>
                 <div>
@@ -79,8 +89,9 @@ const ApproveRejectModal = ({ isModalOpen, onClose, applicationId, mode, jobId }
                   <ErrorMessage name="additionalComments" component="div" className="error" />
                 </div>
                 <button 
-                  disabled={isSubmitting} 
-                  type="submit" 
+                  disabled={isSubmitting}
+                  type="button" 
+                  onClick={() => { setValues(values); setIsConfirmationModalOpen(true); }}
                   className={isSubmitting? "button-primary disabled": "button-primary"}
                 >
                   { mode }
@@ -90,6 +101,13 @@ const ApproveRejectModal = ({ isModalOpen, onClose, applicationId, mode, jobId }
           )}
         </Formik>
       </div>
+      <ConfirmationModal
+        isModalOpen={isConfirmationModalOpen}
+        title={mode === "Approve"? "Approval Confirmation": "Rejection Confirmation"}
+        message={mode === "Approve"? "Are you sure you want to approve this application?": "Are you sure you want to reject this application?"}
+        setIsConfirmed={setIsConfirmed}
+        onClose={() => setIsConfirmationModalOpen(false)}
+      />
     </section>
   );
 };
