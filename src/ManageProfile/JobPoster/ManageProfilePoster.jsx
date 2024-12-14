@@ -6,12 +6,15 @@ import { toast } from "react-toastify";
 
 import userStore from "../../Store/userStore";
 import companyStore from "../../Store/companyStore";
+import postedJobStore from "../../Store/postedJobStore";
+
 import validationSchema from "./validationSchema";
 import API from "../../API/API";
 
 const ManageProfilePoster = () => {
-  const { user } = userStore();
-  const { company } = companyStore();
+  const { user, setUser } = userStore();
+  const { company, setCompany } = companyStore();
+  const { fetchPostedJobsByCompanyId } = postedJobStore();
 
   const [mode, setMode] = useState("View");
   const [selectedFileName, setSelectedFileName] = useState(undefined);
@@ -28,11 +31,27 @@ const ManageProfilePoster = () => {
     companyLogo: undefined,
   };
 
+  const fetchUserById = async(userId) => {
+    
+  }
+
+  const refreshData = async() => {
+    try {
+      const response = await API.get(`/user/${user.userId}`);
+      setUser(response.data);
+      setCompany(response.data?.company);
+      fetchPostedJobsByCompanyId(company.companyId);
+    }
+    catch(error) {
+      console.error("An error occured", error);
+    }
+  }
+
   const handleSubmit = async(values) => {
     setIsSubmitting(true);
     try {
       const userData = {
-        userId: user?.userId,
+        userId: user.userId,
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
@@ -56,7 +75,8 @@ const ManageProfilePoster = () => {
       }
 
       const response = await API.post("/user", formData);
-      toast.success("Profile Edited Successfully!")
+      toast.success("Profile Edited Successfully!");
+      refreshData();
     }
     catch(error) {
       toast.error(error?.response?.data?.message || "An error occurred");
