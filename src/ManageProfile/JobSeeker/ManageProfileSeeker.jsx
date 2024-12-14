@@ -5,8 +5,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { toast } from "react-toastify";
 
 import userStore from "../../Store/userStore";
-import companyStore from "../../Store/companyStore";
-import postedJobStore from "../../Store/postedJobStore";
 
 import validationSchema from "./validationSchema";
 import API from "../../API/API";
