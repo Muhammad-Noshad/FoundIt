@@ -2,6 +2,10 @@
   height: fit-content;
 }
 
+.confirmation-modal > .modal-content > h1 {
+  font-size: 4.25rem;
+}
+
 .confirmation-modal > .modal-content > h1,
 .confirmation-modal > .modal-content > p:nth-of-type(2) {
   text-align:  center;

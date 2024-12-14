@@ -6,6 +6,11 @@
   display: flex;
   justify-content: center;
   margin-top: 2em;
+  width: 100%;
+}
+
+.job-apply-modal > .modal-content > .wrapper > form {
+  width: 100%;
 }
 
 .job-apply-modal > .modal-content > .wrapper > form > div {
@@ -44,9 +49,4 @@
   width: 100%;
   text-align: center;
   margin-bottom: 0.25em;
-}
-
-.job-apply-modal > .modal-content > .wrapper > form > div > p:first-of-type {
-  text-align: center;
-  width: 100%;
 }

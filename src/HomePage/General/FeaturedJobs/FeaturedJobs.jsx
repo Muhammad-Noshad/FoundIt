@@ -36,17 +36,19 @@ const FeaturedJobs = ({ title, subtitle, linkTo }) => {
                 )
               }
               else if(user?.role === "JobSeeker") {
-                <PostedJobCard 
-                  jobId={value.jobId}
-                  jobTitle={value.jobTitle} 
-                  jobType={value.jobType}
-                  jobSalary={value.jobSalary}
-                  jobDescription={value.jobDescription}
-                  companyName={value.company.companyName}
-                  companyLocation={value.company.companyLocation}
-                  companyLogo={value.company.companyLogo}
-                  key={index}
-                />
+                return (
+                  <PostedJobCard 
+                    jobId={value.jobId}
+                    jobTitle={value.jobTitle} 
+                    jobType={value.jobType}
+                    jobSalary={value.jobSalary}
+                    jobDescription={value.jobDescription}
+                    companyName={value.company.companyName}
+                    companyLocation={value.company.companyLocation}
+                    companyLogo={value.company.companyLogo}
+                    key={index}
+                  />
+                )
               }
             }
             )
