@@ -38,26 +38,29 @@ const Header = () => {
             user?.role === "JobSeeker"
             &&
             <>
-            <Link to="/job-search">
-            <p>Find Jobs</p>
-            </Link>
-            <Link to="/manage-job-applications">
-              <p>Manage Job Applications</p>
-            </Link>
+              <Link to="/job-search">
+              <p>Find Jobs</p>
+              </Link>
+              <Link to="/manage-job-applications">
+                <p>Manage Job Applications</p>
+              </Link>
             </>
           }
           {
             user?.role === "Employer"
             &&
             <>
-            <Link to="/manage-job-posts">
-            <p>Manage Job Posts</p>
-            </Link>
-            <Link to="/manage-job-applications">
-              <p>Manage Job Applications</p>
-            </Link>
+              <Link to="/manage-job-posts">
+              <p>Manage Job Posts</p>
+              </Link>
+              <Link to="/manage-job-applications">
+                <p>Manage Job Applications</p>
+              </Link>
             </>
           }
+          <Link to="/manage-profile">
+            <p>Manage Profile</p>
+          </Link>
           <p onClick={logOut}>Log Out</p>
         </div>
       </div>
