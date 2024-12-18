@@ -10,7 +10,7 @@ import DOMPurify from "dompurify";
 import API from "../../API/API";
 import validationSchema from "./validationSchema";
 
-const EmailModal = ({ isModalOpen, onClose, companyId, userEmail }) => {
+const EmailModal = ({ isModalOpen, onClose, companyId, userEmail, toEmail }) => {
   if (!isModalOpen) {
     return null;
   }
@@ -28,6 +28,7 @@ const EmailModal = ({ isModalOpen, onClose, companyId, userEmail }) => {
       values.body = DOMPurify.sanitize(values.body);
       values.companyId = companyId;
       values.userEmail = userEmail;
+      values.toEmail = toEmail;
       const response = await API.post("/email", values);
       toast.success("Email sent successfully!");
     } catch (error) {

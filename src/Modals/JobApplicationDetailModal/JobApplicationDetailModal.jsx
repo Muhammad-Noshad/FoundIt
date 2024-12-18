@@ -5,7 +5,7 @@ import { useState } from "react";
 import EmailModal from "../EmailModal/EmailModal";
 import userStore from "../../Store/userStore";
 
-const JobApplicationDetailModal = ({ isModalOpen, onClose, cv, additionalComments, status, employerComments, companyId }) => {
+const JobApplicationDetailModal = ({ isModalOpen, onClose, cv, additionalComments, status, employerComments, companyId, applicantEmail }) => {
   if(!isModalOpen) {
     return null;
   }
@@ -36,20 +36,40 @@ const JobApplicationDetailModal = ({ isModalOpen, onClose, cv, additionalComment
         {
           user?.role === "JobSeeker"
           &&
-          <button 
-            className="button-primary"
-            onClick={() => setIsEmailModalOpen(true)}
-          >
-            Email Employer
-          </button>
+          <>
+            <button 
+              className="button-primary"
+              onClick={() => setIsEmailModalOpen(true)}
+            >
+              Email Employer
+            </button>
+            <EmailModal
+              isModalOpen={isEmailModalOpen}
+              onClose={() => setIsEmailModalOpen(false)}
+              userEmail={user?.email}
+              companyId={companyId}
+            />
+          </>
+        }
+        {
+          user?.role === "Employer"
+          &&
+          <>
+            <button 
+              className="button-primary"
+              onClick={() => setIsEmailModalOpen(true)}
+            >
+              Email Candidate
+            </button>
+            <EmailModal
+              isModalOpen={isEmailModalOpen}
+              onClose={() => setIsEmailModalOpen(false)}
+              userEmail={user?.email}
+              toEmail={applicantEmail}
+            />
+          </>
         }
       </div>
-      <EmailModal
-        isModalOpen={isEmailModalOpen}
-        onClose={() => setIsEmailModalOpen(false)}
-        companyId={companyId}
-        userEmail={user?.email}
-      />
     </section>
   );
 };

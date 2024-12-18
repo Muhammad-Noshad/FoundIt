@@ -48,6 +48,7 @@ const ManageJobApplicationCard = ({ jobId, applicationId, applicantName, applica
         additionalComments={additionalComments}
         status={status}
         employerComments={employerComments}
+        applicantEmail={applicantEmail}
       />
       <ApproveRejectModal
         jobId={jobId}
