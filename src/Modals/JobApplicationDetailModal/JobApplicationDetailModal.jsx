@@ -1,9 +1,17 @@
 import "./JobApplicationDetailModal.css";
 
-const JobApplicationDetailModal = ({ isModalOpen, onClose, cv, additionalComments, status, employerComments }) => {
+import { useState } from "react";
+
+import EmailModal from "../EmailModal/EmailModal";
+import userStore from "../../Store/userStore";
+
+const JobApplicationDetailModal = ({ isModalOpen, onClose, cv, additionalComments, status, employerComments, companyId }) => {
   if(!isModalOpen) {
     return null;
   }
+
+  const { user } = userStore();
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
 
   return (
     <section className="job-application-detail-modal modal-overlay">
@@ -25,7 +33,23 @@ const JobApplicationDetailModal = ({ isModalOpen, onClose, cv, additionalComment
           :
           null
         }
+        {
+          user?.role === "JobSeeker"
+          &&
+          <button 
+            className="button-primary"
+            onClick={() => setIsEmailModalOpen(true)}
+          >
+            Email Employer
+          </button>
+        }
       </div>
+      <EmailModal
+        isModalOpen={isEmailModalOpen}
+        onClose={() => setIsEmailModalOpen(false)}
+        companyId={companyId}
+        userEmail={user?.email}
+      />
     </section>
   );
 };

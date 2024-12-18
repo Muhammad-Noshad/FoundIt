@@ -12,7 +12,7 @@ import jobApplicationStore from "../../../Store/jobApplicationStore";
 import userStore from "../../../Store/userStore";
 import API from "../../../API/API";
 
-const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo, appliedDate, cv, additionalComments, status, employerComments}) => {
+const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo, companyId, appliedDate, cv, additionalComments, status, employerComments}) => {
   const [isJobDetailModalOpen, setIsJobDetailModalOpen] = useState(false);
   const [isApplicationDetailModalOpen, setIsApplicationDetailModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
@@ -90,6 +90,7 @@ const JobApplicationCard = ({ applicationId, jobTitle, jobType, jobSalary, jobDe
         additionalComments={additionalComments}
         status={status}
         employerComments={employerComments}
+        companyId={companyId}
       />
       <ConfirmationModal
         setIsConfirmed={setIsConfirmed}

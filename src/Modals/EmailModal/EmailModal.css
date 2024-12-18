@@ -1,0 +1,44 @@
+.email-modal > .modal-content > h1 {
+  text-align: center;
+}
+
+.email-modal > .modal-content > .wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.email-modal > .modal-content > .wrapper > form {
+  width: 100%;
+}
+
+.email-modal > .modal-content > .wrapper > form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  margin-bottom: 2em;
+}
+
+.email-modal > .modal-content > .wrapper > form > div > input,
+.email-modal > .modal-content > .wrapper > form > div > textarea {
+  padding: 0.5em;
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+  margin-top: 0.25em;
+  width: 100%;
+}
+
+.email-modal > .modal-content > .wrapper > form > div > div > label:first-of-type {
+  margin-right: 0.75em;
+}
+
+.email-modal > .modal-content > .wrapper > form > div > .quill {
+  width: 100%;
+  margin-top: 0.25em;
+}
+
+.email-modal > .modal-content > .wrapper > form > button {
+  padding: 0.5em 2em;
+  width: 100%;
+}

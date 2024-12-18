@@ -8,6 +8,10 @@
   margin-top: 1.5em;
 }
 
+.job-application-detail-modal > .modal-content > h6 {
+  margin-bottom: 0.25em;
+}
+
 .job-application-detail-modal > .modal-content > button {
   margin: 0 auto;
   display: block;
@@ -15,6 +19,6 @@
   margin-bottom: 2em;
 }
 
-.job-application-detail-modal > .modal-content > h6 {
-  margin-bottom: 0.25em;
+.job-application-detail-modal > .modal-content > button:last-of-type {
+  margin-top: 1.25em;
 }
