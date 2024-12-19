@@ -4,6 +4,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
+
+import useVerifyUser from "./Hooks/useVerifyUser";
 import userStore from "./Store/userStore";
 
 import Header from "./General/Header/Header";
@@ -24,6 +26,7 @@ import ManageProfileSeeker from "./ManageProfile/JobSeeker/ManageProfileSeeker";
 function App() {
   const location = useLocation();
   const { user } = userStore();
+  const verifyUser = useVerifyUser();
 
   useEffect(() => {
     window.scrollTo({

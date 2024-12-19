@@ -1,6 +1,10 @@
 import "./Header.css";
+
 import founditLogo from "../../images/icon/logo-color.svg";
+
 import { Link, useNavigate } from "react-router-dom";
+import API from "../../API/API";
+
 import userStore from "../../Store/userStore";
 import postedJobStore from "../../Store/postedJobStore";
 import jobApplicationStore from "../../Store/jobApplicationStore";
@@ -14,12 +18,19 @@ const Header = () => {
   
   const navigate = useNavigate();
 
-  const logOut = () => {
-    setUser(null);
-    setPostedJobs([]);
-    setCompany(null);
-    setJobApplications(null);
-    navigate("/sign-in");
+  const logOut = async() => {
+    try {
+      const response = await API.delete("/auth/logout");
+
+      setUser(null);
+      setPostedJobs([]);
+      setCompany(null);
+      setJobApplications(null);
+      navigate("/sign-in");
+    }
+    catch(error) {
+      console.log("An error occurred", error);
+    }
   }
 
   return (
