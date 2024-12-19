@@ -89,6 +89,10 @@ button {
   border-radius: 5px;
 }
 
+button:active, a:active {
+  opacity: 0.6;
+}
+
 .button-primary {
   background-color: var(--secondary-color);
   color: var(--primary-color);
