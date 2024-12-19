@@ -35,61 +35,38 @@ function App() {
     });
   }, [location.pathname]);
 
-  const excludedPaths = ["/sign-in", "/sign-up", "/sign-up-seeker", "/sign-up-poster", "/404"];
-  const isExcludedPath = excludedPaths.includes(location.pathname);
+  const shouldShowHeaderFooter = !["/sign-in", "/sign-up", "/sign-up-seeker", "/sign-up-poster", "/404"].includes(location.pathname);
 
   return (
     <>
-      {
-        !isExcludedPath
-        && 
-        <Header />
-      }
+      {shouldShowHeaderFooter && <Header />}
+      
       <Routes>
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-up-seeker" element={<SignUpSeeker />} />
         <Route path="/sign-up-poster" element={<SignUpPoster />} />
-        {
-          user?.role === "Employer" 
-          && 
-          <>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/manage-job-posts" element={<ManageJobPosts />} />
-            <Route path="/manage-job-applications" element={<ManageJobApplicationsPoster />} />
-            <Route path="/manage-profile" element={<ManageProfilePoster />} />
-          </>
-        }
-        {
-          user?.role === "JobSeeker" 
-          &&
-          <>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/job-search" element={<JobSearch />} />
-            <Route path="/manage-job-applications" element={<ManageJobApplicationsSeeker />} />
-            <Route path="/manage-profile" element={<ManageProfileSeeker />} />
-          </>
-        }
-        {
-          !user 
-          &&
-          <Route path="/" element={<Navigate to="/sign-in" />} />
-        }
+
+        {/* Employer Routes */}
+        <Route path="/" element={user?.role === "Employer" ? <HomePage /> : null} />
+        <Route path="/manage-job-posts" element={user?.role === "Employer" ? <ManageJobPosts /> : null} />
+        <Route path="/manage-job-applications" element={user?.role === "Employer" ? <ManageJobApplicationsPoster /> : null} />
+        <Route path="/manage-profile" element={user?.role === "Employer" ? <ManageProfilePoster /> : null} />
+
+        {/* Job Seeker Routes */}
+        <Route path="/" element={user?.role === "JobSeeker" ? <HomePage /> : null} />
+        <Route path="/job-search" element={user?.role === "JobSeeker" ? <JobSearch /> : null} />
+        <Route path="/manage-job-applications" element={user?.role === "JobSeeker" ? <ManageJobApplicationsSeeker /> : null} />
+        <Route path="/manage-profile" element={user?.role === "JobSeeker" ? <ManageProfileSeeker /> : null} />
+
+        {/* Redirect unauthenticated users */}
+        {!user && <Route path="/" element={<Navigate to="/sign-in" />} />}
+
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {
-        !isExcludedPath
-        &&
-        <Footer />
-      }
-      <ToastContainer
-        autoClose={3500}
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick
-        pauseOnFocusLoss
-        pauseOnHover
-      />
+
+      {shouldShowHeaderFooter && <Footer />}
+      <ToastContainer autoClose={3500} hideProgressBar={false} newestOnTop={true} closeOnClick pauseOnFocusLoss pauseOnHover />
     </>
   );
 }
