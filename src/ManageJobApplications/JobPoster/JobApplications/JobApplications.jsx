@@ -10,21 +10,19 @@ import ApplicationStatusFilter from "../../../Filters/ApplicationStatusFilter/Ap
 const JobApplications = ({ setMode }) => {
   const { jobApplications } = jobApplicationStore();
   const [filteredJobApplications, setFilteredJobApplications] = useState(jobApplications);
-  const [jobTitle, setJobTitle] = useState("");
-  const [jobLocation, setJobLocation] = useState("");
-  const [companyName, setCompanyName] = useState("");
+  const [applicantName, setApplicantName] = useState("");
+  const [applicantEmail, setApplicantEmail] = useState("");
   const [applicationStatus, setApplicationStatus] = useState("");
 
   useEffect(() => {
     let filter = jobApplicationStore.getState().jobApplications;
 
     filter = filter?.filter(value => value.status.toLowerCase().includes(applicationStatus.toLowerCase()));
-    filter = filter?.filter(value => value.postedJob.company.companyName.toLowerCase().includes(companyName.toLowerCase()));    
-    filter = filter?.filter(value => value.postedJob.company.companyLocation.toLowerCase().includes(jobLocation.toLowerCase()));
-    filter = filter?.filter(value => value.postedJob.jobTitle.toLowerCase().includes(jobTitle.toLowerCase()));
+    filter = filter?.filter(value => `${value.user.firstName} ${value.user.lastName}`.toLowerCase().includes(applicantName.toLowerCase()));    
+    filter = filter?.filter(value => value.user.email.toLowerCase().includes(applicantEmail.toLowerCase()));
 
     setFilteredJobApplications(filter);
-  }, [jobTitle, jobLocation, companyName, applicationStatus, jobApplications]);
+  }, [applicantName, applicantEmail, applicationStatus, jobApplications]);
 
   const handleBackToJobPosts = () => {
     setMode("JobPosts")
@@ -33,9 +31,9 @@ const JobApplications = ({ setMode }) => {
   return (
     <section className="job-applications container">
       <SearchBar 
-        values={[jobTitle, jobLocation, companyName]}
-        setters={[setJobTitle, setJobLocation, setCompanyName]}
-        placeholders={["Enter Job Title", "Enter Job Location", "Enter Company Name"]}
+        values={[applicantName, applicantEmail]}
+        setters={[setApplicantName, setApplicantEmail]}
+        placeholders={["Enter Applicant Name", "Enter Applicant Email"]}
       />
       <div className="additional-filters">
         <ApplicationStatusFilter 
