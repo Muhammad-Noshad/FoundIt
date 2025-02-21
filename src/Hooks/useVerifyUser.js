@@ -37,6 +37,7 @@ const useVerifyUser = () => {
 
         navigate("/");
       } catch (error) {
+        navigate("/sign-in");
         console.error("An error occurred:", error);
       }
     };
