@@ -6,7 +6,7 @@
   margin: 0;
 }
 
-html, textarea, input, .Toastify__toast {
+html, textarea, input, select, .Toastify__toast {
   --primary-color: #FFFFFF;
   --secondary-color: #6300B3; 
   --dark-color: #303030;
@@ -33,7 +33,11 @@ img {
   max-width: 100%;
 }
 
-p, a, li, button, input, textarea {
+.icon {
+  width: 1.8rem;
+}
+
+p, a, li, button, input, textarea, select, .icon {
   font-size: 1.8rem;
 }
 
@@ -155,6 +159,10 @@ button:active, a:active {
 .error {
   color: var(--red-color);
   font-size: 1.6rem;
+}
+
+option:disabled {
+  display: none;
 }
 
 button.disabled {

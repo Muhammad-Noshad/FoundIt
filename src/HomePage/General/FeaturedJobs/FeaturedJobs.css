@@ -19,6 +19,7 @@
   align-items: center;
   gap: 3em;
   margin: 3em 0;
+  flex-wrap: wrap;
 }
 
 .featured-jobs > p.no-jobs {

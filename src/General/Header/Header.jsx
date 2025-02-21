@@ -1,7 +1,9 @@
 import "./Header.css";
 
 import founditLogo from "../../images/icon/logo-color.svg";
+import downArrowImg from "../../images/icon/down-arrow.png";
 
+import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../../API/API";
 
@@ -11,14 +13,30 @@ import jobApplicationStore from "../../Store/jobApplicationStore";
 import companyStore from "../../Store/companyStore";
 
 const Header = () => {
-  const { user, setUser } = userStore();
-  const setPostedJobs = postedJobStore((state) => state.setPostedJobs);
-  const setJobApplications = jobApplicationStore((state) => state.setJobApplications);
-  const setCompany = companyStore((state) => state.setCompany);
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const dropDownRef = useRef(null);
   const navigate = useNavigate();
 
-  const logOut = async() => {
+  const { user, setUser } = userStore();
+  const setPostedJobs = postedJobStore((state) => state.setPostedJobs);
+  const setJobApplications = jobApplicationStore(
+    (state) => state.setJobApplications
+  );
+  const setCompany = companyStore((state) => state.setCompany);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const logOut = async () => {
     try {
       const response = await API.delete("/auth/logout");
 
@@ -27,11 +45,10 @@ const Header = () => {
       setCompany(null);
       setJobApplications(null);
       navigate("/sign-in");
-    }
-    catch(error) {
+    } catch (error) {
       console.log("An error occurred", error);
     }
-  }
+  };
 
   return (
     <header>
@@ -45,38 +62,42 @@ const Header = () => {
           <Link to="/">
             <p>Home</p>
           </Link>
-          {
-            user?.role === "JobSeeker"
-            &&
+          {user?.role === "JobSeeker" && (
             <>
               <Link to="/job-search">
-              <p>Find Jobs</p>
-              </Link>
-              <Link to="/manage-job-applications">
-                <p>Manage Job Applications</p>
+                <p>Find Jobs</p>
               </Link>
             </>
-          }
-          {
-            user?.role === "Employer"
-            &&
-            <>
-              <Link to="/manage-job-posts">
-              <p>Manage Job Posts</p>
-              </Link>
-              <Link to="/manage-job-applications">
-                <p>Manage Job Applications</p>
-              </Link>
-            </>
-          }
-          <Link to="/manage-profile">
-            <p>Manage Profile</p>
-          </Link>
+          )}
+          <div
+            className={`custom-dropdown ${isOpen ? "active" : ""}`}
+            ref={dropDownRef}
+          >
+            <p className="selected" onClick={() => setIsOpen(!isOpen)}>
+              Manage
+              <img src={downArrowImg} alt="down-arrow" className="icon" />
+            </p>
+            {isOpen && (
+              <div className="options">
+                {user?.role === "Employer" && (
+                  <Link to="/manage-job-posts">
+                    <div onClick={() => setIsOpen(false)}>Job Posts</div>
+                  </Link>
+                )}
+                <Link to="/manage-job-applications">
+                  <div onClick={() => setIsOpen(false)}>Job Applications</div>
+                </Link>
+                <Link to="/manage-profile">
+                  <div onClick={() => setIsOpen(false)}>Profile</div>
+                </Link>
+              </div>
+            )}
+          </div>
           <p onClick={logOut}>Log Out</p>
         </div>
       </div>
     </header>
   );
-}
- 
+};
+
 export default Header;

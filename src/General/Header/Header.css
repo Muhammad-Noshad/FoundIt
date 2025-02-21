@@ -24,8 +24,55 @@ header > .container > .right-section {
   gap: 3em;
 }
 
+/* header > .container > .right-section * {
+  width: 100%;
+  text-align: center;
+} */
+
 header > .container > .right-section > p:hover {
   cursor: pointer;
   color: var(--secondary-color);
   transition: color 0.15s ease-in-out;
+}
+ 
+header > .container > .right-section > select {
+  border: none;
+}
+
+header .custom-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+header .custom-dropdown .options {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  width: max-content;
+  display: none;
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+header .custom-dropdown .options div {
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border-radius: 10px;
+}
+
+header .custom-dropdown .options div:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+header .custom-dropdown.active .options {
+  display: block;
+}
+
+header .custom-dropdown p.selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
 }
