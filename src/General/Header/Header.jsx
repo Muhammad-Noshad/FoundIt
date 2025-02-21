@@ -15,6 +15,7 @@ import companyStore from "../../Store/companyStore";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropDownRef = useRef(null);
+  const menuRef = useRef(null);
   const navigate = useNavigate();
 
   const { user, setUser } = userStore();
@@ -50,15 +51,31 @@ const Header = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    if(window.innerWidth > 730) {
+      navigate("/");
+    }
+    else {
+      if(menuRef.current.computedStyleMap().get("height").value === 0) {
+        menuRef.current.style.setProperty("--menu-height", "auto");
+        menuRef.current.style.setProperty("--menu-pad", "4em");
+      }
+      else {
+        menuRef.current.style.setProperty("--menu-height", "0");
+        menuRef.current.style.setProperty("--menu-pad", "0");
+      }
+    }
+  }
+
   return (
     <header>
       <div className="container">
         <div className="left-section">
-          <Link to="/">
+          <div className="logo-section" onClick={handleLogoClick}>
             <img src={founditLogo} alt="logo" />
-          </Link>
+          </div>
         </div>
-        <div className="right-section">
+        <div ref={menuRef} className="right-section">
           <Link to="/">
             <p>Home</p>
           </Link>

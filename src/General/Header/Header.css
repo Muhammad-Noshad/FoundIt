@@ -10,7 +10,6 @@ header > .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 header > .container > .left-section > a > img {
@@ -23,11 +22,6 @@ header > .container > .right-section {
   align-items: center;
   gap: 3em;
 }
-
-/* header > .container > .right-section * {
-  width: 100%;
-  text-align: center;
-} */
 
 header > .container > .right-section > p:hover {
   cursor: pointer;
@@ -75,4 +69,26 @@ header .custom-dropdown p.selected {
   justify-content: center;
   align-items: center;
   gap: 0.5em;
+}
+
+
+@media (width < 730px) {
+  header > .container {
+    flex-direction: column;
+    gap: 3em;
+  }
+
+  header .right-section {
+    --menu-height: 0;
+    --menu-pad: 0;
+    flex-direction: column;
+    transition: height 0.25s ease-in-out;
+    height: var(--menu-height) !important;
+    overflow: hidden;
+    padding-bottom: var(--menu-pad);
+  }
+
+  header {
+    padding-bottom: 0em;
+  }
 }

@@ -21,6 +21,8 @@ html, textarea, input, select, .Toastify__toast {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   color: var(--dark-color);
+
+  interpolate-size: allow-keywords;
 }
 
 .container {
