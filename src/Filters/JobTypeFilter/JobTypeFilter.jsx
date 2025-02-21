@@ -35,8 +35,8 @@ const JobTypeFilter = ({ jobType, setJobType }) => {
   return (
     <section className="job-type-filter" ref={filterRef}>
       <h6 onClick={() => { changeBeforeElemPosition(0); setJobType(""); }}>All</h6>
-      <h6 onClick={() => { changeBeforeElemPosition(34.5); setJobType("PartTime")}}>Part-Time</h6>
-      <h6 onClick={() => { changeBeforeElemPosition(69); setJobType("FullTime")}}>Full-Time</h6>
+      <h6 onClick={() => { changeBeforeElemPosition(33.3); setJobType("PartTime")}}>Part-Time</h6>
+      <h6 onClick={() => { changeBeforeElemPosition(66.6); setJobType("FullTime")}}>Full-Time</h6>
     </section>
   );
 }

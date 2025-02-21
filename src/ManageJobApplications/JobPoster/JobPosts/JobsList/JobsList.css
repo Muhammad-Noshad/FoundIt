@@ -1,6 +1,11 @@
 .jobs-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, min(46rem));
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 3em;
+}
+
+.jobs-list > * {
+  flex: 1;
 }

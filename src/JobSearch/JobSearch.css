@@ -26,3 +26,11 @@
 .job-search > p.no-jobs {
   margin-top: 2.5em;
 }
+
+@media (width < 940px) {
+  .job-search > .additional-filters {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+  }
+}

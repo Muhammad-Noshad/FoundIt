@@ -2,6 +2,7 @@ section.posted-job-card {
   background-color: var(--light-purple);
   padding: 3em 3em;
   border-radius: 10px;
+  max-width: 45rem;
 }
 
 section.posted-job-card > .job-subtitle > *,
@@ -42,4 +43,11 @@ section.posted-job-card > .button-section {
 section.posted-job-card > .button-section > .button-primary,
 section.posted-job-card > .button-section > .button-secondary {
   padding: 0.5em 2em;
+  width: max-content;
+}
+
+@media (width < 500px) {
+  section.posted-job-card > .button-section {
+    flex-direction: column;
+  }
 }

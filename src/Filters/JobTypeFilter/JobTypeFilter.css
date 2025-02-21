@@ -28,6 +28,19 @@
   position: absolute;
   z-index: -1;
   border-radius: 20px;
-  left: var(--before-left, 0);
+  left: calc(var(--before-left, 0) * 1.035);
   transition: all 0.15s ease-in-out;
+}
+
+@media (width < 400px) {
+  .job-type-filter {
+    flex-direction: column;
+    gap: 3em;
+  }
+
+  .job-type-filter::before {
+    height: calc(100% / 3);
+    top: var(--before-left, 0);
+    left: 0;
+  }
 }

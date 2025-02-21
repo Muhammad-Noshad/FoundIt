@@ -19,6 +19,7 @@
   border: none;
   outline: none;
   text-align: center;
+  min-width: 0;
 }
 
 .search-bar > .inputs > input:not(:last-of-type) {
@@ -28,4 +29,30 @@
 .search-bar > button {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
+}
+
+@media (width < 1130px) {
+  .search-bar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+  }
+}
+
+@media (width < 850px) {
+  .search-bar {
+    background-color: transparent;
+  }
+
+  .search-bar .inputs {
+    flex-direction: column;
+    gap: 1.25em;
+  }
+
+  .search-bar .inputs input {
+    border: none !important;
+    background-color: var(--lightest-color);
+    padding: 1em 4em;
+    border-radius: 20px;
+  }
 }
