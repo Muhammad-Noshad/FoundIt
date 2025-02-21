@@ -12,8 +12,17 @@ header > .container {
   align-items: center;
 }
 
+header > .container > .left-section {
+  cursor: pointer;
+}
+
 header > .container > .left-section > a > img {
   width: 15rem;
+}
+
+header .left-section .logo-section > .icon {
+  width: 3rem;
+  display: none;
 }
 
 header > .container > .right-section {
@@ -96,5 +105,16 @@ header .custom-dropdown p.selected:hover {
 
   header {
     padding-bottom: 0em;
+  }
+
+  header .left-section .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  header .left-section .logo-section > .icon {
+    display: block !important;
   }
 }
