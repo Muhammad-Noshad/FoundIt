@@ -21,6 +21,7 @@ const useVerifyUser = () => {
         const response = await API.get("/auth/verify");
 
         if (response.status !== 200) {
+          navigate("/sign-in");
           return;
         }
 
