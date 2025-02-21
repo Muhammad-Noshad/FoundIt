@@ -44,9 +44,9 @@ const ApplicationStatusFilter = ({ applicationStatus, setApplicationStatus }) =>
   return (
     <section className="application-status-filter" ref={filterRef}>
       <h6 onClick={() => { changeBeforeElemPosition(0); setApplicationStatus(""); }}>All</h6>
-      <h6 onClick={() => { changeBeforeElemPosition(25.5); setApplicationStatus("Applied")}}>Applied</h6>
-      <h6 onClick={() => { changeBeforeElemPosition(51.5); setApplicationStatus("Approved")}}>Approved</h6>
-      <h6 onClick={() => { changeBeforeElemPosition(77.5); setApplicationStatus("Rejected")}}>Rejected</h6>
+      <h6 onClick={() => { changeBeforeElemPosition(25); setApplicationStatus("Applied")}}>Applied</h6>
+      <h6 onClick={() => { changeBeforeElemPosition(50); setApplicationStatus("Approved")}}>Approved</h6>
+      <h6 onClick={() => { changeBeforeElemPosition(75); setApplicationStatus("Rejected")}}>Rejected</h6>
     </section>
   );
 }

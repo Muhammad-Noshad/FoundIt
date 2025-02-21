@@ -2,6 +2,7 @@ section.job-application-card {
   background-color: var(--light-purple);
   padding: 3em 3em;
   border-radius: 10px;
+  max-width: 55rem;
 }
 
 section.job-application-card > .top-section {
@@ -55,4 +56,11 @@ section.job-application-card > .button-section {
 section.job-application-card > .button-section > .button-primary,
 section.job-application-card > .button-section > .button-secondary {
   padding: 0.5em 2em;
+  width: max-content;
+}
+
+@media (width < 540px) {
+  section.job-application-card > .button-section {
+    flex-direction: column;
+  }
 }

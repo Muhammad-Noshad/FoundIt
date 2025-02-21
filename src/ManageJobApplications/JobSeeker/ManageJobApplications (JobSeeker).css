@@ -26,3 +26,11 @@
 .manage-job-applications > p.no-job-applications {
   margin-top: 2.5em;
 }
+
+@media (width < 1450px) {
+  .manage-job-applications > .additional-filters {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+  }
+}

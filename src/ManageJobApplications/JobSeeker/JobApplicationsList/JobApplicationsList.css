@@ -1,6 +1,11 @@
 .job-applications-list-seeker {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, min(58rem));
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 3em;
+}
+
+.job-applications-list-seeker > * {
+  flex: 1;
 }
