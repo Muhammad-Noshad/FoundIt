@@ -1,44 +1,53 @@
+.shadow-wrapper {
+  padding: 6em;
+}
+
 section.sign-up-poster {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.sign-up-poster > .shadow-wrapper {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   padding: 6em;
-  width: fit-content;
-  margin: 4em auto;
   border-radius: 25px;
   position: relative;
 }
 
-section.sign-up-poster > h6 {
+section.sign-up-poster h6 {
   position: absolute;
   border: 2px solid var(--secondary-color);
   border-radius: 25px;
   top: 0;
-  left: 2%;
-  width: var(--progress, 50%);
+  left: 1.5em;
+  width: var(--progress, calc(100% - 1.5em));
   transition: width 0.35s ease-in-out;
 }
 
-section.sign-up-poster > h1,
-section.sign-up-poster > p {
+section.sign-up-poster h1,
+section.sign-up-poster p {
   text-align: center;
 }
 
-section.sign-up-poster > p {
+section.sign-up-poster p {
   margin-bottom: 1.5em;
 }
 
-section.sign-up-poster > .wrapper {
+section.sign-up-poster .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5em;
 }
 
-section.sign-up-poster > .wrapper > .left-section,
-section.sign-up-poster > .wrapper > .right-section {
+section.sign-up-poster .wrapper > .left-section,
+section.sign-up-poster .wrapper > .right-section {
   flex: 1;
 }
 
-section.sign-up-poster > .wrapper > .left-section > form > div {
+section.sign-up-poster .wrapper > .left-section > form > div {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -46,7 +55,7 @@ section.sign-up-poster > .wrapper > .left-section > form > div {
   margin-bottom: 2em;
 }
 
-section.sign-up-poster > .wrapper > .left-section > form > div > input {
+section.sign-up-poster .wrapper > .left-section > form > div > input {
   padding: 0.5em;
   border: 1px solid var(--dark-color);
   border-radius: 5px;
@@ -54,13 +63,19 @@ section.sign-up-poster > .wrapper > .left-section > form > div > input {
   width: 100%;
 }
 
-section.sign-up-poster > .wrapper > .left-section > form button {
+section.sign-up-poster .wrapper > .left-section > form button {
   padding: 0.5em 2em;
   width: 100%;
 }
 
-section.sign-up-poster > .wrapper > .left-section > form > a {
+section.sign-up-poster .wrapper > .left-section > form > a {
   text-align: center;
   display: block;
   margin-top: 1.5em;
+}
+
+@media (width < 730px) {
+  section.sign-up-poster .wrapper > .right-section {
+    display: none;
+  }
 }

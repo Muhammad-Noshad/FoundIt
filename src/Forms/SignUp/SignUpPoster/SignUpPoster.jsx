@@ -14,34 +14,33 @@ const SignUpPoster = () => {
   const progressBar = useRef(null);
 
   useEffect(() => {
-    if(step === 0) {
+    if (step === 0) {
       progressBar.current.style.setProperty("--progress", "50%");
-    }
-    else if(step === 1) {
+    } else if (step === 1) {
       progressBar.current.style.setProperty("--progress", "95.5%");
     }
   }, [step]);
 
   const [userInfo, setUserInfo] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
   });
 
   const [companyInfo, setCompanyInfo] = useState({
-    companyName: '',
-    companyLocation: '',
-    positionInCompany: '',
-    companyLogo: undefined
+    companyName: "",
+    companyLocation: "",
+    positionInCompany: "",
+    companyLogo: undefined,
   });
 
-  const onSubmit = async(companyInfo) => {
+  const onSubmit = async (companyInfo) => {
     setIsSubmitting(true);
     try {
       const formData = new FormData();
 
-      const {companyLogo, ...otherCompanyInfo} = companyInfo;
+      const { companyLogo, ...otherCompanyInfo } = companyInfo;
 
       formData.append("companyLogo", companyLogo);
 
@@ -56,8 +55,7 @@ const SignUpPoster = () => {
         },
       });
       toast.success("Sign Up Successful!");
-    }
-    catch(error) {
+    } catch (error) {
       toast.error(error?.response?.data?.message || "An error occurred");
       console.error("An error occured", error);
     }
@@ -65,39 +63,41 @@ const SignUpPoster = () => {
   };
 
   return (
-    <section className="sign-up-poster">
-      <h6 className="progress-bar" ref={progressBar}></h6>
-      <h1>Create Your Account</h1>
-      <p className="dark">Join us today! Please fill in the details below</p>
-      <div className="wrapper">
-        <div className="left-section">
-          {
-            step === 0 
-            &&
-            <UserInfoForm 
-              userInfo={userInfo}
-              setUserInfo={setUserInfo}
-              setStep={setStep}
-            />
-          }
-          {
-            step === 1
-            &&
-            <CompanyInfoForm
-              companyInfo={companyInfo}
-              setCompanyInfo={setCompanyInfo}
-              setStep={setStep}
-              onSubmit={onSubmit}
-              isSubmitting={isSubmitting}
-            />
-          }
+    <div className="space-wrapper">
+      <section className="sign-up-poster container">
+        <div className="shadow-wrapper">
+          <h6 className="progress-bar" ref={progressBar}></h6>
+          <h1>Create Your Account</h1>
+          <p className="dark">
+            Join us today! Please fill in the details below
+          </p>
+          <div className="wrapper">
+            <div className="left-section">
+              {step === 0 && (
+                <UserInfoForm
+                  userInfo={userInfo}
+                  setUserInfo={setUserInfo}
+                  setStep={setStep}
+                />
+              )}
+              {step === 1 && (
+                <CompanyInfoForm
+                  companyInfo={companyInfo}
+                  setCompanyInfo={setCompanyInfo}
+                  setStep={setStep}
+                  onSubmit={onSubmit}
+                  isSubmitting={isSubmitting}
+                />
+              )}
+            </div>
+            <div className="right-section">
+              <img src={signUpImg} alt="sign-up-seeker-img" />
+            </div>
+          </div>
         </div>
-        <div className="right-section">
-          <img src={signUpImg} alt="sign-up-seeker-img" />
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
-}
+};
 
 export default SignUpPoster;
