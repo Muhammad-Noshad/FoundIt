@@ -18,8 +18,10 @@ section.hiring-now > .container > .top-section > h6:last-of-type {
 
 section.hiring-now > .container > .bottom-section {
   display: flex;
-  justify-content: space-between;
-  align-self: center;
+  justify-content:center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5em
 }
 
 section.hiring-now > .container > .bottom-section > img {
