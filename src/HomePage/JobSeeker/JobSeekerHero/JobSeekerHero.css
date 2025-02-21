@@ -22,3 +22,20 @@ section.hero > .container > .left-section {
 section.hero > .container > .right-section {
   flex: 0.5;
 }
+
+@media (width < 730px) {
+  .hero > .container {
+    flex-direction: column-reverse;
+    gap: 3em;
+  }
+
+  .hero > .container > .right-section {
+    width: 20rem;
+  }
+
+  .hero > .container > .left-section {
+    text-align: center;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
