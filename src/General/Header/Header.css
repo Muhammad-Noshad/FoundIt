@@ -69,6 +69,11 @@ header .custom-dropdown p.selected {
   justify-content: center;
   align-items: center;
   gap: 0.5em;
+  transition: color 0.15s ease-in-out;
+}
+
+header .custom-dropdown p.selected:hover {
+  color: var(--secondary-color);
 }
 
 
