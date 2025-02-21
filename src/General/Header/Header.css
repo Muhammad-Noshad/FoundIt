@@ -91,6 +91,7 @@ header .custom-dropdown p.selected:hover {
     height: var(--menu-height) !important;
     overflow: hidden;
     padding-bottom: var(--menu-pad);
+    width: 100%;
   }
 
   header {
