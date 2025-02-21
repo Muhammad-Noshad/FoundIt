@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import API from "../API/API";
 
@@ -9,7 +9,16 @@ import jobApplicationStore from "../Store/jobApplicationStore";
 import companyStore from "../Store/companyStore";
 
 const useVerifyUser = () => {
+  const nonSignInPaths = ["/sign-in", "/sign-up", "/sign-up-poster", "/sign-up-seeker"]
+  
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  const redirectToSignInPage = () => {
+    if(!nonSignInPaths.includes(location.pathname)) {
+      navigate("/sign-in");
+    }
+  }
 
   useEffect(() => {
     const verifyUser = async () => {
@@ -21,7 +30,7 @@ const useVerifyUser = () => {
         const response = await API.get("/auth/verify");
 
         if (response.status !== 200) {
-          navigate("/sign-in");
+          redirectToSignInPage();
           return;
         }
 
@@ -37,7 +46,7 @@ const useVerifyUser = () => {
 
         navigate("/");
       } catch (error) {
-        navigate("/sign-in");
+        redirectToSignInPage();
         console.error("An error occurred:", error);
       }
     };
