@@ -103,6 +103,10 @@ header .custom-dropdown p.selected:hover {
     width: 100%;
   }
 
+  header .right-section:has(.custom-dropdown.active) {
+    overflow: visible !important;
+  }
+
   header {
     padding-bottom: 0em;
   }
