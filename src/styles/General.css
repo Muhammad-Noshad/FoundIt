@@ -36,11 +36,11 @@ img {
 }
 
 .icon {
-  width: 1.8rem;
+  width: 1.6rem;
 }
 
 p, a, li, button, input, textarea, select, .icon {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,7 +58,7 @@ h2 {
 }
 
 h6, label, .Toastify__toast {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 550;
 }
 
