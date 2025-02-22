@@ -35,105 +35,99 @@ const SignUpSeeker = () => {
   };
 
   return (
-    <div className="space-wrapper">
-      <section className="sign-up-seeker container">
-        <div className="shadow-wrapper">
-          <h1>Create Your Account</h1>
-          <p className="dark">
-            Join us today! Please fill in the details below
-          </p>
-          <div className="wrapper">
-            <div className="left-section">
-              <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-              >
-                <Form>
-                  <div>
-                    <label htmlFor="firstName">First Name</label>
-                    <Field
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      placeholder="Enter your first name"
-                    />
-                    <ErrorMessage
-                      name="firstName"
-                      component="div"
-                      className="error"
-                    />
-                  </div>
+    <section className="sign-up-seeker container">
+      <div className="shadow-wrapper">
+        <h1>Create Your Account</h1>
+        <p className="dark">Join us today! Please fill in the details below</p>
+        <div className="wrapper">
+          <div className="left-section">
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit}
+            >
+              <Form>
+                <div>
+                  <label htmlFor="firstName">First Name</label>
+                  <Field
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Enter your first name"
+                  />
+                  <ErrorMessage
+                    name="firstName"
+                    component="div"
+                    className="error"
+                  />
+                </div>
 
-                  <div>
-                    <label htmlFor="lastName">Last Name</label>
-                    <Field
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      placeholder="Enter your last name"
-                    />
-                    <ErrorMessage
-                      name="lastName"
-                      component="div"
-                      className="error"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="lastName">Last Name</label>
+                  <Field
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Enter your last name"
+                  />
+                  <ErrorMessage
+                    name="lastName"
+                    component="div"
+                    className="error"
+                  />
+                </div>
 
-                  <div>
-                    <label htmlFor="email">Email</label>
-                    <Field
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="Enter your email"
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className="error"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="email">Email</label>
+                  <Field
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
+                </div>
 
-                  <div>
-                    <label htmlFor="password">Password</label>
-                    <Field
-                      type="password"
-                      id="password"
-                      name="password"
-                      placeholder="Enter your password"
-                    />
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className="error"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="password">Password</label>
+                  <Field
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error"
+                  />
+                </div>
 
-                  <button
-                    disabled={isSubmitting}
-                    className={
-                      isSubmitting
-                        ? "button-primary disabled"
-                        : "button-primary"
-                    }
-                    type="submit"
-                  >
-                    Register
-                  </button>
-                  <Link className="link" to="/sign-in">
-                    Already have an account? Sign In!
-                  </Link>
-                </Form>
-              </Formik>
-            </div>
-            <div className="right-section">
-              <img src={signUpImg} alt="sign-up-seeker-img" />
-            </div>
+                <button
+                  disabled={isSubmitting}
+                  className={
+                    isSubmitting ? "button-primary disabled" : "button-primary"
+                  }
+                  type="submit"
+                >
+                  Register
+                </button>
+                <Link className="link" to="/sign-in">
+                  Already have an account? Sign In!
+                </Link>
+              </Form>
+            </Formik>
+          </div>
+          <div className="right-section">
+            <img src={signUpImg} alt="sign-up-seeker-img" />
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

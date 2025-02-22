@@ -63,40 +63,36 @@ const SignUpPoster = () => {
   };
 
   return (
-    <div className="space-wrapper">
-      <section className="sign-up-poster container">
-        <div className="shadow-wrapper">
-          <h6 className="progress-bar" ref={progressBar}></h6>
-          <h1>Create Your Account</h1>
-          <p className="dark">
-            Join us today! Please fill in the details below
-          </p>
-          <div className="wrapper">
-            <div className="left-section">
-              {step === 0 && (
-                <UserInfoForm
-                  userInfo={userInfo}
-                  setUserInfo={setUserInfo}
-                  setStep={setStep}
-                />
-              )}
-              {step === 1 && (
-                <CompanyInfoForm
-                  companyInfo={companyInfo}
-                  setCompanyInfo={setCompanyInfo}
-                  setStep={setStep}
-                  onSubmit={onSubmit}
-                  isSubmitting={isSubmitting}
-                />
-              )}
-            </div>
-            <div className="right-section">
-              <img src={signUpImg} alt="sign-up-seeker-img" />
-            </div>
+    <section className="sign-up-poster container">
+      <div className="shadow-wrapper">
+        <h6 className="progress-bar" ref={progressBar}></h6>
+        <h1>Create Your Account</h1>
+        <p className="dark">Join us today! Please fill in the details below</p>
+        <div className="wrapper">
+          <div className="left-section">
+            {step === 0 && (
+              <UserInfoForm
+                userInfo={userInfo}
+                setUserInfo={setUserInfo}
+                setStep={setStep}
+              />
+            )}
+            {step === 1 && (
+              <CompanyInfoForm
+                companyInfo={companyInfo}
+                setCompanyInfo={setCompanyInfo}
+                setStep={setStep}
+                onSubmit={onSubmit}
+                isSubmitting={isSubmitting}
+              />
+            )}
+          </div>
+          <div className="right-section">
+            <img src={signUpImg} alt="sign-up-seeker-img" />
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

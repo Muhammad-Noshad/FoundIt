@@ -1,9 +1,6 @@
-.shadow-wrapper {
-  padding: 6em;
-}
-
 section.sign-up-poster {
-  height: 100vh;
+  padding: 1em 0;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +11,7 @@ section.sign-up-poster > .shadow-wrapper {
   padding: 6em;
   border-radius: 25px;
   position: relative;
+  max-width: 1000px;
 }
 
 section.sign-up-poster h6 {

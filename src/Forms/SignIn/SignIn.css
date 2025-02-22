@@ -1,9 +1,6 @@
-.space-wrapper {
-  padding: 6em 0;
-}
-
 section.sign-in {
-  height: 100vh;
+  padding: 1em 0;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +9,7 @@ section.sign-in {
 section.sign-in > .shadow-wrapper {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   padding: 6em;
-  width: fit-content;
+  max-width: 1000px;
   border-radius: 25px;
 }
 

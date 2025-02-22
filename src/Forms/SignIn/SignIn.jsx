@@ -54,73 +54,69 @@ const SignIn = () => {
   };
 
   return (
-    <div className="space-wrapper">
-      <section className="sign-in container">
-        <div className="shadow-wrapper">
-          <h1>Login to your Account</h1>
-          <p className="dark">Welcome back! Please login to continue</p>
-          <div className="wrapper">
-            <div className="left-section">
-              <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-              >
-                <Form>
-                  <div>
-                    <label htmlFor="email">Email</label>
-                    <Field
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="Enter your email"
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className="error"
-                    />
-                  </div>
+    <section className="sign-in container">
+      <div className="shadow-wrapper">
+        <h1>Login to your Account</h1>
+        <p className="dark">Welcome back! Please login to continue</p>
+        <div className="wrapper">
+          <div className="left-section">
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit}
+            >
+              <Form>
+                <div>
+                  <label htmlFor="email">Email</label>
+                  <Field
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
+                </div>
 
-                  <div>
-                    <label htmlFor="password">Password</label>
-                    <Field
-                      type="password"
-                      id="password"
-                      name="password"
-                      placeholder="Enter your password"
-                    />
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className="error"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="password">Password</label>
+                  <Field
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error"
+                  />
+                </div>
 
-                  <button
-                    disabled={isSubmitting}
-                    className={
-                      isSubmitting
-                        ? "button-primary disabled"
-                        : "button-primary"
-                    }
-                    type="submit"
-                  >
-                    Sign In
-                  </button>
-                  <Link className="link" to="/sign-up">
-                    Don't have an account? Register Now!
-                  </Link>
-                </Form>
-              </Formik>
-            </div>
-            <div className="right-section">
-              <img src={signInImg} alt="sign-in-img" />
-            </div>
+                <button
+                  disabled={isSubmitting}
+                  className={
+                    isSubmitting ? "button-primary disabled" : "button-primary"
+                  }
+                  type="submit"
+                >
+                  Sign In
+                </button>
+                <Link className="link" to="/sign-up">
+                  Don't have an account? Register Now!
+                </Link>
+              </Form>
+            </Formik>
+          </div>
+          <div className="right-section">
+            <img src={signInImg} alt="sign-in-img" />
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

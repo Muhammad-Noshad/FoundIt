@@ -1,9 +1,6 @@
-.space-wrapper {
-  padding: 6em 0;
-}
-
 section.sign-up-seeker {
-  height: 100vh;
+  padding: 1em 0;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +11,7 @@ section.sign-up-seeker > .shadow-wrapper {
   padding: 6em;
   width: fit-content;
   border-radius: 25px;
+  max-width: 1000px;
 }
 
 section.sign-up-seeker h1,
