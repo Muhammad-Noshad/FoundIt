@@ -2,6 +2,7 @@ section.posted-job-view-application-card {
   background-color: var(--light-purple);
   padding: 3em 3em;
   border-radius: 10px;
+  max-width: 45rem;
 }
 
 section.posted-job-view-application-card > .job-subtitle > *,
@@ -35,5 +36,6 @@ section.posted-job-view-application-card > .job-company-details > .left-section 
 
 section.posted-job-view-application-card > .button-primary {
   padding: 0.5em 2em;
+  min-width: max-content;
   width: 100%;
 }

@@ -2,6 +2,7 @@ section.manage-job-post-card {
   background-color: var(--light-purple);
   padding: 3em 3em;
   border-radius: 10px;
+  max-width: 45rem;
 }
 
 section.manage-job-post-card > .top-section {
@@ -47,4 +48,7 @@ section.manage-job-post-card > .button-section {
 section.manage-job-post-card > .button-section > .button-primary,
 section.manage-job-post-card > .button-section > .button-secondary {
   padding: 0.5em 2em;
+  min-width: max-content;
+  flex: 1;
+  width: 100%;
 }

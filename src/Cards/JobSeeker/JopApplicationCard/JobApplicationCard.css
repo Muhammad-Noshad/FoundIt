@@ -56,7 +56,9 @@ section.job-application-card > .button-section {
 section.job-application-card > .button-section > .button-primary,
 section.job-application-card > .button-section > .button-secondary {
   padding: 0.5em 2em;
-  width: max-content;
+  min-width: max-content;
+  flex: 1;
+  width: 100%;
 }
 
 @media (width < 540px) {
