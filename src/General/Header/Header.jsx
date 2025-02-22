@@ -72,7 +72,7 @@ const Header = () => {
       <div className="container">
         <div className="left-section">
           <div className="logo-section" onClick={handleLogoClick}>
-            <img src={founditLogo} alt="logo" />
+            <img src={founditLogo} alt="logo" className="logo" />
             <img src={downArrowImg} alt="down-arrow" className="icon" />
           </div>
         </div>

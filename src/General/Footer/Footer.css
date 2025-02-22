@@ -11,12 +11,12 @@ footer > .container > .top-section {
   margin-bottom: 3em;
 }
 
-footer > .container > .top-section > .right-section > h6 {
-  font-size: 3.5rem;
+footer > .container > .top-section > .right-section > h1 {
+  font-size: clamp(3rem, 5vw, 3.5rem);
 }
 
 footer > .container > .top-section > .left-section > img {
-  width: 15rem;
+  width: clamp(13rem, 15vw, 15rem);
   margin-bottom: 0.5em;
 }
 
@@ -32,7 +32,7 @@ footer > .container > .bottom-section > p {
     gap: 3em;
   }
 
-  footer > .container > .top-section > .right-section > h6 {
+  footer > .container > .top-section > .right-section > h1 {
     text-align: center;
   }
 }

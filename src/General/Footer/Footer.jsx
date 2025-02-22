@@ -14,7 +14,7 @@ const Footer = () => {
             <p className="dark">Lahore, Punjab, Pakistan</p>
           </div>
           <div className="right-section">
-            <h6>The right place for job seekers and employers.</h6>
+            <h1>The right place for job seekers and employers.</h1>
           </div>
         </div>
         <div className="bottom-section">

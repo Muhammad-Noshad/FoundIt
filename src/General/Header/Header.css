@@ -16,8 +16,8 @@ header > .container > .left-section {
   cursor: pointer;
 }
 
-header > .container > .left-section > a > img {
-  width: 15rem;
+header > .container > .left-section .logo-section > img.logo {
+  width: clamp(13rem, 15vw, 15rem);
 }
 
 header .left-section .logo-section > .icon {
