@@ -52,3 +52,9 @@ section.manage-job-post-card > .button-section > .button-secondary {
   flex: 1;
   width: 100%;
 }
+
+@media (width < 430px) {
+  section.manage-job-post-card > .button-section {
+    flex-direction: column;
+  }
+}

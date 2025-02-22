@@ -48,7 +48,7 @@ section.posted-job-card > .button-section > .button-secondary {
   width: 100%;
 }
 
-@media (width < 500px) {
+@media (width < 430px) {
   section.posted-job-card > .button-section {
     flex-direction: column;
   }
