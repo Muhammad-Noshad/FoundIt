@@ -42,11 +42,14 @@
 @media (width < 850px) {
   .search-bar {
     background-color: transparent;
+    width: 100%;
+    padding: 0;
   }
 
   .search-bar .inputs {
     flex-direction: column;
     gap: 1.25em;
+    width: 100%;
   }
 
   .search-bar .inputs input {
@@ -54,5 +57,6 @@
     background-color: var(--lightest-color);
     padding: 1em 4em;
     border-radius: 20px;
+    width: 100%;
   }
 }

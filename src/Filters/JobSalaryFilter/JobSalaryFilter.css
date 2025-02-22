@@ -29,5 +29,6 @@
     padding: 1em 4em;
     border-radius: 20px;
     border: none !important;
+    width: 100%;
   }  
 }
