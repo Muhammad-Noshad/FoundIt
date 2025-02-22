@@ -76,7 +76,7 @@ const Header = () => {
   }
 
   const handleMenuClick = (e) => {
-    if(!e.target.classList.contains("selected")) {
+    if(!e.target.classList.contains("dropdown")) {
       closeMenu();
     }
   }
@@ -105,9 +105,9 @@ const Header = () => {
             className={`custom-dropdown ${isOpen ? "active" : ""}`}
             ref={dropDownRef}
           >
-            <p className="selected" onClick={() => setIsOpen(!isOpen)}>
+            <p className="dropdown" onClick={() => setIsOpen(!isOpen)}>
               Manage
-              <img src={downArrowImg} alt="down-arrow" className="icon" />
+              <img src={downArrowImg} alt="down-arrow" className="dropdown icon" />
             </p>
             {isOpen && (
               <div className="options">

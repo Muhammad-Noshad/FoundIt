@@ -73,7 +73,7 @@ header .custom-dropdown.active .options {
   display: block;
 }
 
-header .custom-dropdown p.selected {
+header .custom-dropdown p.dropdown {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,7 +81,7 @@ header .custom-dropdown p.selected {
   transition: color 0.15s ease-in-out;
 }
 
-header .custom-dropdown p.selected:hover {
+header .custom-dropdown p.dropdown:hover {
   color: var(--secondary-color);
 }
 
