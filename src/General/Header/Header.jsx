@@ -51,19 +51,33 @@ const Header = () => {
     }
   };
 
+  const openMenu = () => {
+    menuRef.current.style.setProperty("--menu-height", "auto");
+    menuRef.current.style.setProperty("--menu-pad", "4em");
+  }
+
+  const closeMenu = () => {
+    menuRef.current.style.setProperty("--menu-height", "0");
+    menuRef.current.style.setProperty("--menu-pad", "0");
+  }
+
   const handleLogoClick = () => {
     if(window.innerWidth > 730) {
       navigate("/");
     }
     else {
       if(menuRef.current.computedStyleMap().get("height").value === 0) {
-        menuRef.current.style.setProperty("--menu-height", "auto");
-        menuRef.current.style.setProperty("--menu-pad", "4em");
+        openMenu();
       }
       else {
-        menuRef.current.style.setProperty("--menu-height", "0");
-        menuRef.current.style.setProperty("--menu-pad", "0");
+        closeMenu();
       }
+    }
+  }
+
+  const handleMenuClick = (e) => {
+    if(!e.target.classList.contains("selected")) {
+      closeMenu();
     }
   }
 
@@ -76,7 +90,7 @@ const Header = () => {
             <img src={downArrowImg} alt="down-arrow" className="icon" />
           </div>
         </div>
-        <div ref={menuRef} className="right-section">
+        <div ref={menuRef} className="right-section" onClick={(e) => handleMenuClick(e)}>
           <Link to="/">
             <p>Home</p>
           </Link>
