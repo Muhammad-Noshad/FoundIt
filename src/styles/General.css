@@ -217,6 +217,10 @@ button.button-secondary.disabled {
 
 /* MODAL RELATED */
 
+body:has(.modal-overlay) {
+  overflow: hidden;
+}
+
 
 .modal-overlay {
   position: fixed;
