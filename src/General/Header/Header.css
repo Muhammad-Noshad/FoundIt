@@ -95,11 +95,12 @@ header .custom-dropdown p.dropdown:hover {
   header .right-section {
     --menu-height: 0;
     --menu-pad: 0;
+
     flex-direction: column;
     transition: height 0.25s ease-in-out;
     height: var(--menu-height) !important;
-    overflow: hidden;
     padding-bottom: var(--menu-pad);
+    overflow: hidden;
     width: 100%;
   }
 
@@ -119,6 +120,10 @@ header .custom-dropdown p.dropdown:hover {
   }
 
   header .left-section .logo-section > .icon {
+    --drop-down-arrow-rotate: 0deg;
+
     display: block !important;
+    rotate: var(--drop-down-arrow-rotate);
+    transition: rotate 0.4s ease-in-out;
   }
 }

@@ -13,9 +13,11 @@ import jobApplicationStore from "../../Store/jobApplicationStore";
 import companyStore from "../../Store/companyStore";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const dropDownRef = useRef(null);
   const menuRef = useRef(null);
+  const dropdownArrowRef = useRef(null);
+
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
   const { user, setUser } = userStore();
@@ -54,11 +56,13 @@ const Header = () => {
   const openMenu = () => {
     menuRef.current.style.setProperty("--menu-height", "auto");
     menuRef.current.style.setProperty("--menu-pad", "4em");
+    dropdownArrowRef.current.style.setProperty("--drop-down-arrow-rotate", "180deg");
   }
 
   const closeMenu = () => {
     menuRef.current.style.setProperty("--menu-height", "0");
     menuRef.current.style.setProperty("--menu-pad", "0");
+    dropdownArrowRef.current.style.setProperty("--drop-down-arrow-rotate", "0deg");
   }
 
   const handleLogoClick = () => {
@@ -87,7 +91,7 @@ const Header = () => {
         <div className="left-section">
           <div className="logo-section" onClick={handleLogoClick}>
             <img src={founditLogo} alt="logo" className="logo" />
-            <img src={downArrowImg} alt="down-arrow" className="icon" />
+            <img src={downArrowImg} alt="down-arrow" ref={dropdownArrowRef} className="icon" />
           </div>
         </div>
         <div ref={menuRef} className="right-section" onClick={(e) => handleMenuClick(e)}>
