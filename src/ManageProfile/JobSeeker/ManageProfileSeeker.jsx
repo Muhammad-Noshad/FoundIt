@@ -100,18 +100,6 @@ const ManageProfileSeeker = () => {
               <ErrorMessage name="email" component="div" className="error" />
             </div>
 
-            <div>
-              <label htmlFor="password">Password</label>
-              <Field
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                readOnly={mode === "View"}
-              />
-              <ErrorMessage name="password" component="div" className="error" />
-            </div>
-
             {mode === "View" && (
               <button
                 className="button-primary"

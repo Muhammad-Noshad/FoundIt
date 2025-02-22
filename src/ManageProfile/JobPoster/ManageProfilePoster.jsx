@@ -124,18 +124,6 @@ const ManageProfilePoster = () => {
             </div>
 
             <div>
-              <label htmlFor="password">Password</label>
-              <Field
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                readOnly={mode === "View"}
-              />
-              <ErrorMessage name="password" component="div" className="error" />
-            </div>
-
-            <div>
               <label htmlFor="companyName">Company Name</label>
               <Field
                 type="text"
