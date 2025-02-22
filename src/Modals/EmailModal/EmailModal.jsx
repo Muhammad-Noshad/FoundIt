@@ -41,7 +41,7 @@ const EmailModal = ({ isModalOpen, onClose, companyId, userEmail, toEmail }) => 
 
   return (
     <section className="email-modal modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content container">
         <p className="dark modal-cross" onClick={onClose}>
           &times;
         </p>

@@ -9,7 +9,7 @@ const JobDetailModal = ({ isModalOpen, onClose, jobTitle, jobType, jobSalary, jo
 
   return (
     <section className="job-detail-modal modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content container">
         <p className="dark modal-cross" onClick={onClose}> &times; </p>
         <h1 className="job-title">{jobTitle}</h1>
         <div className="job-subtitle">

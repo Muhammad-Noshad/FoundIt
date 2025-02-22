@@ -28,7 +28,7 @@ html, textarea, input, select, .Toastify__toast {
 .container {
   width: 95%;
   margin: 0 auto;
-  max-width: 1800px;
+  max-width: 1400px;
 }
 
 img {
@@ -236,7 +236,7 @@ button.button-secondary.disabled {
   overflow-y: auto;
   border-radius: 20px;
   padding: 4em;
-  width: 50%;
+  max-width: 1000px;
   max-height: 80%;
 }
 

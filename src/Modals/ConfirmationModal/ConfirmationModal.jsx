@@ -7,7 +7,7 @@ const ConfirmationModal = ({ isModalOpen, onClose, title, message, setIsConfirme
 
   return (
     <section className="confirmation-modal modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content container">
         <p className="dark modal-cross" onClick={onClose}>
           &times;
         </p>

@@ -45,7 +45,7 @@ const EditJobPostModal = ({ isModalOpen, onClose, jobValues }) => {
 
   return (
     <section className="edit-job-post-modal modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content container">
         <p className="dark modal-cross" onClick={onClose}>
           &times;
         </p>

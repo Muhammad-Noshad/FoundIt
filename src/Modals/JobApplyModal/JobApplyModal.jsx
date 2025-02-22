@@ -59,7 +59,7 @@ const JobApplyModal = ({ isModalOpen, onClose, jobId }) => {
 
   return (
     <section className="job-apply-modal modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content container">
         <p className="dark modal-cross" onClick={onClose}>
           &times;
         </p>

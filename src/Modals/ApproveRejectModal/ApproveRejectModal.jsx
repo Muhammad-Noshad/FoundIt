@@ -61,7 +61,7 @@ const ApproveRejectModal = ({ isModalOpen, onClose, applicationId, mode, jobId }
 
   return (
     <section className="approve-reject-modal modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content container">
         <p className="dark modal-cross" onClick={onClose}>
           &times;
         </p>
