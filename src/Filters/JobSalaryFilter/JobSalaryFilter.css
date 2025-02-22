@@ -16,7 +16,7 @@
   border-right: 2px solid var(--light-color);
 }
 
-@media (width < 510px) {
+@media (width < 460px) {
   .job-salary-filter {
     background-color: transparent;
     display: flex;

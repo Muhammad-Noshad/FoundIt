@@ -1,6 +1,10 @@
 .job-applications-list-poster {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, min(40rem));
+  display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 3em;
+}
+
+.job-applications-list-poster > * {
+  flex: 1;
 }

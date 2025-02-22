@@ -32,7 +32,7 @@
   transition: all 0.15s ease-in-out;
 }
 
-@media (width < 550px) {
+@media (width < 400px) {
   .job-type-filter {
     flex-direction: column;
     gap: 3em;

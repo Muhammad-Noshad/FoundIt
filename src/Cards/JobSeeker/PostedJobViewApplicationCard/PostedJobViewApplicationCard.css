@@ -15,6 +15,7 @@ section.posted-job-view-application-card > .job-subtitle {
   align-items: center;
   gap: 3em;
   margin-top: 0.5em;
+  min-width: max-content;
 }
 
 section.posted-job-view-application-card > .job-subtitle > .job-type {

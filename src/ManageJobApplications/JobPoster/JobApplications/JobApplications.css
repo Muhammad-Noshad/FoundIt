@@ -17,3 +17,11 @@
   margin-top: 2.5em;
   text-align: center;
 }
+
+@media (width < 830px) {
+  .job-applications > .additional-filters {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+  }
+}

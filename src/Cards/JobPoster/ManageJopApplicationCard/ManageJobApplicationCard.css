@@ -2,6 +2,7 @@ section.manage-job-application-card {
   background-color: var(--light-purple);
   padding: 3em 3em;
   border-radius: 10px;
+  max-width: 45rem;
 }
 
 section.manage-job-application-card > h6 {

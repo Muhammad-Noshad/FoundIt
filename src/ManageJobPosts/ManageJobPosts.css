@@ -28,3 +28,17 @@
 .manage-job-posts > p.no-jobs {
   margin-top: 2.5em;
 }
+
+@media (width < 1000px) {
+  .manage-job-posts > button {
+    margin-right: auto;
+  }
+}
+
+@media (width < 885px) {
+  .manage-job-posts > .additional-filters {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+  }
+}
