@@ -1,23 +1,12 @@
 import "./JobApplicationsList.css";
 
-// REMOVE THIS TEMP LOGIC
-import { useState } from "react";
-
 import JobApplicationCard from "../../../Cards/JobSeeker/JopApplicationCard/JobApplicationCard";
 
 const JobApplicationsList = ({ jobApplications }) => {
-  const tempL = []
-
-  for(let i = 0; i < 11; i++) {
-    tempL.push(...jobApplications);
-  }
-
-
-  const [tempList, setTempList] = useState(tempL);
   return (
     <section className="job-applications-list-seeker">
       {
-        tempList?.map((value, index) => 
+        jobApplications.map((value, index) => 
           <JobApplicationCard 
             applicationId={value.applicationId}
             jobTitle={value.postedJob.jobTitle} 
