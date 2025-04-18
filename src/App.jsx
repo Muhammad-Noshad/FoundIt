@@ -22,6 +22,7 @@ import ManageJobApplicationsPoster from "./ManageJobApplications/JobPoster/Manag
 import ManageJobPosts from "./ManageJobPosts/ManageJobPosts";
 import ManageProfilePoster from "./ManageProfile/JobPoster/ManageProfilePoster";
 import ManageProfileSeeker from "./ManageProfile/JobSeeker/ManageProfileSeeker";
+import ManageProfileAdmin from "./ManageProfile/Admin/ManageProfileAdmin";
 
 function App() {
   const location = useLocation();
@@ -53,8 +54,10 @@ function App() {
 
         {/* General Routes */}
         <Route path="/" element={user? <HomePage /> : null} />
-        <Route path="/manage-job-applications" element={user?.role === "Employer" ? <ManageJobApplicationsPoster /> : <ManageJobApplicationsSeeker />} />
-        <Route path="/manage-profile" element={user?.role === "Employer" ? <ManageProfilePoster /> : <ManageProfileSeeker />} />
+        <Route path="/manage-job-applications" element={
+          user?.role === "Employer" ? <ManageJobApplicationsPoster /> : user?.role === "JobSeeker"? <ManageJobApplicationsSeeker /> : <ManageProfileAdmin />
+        } />
+        <Route path="/manage-profile" element={user?.role === "Employer" ? <ManageProfilePoster /> : user?.role === "JobSeeker"? <ManageProfileSeeker /> : <ManageProfileAdmin />} />
         
         {/* Employer Routes */}
         <Route path="/manage-job-posts" element={user?.role === "Employer" ? <ManageJobPosts /> : null} />

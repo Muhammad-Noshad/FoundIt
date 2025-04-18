@@ -1,4 +1,4 @@
-import "./ManageProfileSeeker.css";
+import "./ManageProfileAdmin.css";
 
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -9,7 +9,7 @@ import userStore from "../../Store/userStore";
 import validationSchema from "./validationSchema";
 import API from "../../API/API";
 
-const ManageProfileSeeker = () => {
+const ManageProfileAdmin = () => {
   const { user, fetchUserById } = userStore();
 
   const [mode, setMode] = useState("View");
@@ -31,7 +31,7 @@ const ManageProfileSeeker = () => {
         lastName: values.lastName,
         email: values.email,
         password: values.password,
-        role: "JobSeeker"
+        role: "Admin"
       };
 
       const formData = new FormData();
@@ -49,7 +49,7 @@ const ManageProfileSeeker = () => {
   };
 
   return (
-    <section className="manage-profile-seeker container">
+    <section className="manage-profile-admin container">
       <h1>Manage Profile</h1>
       <p className="dark subtitle">View and Edit your profile.</p>
       <Formik
@@ -132,4 +132,4 @@ const ManageProfileSeeker = () => {
   );
 };
 
-export default ManageProfileSeeker;
+export default ManageProfileAdmin;
