@@ -28,9 +28,7 @@ const FeaturedJobs = ({ title, subtitle, linkTo }) => {
                     jobType={value.jobType}
                     jobSalary={value.jobSalary}
                     jobDescription={value.jobDescription}
-                    companyName={value.company.companyName}
-                    companyLocation={value.company.companyLocation}
-                    companyLogo={value.company.companyLogo}
+                    company={value.company}
                     key={index}
                   />
                 )

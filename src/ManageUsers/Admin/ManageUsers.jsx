@@ -30,7 +30,7 @@ const ManageUsers = () => {
   return (
     <section className="manage-users container">
       <h1>Manage Users</h1>
-      <p className="dark subtitle">Manage users.</p>
+      <p className="dark subtitle">Manage your users.</p>
       <SearchBar 
         values={[firstName, lastName, email]}
         setters={[setFirstName, setLastName, setEmail]}

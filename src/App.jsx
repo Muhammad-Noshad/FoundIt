@@ -61,7 +61,7 @@ function App() {
         <Route path="/manage-profile" element={user?.role === "Employer" ? <ManageProfilePoster /> : user?.role === "JobSeeker"? <ManageProfileSeeker /> : <ManageProfileAdmin />} />
         
         {/* Employer Routes */}
-        <Route path="/manage-job-posts" element={user?.role === "Employer" ? <ManageJobPosts /> : null} />
+        <Route path="/manage-job-posts" element={user?.role !== "JobSeeker" ? <ManageJobPosts /> : null} />
 
         {/* Job Seeker Routes */}
         <Route path="/job-search" element={user?.role === "JobSeeker" ? <JobSearch /> : null} />

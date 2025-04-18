@@ -7,15 +7,16 @@ import { toast } from "react-toastify";
 import API from "../../../API/API";
 
 import postedJobStore from "../../../Store/postedJobStore";
-import companyStore from "../../../Store/companyStore";
 
 import JobDetailModal from "../../../Modals/JobDetailModal/JobDetailModal";
 import ConfirmationModal from "../../../Modals/ConfirmationModal/ConfirmationModal";
 import EditJobPostModal from "../../../Modals/EditJobPostModal/EditJobPostModal";
 
-const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, companyName, companyLocation, companyLogo}) => {
-  const { company } = companyStore();
-  const { fetchPostedJobsByCompanyId } = postedJobStore();
+import userStore from "../../../Store/userStore";
+
+const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription, company}) => {
+  const { fetchPostedJobsByCompanyId, fetchPostedJobs } = postedJobStore();
+  const { user } = userStore();
 
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -26,7 +27,12 @@ const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription
     try {
       const response = await API.delete(`/posted-job/${jobId}`);
       toast.success("Job Post deleted successfully!");
-      fetchPostedJobsByCompanyId(company?.companyId);
+      if (user.role === "Admin") {
+        fetchPostedJobs();
+      }
+      else {
+        fetchPostedJobsByCompanyId(company?.companyId);
+      }
     }
     catch(error) {
       toast.error(error?.response?.data?.message || "An error occurred");
@@ -61,11 +67,11 @@ const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription
       </div>
       <div className="job-company-details">
         <div className="left-section">
-          <img src={companyLogo} alt="logo" />  
+          <img src={company.companyLogo} alt="logo" />  
         </div>
         <div className="right-section">
-          <h6 className="job-company-name">{companyName}</h6>
-          <p className="job-company-location dark">{companyLocation}</p>
+          <h6 className="job-company-name">{company.companyName}</h6>
+          <p className="job-company-location dark">{company.companyLocation}</p>
         </div>
       </div>
       <div className="button-section">
@@ -79,14 +85,14 @@ const ManageJobPostCard = ({ jobId, jobTitle, jobType, jobSalary, jobDescription
         jobType={jobType}
         jobSalary={jobSalary}
         jobDescription={jobDescription}
-        companyName={companyName}
-        companyLocation={companyLocation}
-        companyLogo={companyLogo}
+        companyName={company.companyName}
+        companyLocation={company.companyLocation}
+        companyLogo={company.companyLogo}
       />
       <EditJobPostModal 
         isModalOpen={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}
-        jobValues={{jobTitle, jobSalary, jobDescription, jobType, jobId}}
+        jobValues={{jobTitle, jobSalary, jobDescription, jobType, jobId, company}}
       />
       <ConfirmationModal
         setIsConfirmed={setIsConfirmed}

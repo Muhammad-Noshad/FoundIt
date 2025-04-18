@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import postedJobStore from "../../Store/postedJobStore";
-import companyStore from "../../Store/companyStore";
+import userStore from "../../Store/userStore";
 
 import API from "../../API/API";
 import validationSchema from "./validationSchema";
@@ -16,8 +16,9 @@ const EditJobPostModal = ({ isModalOpen, onClose, jobValues }) => {
     return null;
   }
 
-  const { fetchPostedJobsByCompanyId } = postedJobStore();
-  const { company } = companyStore();
+  const { fetchPostedJobsByCompanyId, fetchPostedJobs } = postedJobStore();
+  const { user } = userStore();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
@@ -30,11 +31,17 @@ const EditJobPostModal = ({ isModalOpen, onClose, jobValues }) => {
   const onSubmit = async (values) => {
     setIsSubmitting(true);
     try {
-      values.company = company;
+      values.company = jobValues.company;
       values.jobId = jobValues?.jobId;
       const response = await API.post("/posted-job", values);
       toast.success("Job Edited Successfully!");
-      fetchPostedJobsByCompanyId(company?.companyId);
+
+      if(user.role === "Admin") {
+        fetchPostedJobs();
+      }
+      else {
+        fetchPostedJobsByCompanyId(jobValues.company?.companyId);
+      }
     } catch (error) {
       toast.error(error?.response?.data?.message || "An error occurred");
       console.error("An error occurred", error);
