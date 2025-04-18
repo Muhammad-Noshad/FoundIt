@@ -7,12 +7,17 @@ import { toast } from "react-toastify";
 
 import API from "../../../API/API";
 import allUsersStore from "../../../Store/allUsersStore";
+import userStore from "../../../Store/userStore";
 
 import EditUserDetailsModal from "../../../Modals/EditUserDetailsModal/EditUserDetailsModal";
 import ConfirmationModal from "../../../Modals/ConfirmationModal/ConfirmationModal";
+import EmailModal from "../../../Modals/EmailModal/EmailModal";
 
 const ManageUserCard = ({ userId, firstName, lastName, email, role, password }) => {
+  const { user } = userStore();
+
   const [isEditUserDetailsModalOpen, setIsEditUserDetailsModalOpen] = useState(false);
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
@@ -46,7 +51,8 @@ const ManageUserCard = ({ userId, firstName, lastName, email, role, password }) 
       </div>
       <p className="user-email dark">{email}</p>
       <div className="button-section">
-        <button className="button-primary" onClick={() => setIsEditUserDetailsModalOpen(true)}>Edit User Details</button>
+        <button className="button-secondary" onClick={() => setIsEmailModalOpen(true)}>Contact</button>
+        <button className="button-primary" onClick={() => setIsEditUserDetailsModalOpen(true)}>Edit</button>
       </div>
       <ConfirmationModal
         setIsConfirmed={setIsConfirmed}
@@ -64,6 +70,12 @@ const ManageUserCard = ({ userId, firstName, lastName, email, role, password }) 
         userId={userId}
         role={role}
         password={password}
+      />
+      <EmailModal
+        isModalOpen={isEmailModalOpen}
+        onClose={() => setIsEmailModalOpen(false)}
+        userEmail={user?.email}
+        toEmail={email}
       />
     </section>
   );

@@ -24,11 +24,15 @@ section.manage-user-card > .user-email{
 } 
 
 section.manage-user-card > .button-section {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
   margin-top: 2em;
 }
 
 section.manage-user-card > .button-section button {
-  width: 100%;
+  flex: 1;
+  min-width: fit-content;
 }
 
 section.manage-user-card > .button-section button { 
