@@ -4,6 +4,8 @@ import HiringNow from "./JobSeeker/HiringNow/HiringNow";
 
 import JobPosterHero from "./JobPoster/JobPosterHero/JobPosterHero";
 
+import AdminHero from "./Admin/AdminHero/AdminHero";
+
 import userStore from "../Store/userStore";
 
 const HomePage = () => {
@@ -33,6 +35,13 @@ const HomePage = () => {
             subtitle={"These are the jobs you posted recently."}
             linkTo={"/manage-job-posts"}
           />
+        </>
+      }
+      {
+        user?.role === "Admin"
+        &&
+        <>
+          <AdminHero />
         </>
       }
     </section>
