@@ -1,0 +1,42 @@
+section.manage-user-card {
+  background-color: var(--light-purple);
+  padding: 3em 3em;
+  border-radius: 10px;
+  max-width: 45rem;
+  min-width: 35rem;
+}
+
+section.manage-user-card > .top-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+section.manage-user-card > h6 {
+  margin-bottom: 0.25em;
+}
+
+section.manage-user-card > p {
+  margin-bottom: 0.5em;
+}
+
+section.manage-user-card > .user-email{  
+  font-size: 1.5rem;
+} 
+
+section.manage-user-card > .button-section {
+  margin-top: 2em;
+}
+
+section.manage-user-card > .button-section button {
+  width: 100%;
+}
+
+section.manage-user-card > .button-section button { 
+  padding: 0.5em 2em;
+}
+
+@media (width < 380px) {
+  section.manage-user-card {
+    min-width: auto;
+  }   
+}

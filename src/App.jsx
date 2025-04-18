@@ -23,6 +23,7 @@ import ManageJobPosts from "./ManageJobPosts/ManageJobPosts";
 import ManageProfilePoster from "./ManageProfile/JobPoster/ManageProfilePoster";
 import ManageProfileSeeker from "./ManageProfile/JobSeeker/ManageProfileSeeker";
 import ManageProfileAdmin from "./ManageProfile/Admin/ManageProfileAdmin";
+import ManageUsers from "./ManageUsers/Admin/ManageUsers";
 
 function App() {
   const location = useLocation();
@@ -64,6 +65,9 @@ function App() {
 
         {/* Job Seeker Routes */}
         <Route path="/job-search" element={user?.role === "JobSeeker" ? <JobSearch /> : null} />
+        
+        {/* Admin Routes */}
+        <Route path="/manage-users" element={user?.role === "Admin" ? <ManageUsers /> : null} />
         
         {
           !user 

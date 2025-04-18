@@ -1,0 +1,36 @@
+.manage-users {
+  padding-top: 16em;
+  padding-bottom: 6em;
+}
+
+.manage-users > .additional-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.manage-users > h1,
+.manage-users > p {
+  text-align: center;
+}
+
+.manage-users > p.subtitle {
+  margin-bottom: 2.5em;
+}
+
+.manage-users > .manage-users-list {
+  margin-top: 3em;
+}
+
+.manage-users > p.no-jobs {
+  margin-top: 2.5em;
+}
+
+@media (width < 885px) {
+  .manage-users > .additional-filters {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+  }
+}

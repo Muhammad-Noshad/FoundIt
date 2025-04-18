@@ -7,6 +7,7 @@ import userStore from "../Store/userStore";
 import postedJobStore from "../Store/postedJobStore";
 import jobApplicationStore from "../Store/jobApplicationStore";
 import companyStore from "../Store/companyStore";
+import allUsersStore from "../Store/allUsersStore";
 
 const useVerifyUser = () => {
   const nonSignInPaths = ["/sign-in", "/sign-up", "/sign-up-poster", "/sign-up-seeker"]
@@ -42,6 +43,9 @@ const useVerifyUser = () => {
         } else if (response.data.role === "Employer") {
           postedJobStore.getState().fetchPostedJobsByCompanyId(response.data.company.companyId);
           companyStore.getState().setCompany(response.data.company);
+        } else if (response.data.role === "Admin") {
+          postedJobStore.getState().fetchPostedJobs();
+          allUsersStore.getState().fetchAllUsers();
         }
 
         navigate("/");

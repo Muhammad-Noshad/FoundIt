@@ -11,12 +11,14 @@ import userStore from "../../Store/userStore";
 import postedJobStore from "../../Store/postedJobStore";
 import jobApplicationStore from "../../Store/jobApplicationStore";
 import companyStore from "../../Store/companyStore";
+import allUsersStore from "../../Store/allUsersStore";
 import { useState } from "react";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const setUser = userStore((state) => state.setUser);
   const { fetchPostedJobs, fetchPostedJobsByCompanyId } = postedJobStore();
+  const { fetchAllUsers } = allUsersStore();
   const { setCompany } = companyStore();
   const fetchJobApplicationsByUserId = jobApplicationStore(
     (state) => state.fetchJobApplicationsByUserId
@@ -39,9 +41,12 @@ const SignIn = () => {
       if (response.data.role === "JobSeeker") {
         fetchPostedJobs();
         fetchJobApplicationsByUserId(response.data.userId);
-      } else if (response.data.role == "Employer") {
+      } else if (response.data.role === "Employer") {
         fetchPostedJobsByCompanyId(response.data.company.companyId);
         setCompany(response.data.company);
+      } else if (response.data.role === "Admin") {
+        fetchPostedJobs();
+        fetchAllUsers();
       }
 
       navigate("/");

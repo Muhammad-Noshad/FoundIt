@@ -1,0 +1,46 @@
+.role-filter {
+  background-color: var(--lightest-color);
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5em;
+
+  padding: 1.5em 0;
+  border-radius: 20px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.role-filter > * {
+  width: 12rem;
+  text-align: center;
+  cursor: pointer;
+  color: var(--role-option, var(--dark-color));
+}
+
+.role-filter::before {
+  content: "";
+  width: 12rem;
+  height: 100%;
+  background-color: var(--secondary-color);
+  position: absolute;
+  z-index: -1;
+  border-radius: 20px;
+  left: calc(var(--before-left, 0) * 1.02);
+  transition: all 0.15s ease-in-out;
+}
+
+@media (width < 550px) {
+  .role-filter {
+    flex-direction: column;
+    gap: 3em;
+  }
+
+  .role-filter::before {
+    height: calc(100% / 4);
+    top: var(--before-left, 0);
+    left: 0;
+  }
+}

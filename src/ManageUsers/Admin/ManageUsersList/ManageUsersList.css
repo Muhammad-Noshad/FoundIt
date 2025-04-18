@@ -1,0 +1,10 @@
+.manage-users-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3em;
+}
+
+.manage-users-list > * {
+  flex: 1;
+}
