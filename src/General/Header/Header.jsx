@@ -142,11 +142,9 @@ const Header = () => {
                     <div onClick={() => setIsOpen(false)}>Job Posts</div>
                   </Link>
                 )}
-                {user.role !== "Admin" && (
-                  <Link to="/manage-job-applications">
-                    <div onClick={() => setIsOpen(false)}>Job Applications</div>
-                  </Link>
-                )}
+                <Link to="/manage-job-applications">
+                  <div onClick={() => setIsOpen(false)}>Job Applications</div>
+                </Link>
                 <Link to="/manage-profile">
                   <div onClick={() => setIsOpen(false)}>Profile</div>
                 </Link>

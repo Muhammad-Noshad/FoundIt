@@ -52,7 +52,7 @@ const JobApplicationDetailModal = ({ isModalOpen, onClose, cv, additionalComment
           </>
         }
         {
-          user?.role === "Employer"
+          user?.role === "Employer" || user?.role === "Admin"
           &&
           <>
             <button 

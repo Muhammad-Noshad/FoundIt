@@ -56,7 +56,7 @@ function App() {
         {/* General Routes */}
         <Route path="/" element={user? <HomePage /> : null} />
         <Route path="/manage-job-applications" element={
-          user?.role === "Employer" ? <ManageJobApplicationsPoster /> : user?.role === "JobSeeker"? <ManageJobApplicationsSeeker /> : <ManageProfileAdmin />
+          user?.role === "Employer" ? <ManageJobApplicationsPoster /> : user?.role === "JobSeeker"? <ManageJobApplicationsSeeker /> : <ManageJobApplicationsPoster />
         } />
         <Route path="/manage-profile" element={user?.role === "Employer" ? <ManageProfilePoster /> : user?.role === "JobSeeker"? <ManageProfileSeeker /> : <ManageProfileAdmin />} />
         
