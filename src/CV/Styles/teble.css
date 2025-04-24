@@ -6,6 +6,10 @@ table {
   border-radius: 2rem;
 }
 
+.table-container{
+  overflow-x: auto;
+}
+
 .cv-table-heading {
   background-color: gray;
   color: var(--primary-color);

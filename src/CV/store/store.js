@@ -3,6 +3,10 @@ import { create } from "zustand";
 const useCVStore = create((set) => ({
   // Education Store
   educationList: [],
+  setEducation: (education) =>
+    set(() => ({
+      educationList: education,
+    })),
   addEducation: (education) =>
     set((state) => ({
       educationList: [...state.educationList, education],
@@ -14,6 +18,10 @@ const useCVStore = create((set) => ({
 
   // Projects Store
   projectList: [],
+  setProject: (projects) =>
+    set(() => ({
+      projectList: projects,
+    })),
   addProject: (project) =>
     set((state) => ({
       projectList: [...state.projectList, project],
@@ -25,6 +33,10 @@ const useCVStore = create((set) => ({
 
   // Links Store
   linksList: [],
+  setLink: (links) =>
+    set(() => ({
+      linksList: links,
+    })),
   addLink: (link) =>
     set((state) => ({
       linksList: [...state.linksList, link],
@@ -36,6 +48,10 @@ const useCVStore = create((set) => ({
 
   // Experiences Store
   experienceList: [],
+  setExperience: (experiences) =>
+    set(() => ({
+      experienceList: experiences,
+    })),
   addExperience: (exp) =>
     set((state) => ({
       experienceList: [...state.experienceList, exp],
@@ -47,6 +63,10 @@ const useCVStore = create((set) => ({
 
   // Skills Store
   skillsList: [],
+  setSkill: (skills) =>
+    set(() => ({
+      skillsList: skills,
+    })),
   addSkill: (skill) =>
     set((state) => ({
       skillsList: [...state.skillsList, skill],
@@ -58,6 +78,10 @@ const useCVStore = create((set) => ({
 
   //Certificates Store
   certificateList: [],
+  setCertificate: (certificates) =>
+    set(() => ({
+      certificateList: certificates,
+    })),
   addCertificate: (certificate) =>
     set((state) => ({
       certificateList: [...state.certificateList, certificate],

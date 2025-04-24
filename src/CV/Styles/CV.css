@@ -62,10 +62,15 @@
   transition: 0.15s;
   margin-bottom: 2%;
   font-size: small;
+  border: 1px solid transparent;
 }
 
 .cv-add-information-button:hover {
-  opacity: 0.8;
+  background-color: var(--primary-color);
+  border: solid;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  border-width: 1px;
 }
 
 .cv-headings {

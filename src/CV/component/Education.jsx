@@ -9,7 +9,7 @@ export default function Education({ educationList, removeEducation }) {
   };
 
   return (
-    <div>
+    <div className="table-container">
       <table border={"1"}>
         <thead>
           <tr>

@@ -12,6 +12,7 @@ import userStore from "../Store/userStore";
 import useAPICVStore from "../Store/cvStore";
 import { RxUpdate } from "react-icons/rx";
 import "./Styles/CV.css";
+import { toast } from "react-toastify";
 
 export default function CV() {
   const [getUserData, setUserdata] = useState();
@@ -19,23 +20,28 @@ export default function CV() {
   const {
     educationList,
     addEducation,
+    setEducation,
     removeEducation,
     projectList,
     addProject,
+    setProject,
     removeProject,
     linksList,
     addLink,
+    setLink,
     removeLink,
     experienceList,
     addExperience,
+    setExperience,
     removeExperience,
     skillsList,
     addSkill,
+    setSkill,
     removeSkill,
     certificateList,
     addCertificate,
+    setCertificate,
     removeCertificate,
-    flag,
   } = useCVStore();
 
   //References to stores the values of the inputs
@@ -320,8 +326,10 @@ export default function CV() {
       email.current.value = fetchedUser.email;
       contact.current.value = fetchedUser.phone;
 
+      const tempEdu = [];
+
       fetchedUser.education.map((edu) =>
-        addEducation({
+        tempEdu.push({
           id: edu.id,
           educationLevel: edu.educationLevel,
           specialization: edu.specialization,
@@ -334,16 +342,24 @@ export default function CV() {
         })
       );
 
+      setEducation(tempEdu);
+
+      const tempSocials = [];
+
       fetchedUser.socials.map((social) =>
-        addLink({
+        tempSocials.push({
           id: social.id,
           name: social.linkName,
           link: social.linkAddress,
         })
       );
 
+      setLink(tempSocials);
+
+      const tempCertificates = [];
+
       fetchedUser.certificates.map((certificate) =>
-        addCertificate({
+        tempCertificates.push({
           id: certificate.id,
           certificateName: certificate.certificateName,
           certificateInstitute: certificate.institute,
@@ -353,8 +369,12 @@ export default function CV() {
         })
       );
 
+      setCertificate(tempCertificates);
+
+      const tempProjects = [];
+
       fetchedUser.projects.map((project) =>
-        addProject({
+        tempProjects.push({
           id: project.id,
           description: project.description,
           name: project.projectName,
@@ -362,8 +382,12 @@ export default function CV() {
         })
       );
 
+      setProject(tempProjects);
+
+      const tempExperiences = []; 
+
       fetchedUser.experience.map((experience) =>
-        addExperience({
+        tempExperiences.push({
           company: experience.companyName,
           fromDate: new Date(experience.fromDate).toLocaleDateString(),
           id: experience.id,
@@ -372,13 +396,19 @@ export default function CV() {
         })
       );
 
+      setExperience(tempExperiences);
+
+      const tempSkills = [];
+
       fetchedUser.skills.map((skill) =>
-        addSkill({
+        tempSkills.push({
           id: skill.id,
           name: skill.skill,
           skills: skill.description,
         })
       );
+
+      setSkill(tempSkills);
     }
   }, [
     fetchedUser,
@@ -502,9 +532,10 @@ export default function CV() {
                 }
 
                 handleUpdateCVPhone(contact.current.value);
-                message.textContent =
-                  "Phone Number has been Updated Successfully.";
-                message.classList.add("cv-success");
+                // message.textContent =
+                //   "Phone Number has been Updated Successfully.";
+                // message.classList.add("cv-success");
+                toast.success("Phone Number has been Updated Successfully.")
               } else {
                 message.textContent = "First Enter your Contact Please.";
                 message.classList.add("cv-error");
