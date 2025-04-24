@@ -24,6 +24,10 @@ import ManageProfilePoster from "./ManageProfile/JobPoster/ManageProfilePoster";
 import ManageProfileSeeker from "./ManageProfile/JobSeeker/ManageProfileSeeker";
 import ManageProfileAdmin from "./ManageProfile/Admin/ManageProfileAdmin";
 import ManageUsers from "./ManageUsers/Admin/ManageUsers";
+import CV from "./CV/CV";
+import Template1 from "./CV/cvTemplates/template1";
+import Template2 from "./CV/cvTemplates/Template2";
+import Template3 from "./CV/cvTemplates/Template3";
 
 function App() {
   const location = useLocation();
@@ -65,6 +69,11 @@ function App() {
 
         {/* Job Seeker Routes */}
         <Route path="/job-search" element={user?.role === "JobSeeker" ? <JobSearch /> : null} />
+        <Route path="/generate-CV" element={user?.role === "JobSeeker" ? <CV /> : null} />
+        <Route path="/CV-template1" element={user?.role === "JobSeeker" ? <Template1 /> : null} />
+        <Route path="/CV-template2" element={user?.role === "JobSeeker" ? <Template2 /> : null} />
+        <Route path="/CV-template3" element={user?.role === "JobSeeker" ? <Template3 /> : null} />
+        
         
         {/* Admin Routes */}
         <Route path="/manage-users" element={user?.role === "Admin" ? <ManageUsers /> : null} />

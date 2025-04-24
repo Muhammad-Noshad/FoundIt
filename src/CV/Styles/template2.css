@@ -1,0 +1,110 @@
+
+.cv-template2-outer-ontainer {
+  padding-top: 10%;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-bottom: 3%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.cv-template2-personal-information {
+  text-align: left;
+}
+
+.cv-template2-side-headings {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.cv-template2-right-side {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  column-gap: 100px;
+}
+
+.cv-template2-contact-info {
+  margin-top: 5%;
+  margin-bottom: 3%;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.cv-template2-education-entry {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  column-gap: 40px;
+  margin-bottom: 10px;
+}
+
+.cv-template2-bold-inner-headings {
+  font-weight: bold;
+}
+
+.cv-template2-date {
+  font-size: medium;
+  padding: 0;
+  margin: 0;
+  line-height: 2.1rem;
+  width: 100%;
+  text-align: justify;
+}
+
+.cv-template2-date-allign {
+  text-align: right;
+}
+
+.cv-template2-heading {
+  font-size: x-large;
+  padding-bottom: 1%;
+  margin-top: 3%;
+}
+
+.cv-template2-bold-inner-headings {
+  font-weight: bold;
+}
+
+.cv-template2-education-heading {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+.cv-template2-skills {
+  margin-left: 1.5rem;
+}
+
+.cv-template2-project-title,
+.cv-template2-project-description,
+.cv-template2-certificate {
+  font-weight: bold;
+  font-size: large;
+}
+
+.cv-template2-project-Name {
+  margin-top: 1rem;
+}
+
+.cv-template2-downloadPDF-button {
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  transition: 0.15s;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.cv-template2-downloadPDF-button:hover {
+  opacity: 0.8;
+}
+
+.cv-template2-downloadPDF-button-remove {
+  display: none;
+}
+
+.cv-template2-outerDiv {
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 800px;
+  background: white;
+}

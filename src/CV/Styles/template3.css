@@ -1,0 +1,82 @@
+
+.cv-template3-outer-ontainer {
+  padding-top: 10%;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-bottom: 3%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.cv-template3-personal-information {
+  text-align: center;
+}
+
+.cv-template3-date {
+  font-size: medium;
+  padding: 0;
+  margin: 0;
+  line-height: 2.1rem;
+  width: 100%;
+  text-align: justify;
+}
+
+.cv-template3-date-allign {
+  text-align: right;
+}
+
+.cv-template3-heading {
+  font-size: xx-large;
+  padding-bottom: 1%;
+  margin-top: 3%;
+  text-align: center;
+}
+
+.cv-template3-bold-inner-headings {
+  font-weight: bold;
+}
+
+.cv-template-project-name {
+  margin-top: 2%;
+}
+
+.cv-template3-education-heading {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+.cv-template3-skills {
+  margin-left: 3rem;
+}
+
+.cv-template3-project-title,
+.cv-template3-project-description,
+.cv-template3-certificate {
+  font-weight: bold;
+  font-size: large;
+}
+
+.cv-template3-downloadPDF-button {
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  transition: 0.15s;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.cv-template3-downloadPDF-button:hover {
+  opacity: 0.8;
+}
+
+.cv-template3-downloadPDF-button-remove {
+  display: none;
+}
+
+.cv-template3-outerDiv {
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 800px;
+  background: white;
+}

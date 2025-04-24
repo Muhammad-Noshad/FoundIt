@@ -11,6 +11,7 @@ import userStore from "../../Store/userStore";
 import postedJobStore from "../../Store/postedJobStore";
 import jobApplicationStore from "../../Store/jobApplicationStore";
 import companyStore from "../../Store/companyStore";
+import useAPICVStore from "../../Store/cvStore";
 
 const Header = () => {
   const dropDownRef = useRef(null);
@@ -89,6 +90,15 @@ const Header = () => {
     }
   };
 
+  const fetchCV = useAPICVStore((state) => state.fetchCV);
+
+  const handleGenerateCVClick = async (userId) => {
+    console.groupCollapsed(userId);
+    setIsOpen(false);
+    await fetchCV(userId);
+    console.log("Fetched CV:", useAPICVStore.getState().cvData);
+  };
+
   return (
     <header>
       <div className="container">
@@ -145,6 +155,17 @@ const Header = () => {
                 <Link to="/manage-job-applications">
                   <div onClick={() => setIsOpen(false)}>Job Applications</div>
                 </Link>
+                {user?.role === "JobSeeker" && (
+                  <Link to="/generate-CV">
+                    <div
+                      onClick={() =>
+                        handleGenerateCVClick(userStore.getState().user.userId)
+                      }
+                    >
+                      Generate CV
+                    </div>
+                  </Link>
+                )}
                 <Link to="/manage-profile">
                   <div onClick={() => setIsOpen(false)}>Profile</div>
                 </Link>

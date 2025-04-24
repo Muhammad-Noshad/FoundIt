@@ -1,0 +1,28 @@
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2%;
+  border-radius: 2rem;
+}
+
+.cv-table-heading {
+  background-color: gray;
+  color: var(--primary-color);
+  font-size: medium;
+}
+
+.cv-table-remove-button {
+  background-color: #e74c3c;
+  color: var(--primary-color);
+  font-size: smaller;
+  border: none;
+  cursor: pointer;
+  transition: 0.15s;
+  padding: 5% 5%;
+  margin: 2% 0%;
+}
+
+.cv-table-remove-button:hover {
+  opacity: 0.8;
+}

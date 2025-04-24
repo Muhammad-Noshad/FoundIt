@@ -1,0 +1,118 @@
+
+.cv-main_container {
+  width: 50%;
+  margin-left: 25%;
+  padding-top: 10rem;
+  text-align: center;
+}
+
+.cv-dual-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.cv-update-button {
+  cursor: pointer;
+  border: none;
+  cursor: pointer;
+  transition: 0.15s;
+  width: 2%;
+  height: 2%;
+  border-radius: 50%;
+  margin-right: 5%;
+}
+
+.cv-update-button:hover {
+  opacity: 0.8;
+  background-color: var(--secondary-color);
+}
+
+.cv-input-field {
+  width: 100%;
+  margin-bottom: 2%;
+  padding: 1%;
+  border: none;
+  font-size: 150%;
+}
+
+.cv-input-field:focus {
+  outline: none;
+}
+
+.cv-textarea-field {
+  width: 100%;
+  margin-bottom: 2%;
+  border: none;
+  text-align: justify;
+  font-size: 150%;
+  padding-left: 1.5%;
+}
+
+.cv-textarea-field:focus {
+  outline: none;
+}
+
+.cv-add-information-button {
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 1%;
+  background-color: var(--secondary-color);
+  border: none;
+  color: var(--primary-color);
+  transition: 0.15s;
+  margin-bottom: 2%;
+  font-size: small;
+}
+
+.cv-add-information-button:hover {
+  opacity: 0.8;
+}
+
+.cv-headings {
+  text-align: left;
+  font-size: x-large;
+  font-weight: bold;
+  padding-bottom: 2%;
+  margin: 0;
+}
+
+.cv-mini_container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  column-gap: 2%;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv-mini-inner-heading {
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+
+.cv-header-info input {
+  text-align: center;
+}
+
+.cv-update-messages {
+  text-align: left;
+}
+
+/*----------------- For Error Message ----------------*/
+
+.cv-message {
+  display: none;
+}
+
+.cv-error {
+  color: red;
+  display: block;
+}
+
+.cv-success {
+  color: green;
+  display: block;
+  margin-bottom: 1%;
+}
