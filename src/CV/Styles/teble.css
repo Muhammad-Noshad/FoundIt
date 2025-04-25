@@ -5,6 +5,10 @@ table {
   border-radius: 2rem;
 }
 
+td, th {
+  text-align: center;
+}
+
 .delete-icon {
   width: 25px;
   margin-top: 1rem;

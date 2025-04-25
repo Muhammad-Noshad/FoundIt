@@ -1,42 +1,31 @@
-.cv-template-container-outerDiv {
-  max-width: 1200px;
-}
-
 .cv-templates {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cv-template-container-innerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .cv-template-container-cvTemplateImage {
-  width: 400px;
-  height: 400px;
-}
-
-.cv-template-container-closeButton {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 5%;
-  border: none;
-  cursor: pointer;
-  transition: 0.5s;
-  border-radius: none;
-  border-top-right-radius: 5%;
-}
-
-.cv-template-container-closeButton:hover {
-  background-color: red;
+  max-width: 350px;
+  width: 100%;
 }
 
 .cv-template-container-preview-button {
   color: var(--primary-color);
   background-color: var(--secondary-color);
   cursor: pointer;
-  border: none;
   transition: 0.15s;
   border: 1px solid transparent;
+  width: 100%;
 }
 
 .cv-template-container-preview-button:hover {

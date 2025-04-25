@@ -54,7 +54,7 @@ export default function Templates({ setTemplates, userData }) {
                 });
               }}
             >
-              Preview 1
+              Preview
             </button>
           </div>
           <div className="cv-template-container-innerDiv">
@@ -71,7 +71,7 @@ export default function Templates({ setTemplates, userData }) {
                 });
               }}
             >
-              Preview 2
+              Preview
             </button>
           </div>
           <div className="cv-template-container-innerDiv">
@@ -88,7 +88,7 @@ export default function Templates({ setTemplates, userData }) {
                 });
               }}
             >
-              Preview 3
+              Preview
             </button>
           </div>
         </div>
