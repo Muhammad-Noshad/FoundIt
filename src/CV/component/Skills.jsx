@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 export default function Skills({ skillsList, removeSkill }) {
   const { removeSkillList, cvData } = useAPICVStore();
 
+  // Delete Skill Function Call
   const deleteSkill = (skillId) => {
     removeSkillList(skillId);
   };
