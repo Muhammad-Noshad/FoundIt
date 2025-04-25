@@ -79,8 +79,7 @@ export default function CV() {
     const message = document.querySelector(".cv-view-message");
 
     if (!fetchedUser) {
-      message.textContent = "CV for the User has not been Created.";
-      message.classList.add("cv-error");
+      toast.error("CV for the User has not been Created.");
       return;
     }
 
@@ -93,20 +92,22 @@ export default function CV() {
       !exectiveSummary.current.value ||
       educationList.length === 0
     ) {
-      message.textContent = "Education is Required.";
-      message.classList.add("cv-error");
+      toast.error("Education is Required.");
+
       return false;
     }
 
     // Check if the email format is valid
     if (!emailRegex.test(email.current.value)) {
-      alert("Please enter a valid email address.");
+      toast.error("Please enter a valid email address.");
+
       return false;
     }
 
     // Check if contact number is 13 digits and only numbers
     if (!contactRegex.test(contact.current.value)) {
-      alert("Please enter a valid 13-digit phone number.");
+      toast.error("Please enter a valid 13-digit phone number.");
+
       return false;
     }
 
@@ -384,7 +385,7 @@ export default function CV() {
 
       setProject(tempProjects);
 
-      const tempExperiences = []; 
+      const tempExperiences = [];
 
       fetchedUser.experience.map((experience) =>
         tempExperiences.push({
@@ -422,7 +423,7 @@ export default function CV() {
   ]);
 
   return (
-    <div className="cv-main_container" id="cv-content">
+    <div className="cv-main_container container" id="cv-content">
       {/* --------------- Templlates of the CVs -------------- */}
       {getTemplates ? (
         <Templates setTemplates={setTemplates} userData={getUserData} />
@@ -440,30 +441,20 @@ export default function CV() {
           <RxUpdate
             className="cv-update-button"
             onClick={() => {
-              const message = document.querySelector(".cv-name-update");
               if (!fetchedUser) {
-                message.textContent = "CV for the User has not been Created.";
-                message.classList.add("cv-error");
+                toast.error("CV for the User has not been Created.");
                 return;
               }
 
               if (name.current.value !== "") {
                 handleUpdateCVName(name.current.value);
-                message.textContent = "Name has been Updated Successfully.";
-                message.classList.add("cv-success");
+                toast.success("Name has been Updated Successfully.");
               } else {
-                message.textContent = "First Enter your Name Please.";
-                message.classList.add("cv-error");
+                toast.error("First Enter your Name Please.");
               }
-
-              setTimeout(() => {
-                message.textContent = "";
-                message.classList.remove("cv-success", "cv-error");
-              }, 2000);
             }}
           />
         </div>
-        <p className="cv-update-messages cv-name-update"></p>
         <div className="cv-dual-div">
           <input
             className="cv-input-field"
@@ -476,31 +467,20 @@ export default function CV() {
           <RxUpdate
             className="cv-update-button"
             onClick={() => {
-              const message = document.querySelector(".cv-adress-update");
-
               if (!fetchedUser) {
-                message.textContent = "CV for the User has not been Created.";
-                message.classList.add("cv-error");
+                toast.error("CV for the User has not been Created.");
                 return;
               }
 
               if (address.current.value !== "") {
                 handleUpdateCVAddress(address.current.value);
-                message.textContent = "Adress has been Updated Successfully.";
-                message.classList.add("cv-success");
+                toast.success("Adress has been Updated Successfully.");
               } else {
-                message.textContent = "First Enter your Address Please.";
-                message.classList.add("cv-error");
+                toast.error("First Enter your Address Please.");
               }
-
-              setTimeout(() => {
-                message.textContent = "";
-                message.classList.remove("cv-success", "cv-error");
-              }, 2000);
             }}
           />
         </div>
-        <p className="cv-update-messages cv-adress-update"></p>
         <div className="cv-dual-div">
           <input
             className="cv-input-field"
@@ -512,11 +492,9 @@ export default function CV() {
           <RxUpdate
             className="cv-update-button"
             onClick={() => {
-              const message = document.querySelector(".cv-phone-update");
-
               if (!fetchedUser) {
-                message.textContent = "CV for the User has not been Created.";
-                message.classList.add("cv-error");
+                toast.error("CV for the User has not been Created.");
+
                 return;
               }
 
@@ -525,30 +503,18 @@ export default function CV() {
                   contact.current.value.length !== 11 ||
                   !/^\d{11}$/.test(contact.current.value)
                 ) {
-                  message.textContent =
-                    "Phone Number should be 11 Numeric Digits.";
-                  message.classList.add("cv-error");
+                  toast.error("Phone Number should be 11 Numeric Digits.");
+
                   return;
                 }
-
                 handleUpdateCVPhone(contact.current.value);
-                // message.textContent =
-                //   "Phone Number has been Updated Successfully.";
-                // message.classList.add("cv-success");
-                toast.success("Phone Number has been Updated Successfully.")
+                toast.success("Phone Number has been Updated Successfully.");
               } else {
-                message.textContent = "First Enter your Contact Please.";
-                message.classList.add("cv-error");
+                toast.error("First Enter your Contact Please.");
               }
-
-              setTimeout(() => {
-                message.textContent = "";
-                message.classList.remove("cv-success", "cv-error");
-              }, 2000);
             }}
           />
         </div>
-        <p className="cv-update-messages cv-phone-update"></p>
         <div className="cv-dual-div">
           <input
             className="cv-input-field"
@@ -560,35 +526,25 @@ export default function CV() {
           <RxUpdate
             className="cv-update-button"
             onClick={() => {
-              const message = document.querySelector(".cv-email-update");
-
               if (!fetchedUser) {
-                message.textContent = "CV for the User has not been Created.";
-                message.classList.add("cv-error");
+                toast.error("CV for the User has not been Created.");
+
                 return;
               }
               if (email.current.value !== "") {
                 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.current.value)) {
-                  message.textContent = "First Enter a Valid Email Please.";
-                  message.classList.add("cv-error");
+                  toast.error("First Enter a Valid Email Please.");
+
                   return;
                 }
                 handleUpdateCVEmail(email.current.value);
-                message.textContent = "Email has been Updated.";
-                message.classList.add("cv-success");
+                toast.success("Email has been Updated.");
               } else {
-                message.textContent = "First Enter your Email Please.";
-                message.classList.add("cv-error");
+                toast.error("First Enter your Email Please.");
               }
-
-              setTimeout(() => {
-                message.textContent = "";
-                message.classList.remove("cv-success", "cv-error");
-              }, 2000);
             }}
           />
         </div>
-        <p className="cv-update-messages cv-email-update"></p>
 
         {/* --------------------- Exective Summary ---------------------- */}
         <p className="cv-headings">Exective Summary</p>
@@ -604,43 +560,28 @@ export default function CV() {
         <button
           className="cv-add-information-button"
           onClick={() => {
-            const message = document.querySelector(".cv-update-summary");
-
             if (!fetchedUser) {
-              message.textContent = "CV for the User has not been Created.";
-              message.classList.add("cv-error");
+              toast.error("CV for the User has not been Created.");
+
               return;
             }
 
             if (exectiveSummary.current.value !== "") {
               handleUpdateCVSummary(exectiveSummary.current.value);
-              message.textContent = "Exective Summary has been Updated.";
-              message.classList.add("cv-success");
+              toast.success("Exective Summary has been Updated.");
             } else {
-              message.textContent = "First enter some Summary.";
-              message.classList.add("cv-error");
+              toast.error("First enter some Summary.");
             }
-
-            setTimeout(() => {
-              message.textContent = "";
-              message.classList.remove("cv-success", "cv-error");
-            }, 2000);
           }}
         >
           Update Exective Summary
         </button>
-        <p className="cv-create-button-success cv-message">
-          CV has been created Successfully.
-        </p>
+
         <button
           className="cv-add-information-button"
           onClick={() => {
-            const successElement = document.querySelector(
-              ".cv-create-button-success"
-            );
             if (fetchedUser) {
-              successElement.innerHTML = "The CV for this UserId Exists.";
-              successElement.classList.add("cv-error");
+              toast.error("The CV for this UserId Exists.");
             } else {
               if (
                 name.current.value === "" ||
@@ -649,18 +590,13 @@ export default function CV() {
                 contact.current.value === "" ||
                 exectiveSummary.current.value === ""
               ) {
-                successElement.innerHTML = "All above Info is required.";
-                successElement.classList.add("cv-error");
+                toast.error("All above Personal Info is required.");
+
                 return;
               }
               handleClick();
-              successElement.innerHTML = "The CV Created Successfully";
-              successElement.classList.add("cv-success");
+              toast.success("The CV Created Successfully");
             }
-
-            setTimeout(() => {
-              successElement.classList.remove("cv-success", "cv-error");
-            }, 2000);
           }}
         >
           Create CV
@@ -681,17 +617,12 @@ export default function CV() {
         placeholder="Social Link"
         ref={link}
       />
-      <p className="cv-message choose1">Success/Failure Message</p>
       <button
         className="cv-add-information-button"
         onClick={() => {
-          document.querySelector(".choose1").textContent = "";
-
-          const message = document.querySelector(".choose1");
           if (linkName.current.value !== "" && link.current.value !== "") {
             if (!fetchedUser) {
-              message.textContent = "CV for the User has not been Created.";
-              message.classList.add("cv-success");
+              toast.error("CV for the User has not been Created.");
             } else {
               addLink({
                 id: uuidv4(),
@@ -703,21 +634,15 @@ export default function CV() {
                 name: linkName.current.value,
                 link: link.current.value,
               });
-              message.textContent = "Link added Successfully";
-              message.classList.add("cv-success");
+
+              toast.success("Link added Successfully");
             }
 
             linkName.current.value = "";
             link.current.value = "";
           } else {
-            document.querySelector(".choose1").classList.add("cv-error");
-            document.querySelector(".choose1").textContent =
-              "Required all the info";
+            toast.error("Required all the Link info");
           }
-
-          setTimeout(() => {
-            message.classList.remove("cv-success", "cv-error");
-          }, 2000);
         }}
       >
         Add Social Link
@@ -769,29 +694,28 @@ export default function CV() {
         <p className="cv-mini-inner-heading">Date of completion</p>
         <input className="cv-input-field" type="date" ref={dateOfCompeletion} />
       </div>
-      <p className="cv-message choose2">Success/Failure Message</p>
       <button
         className="cv-add-information-button"
         onClick={() => {
-          const message = document.querySelector(".choose2");
-          message.value = "";
-
           if (
             educationLevel.current.value !== "" &&
             specialization.current.value !== "" &&
             instituteName.current.value !== "" &&
             dateOfCompeletion.current.value !== "" &&
-            obtMarks.current.value !== "" &&
-            totalMarks.current.value !== ""
+            Number(obtMarks.current.value) !== "" &&
+            Number(totalMarks.current.value) !== ""
           ) {
             if (!fetchedUser) {
-              message.textContent = "CV for the User has not been Created.";
-              message.classList.add("cv-error");
+              toast.error("CV for the User has not been Created.");
             } else {
-              if (obtMarks.current.value > totalMarks.current.value) {
-                message.textContent =
-                  "Obtained Marks can't be Greater than Total Marks.";
-                message.classList.add("cv-error");
+              if (
+                Number(obtMarks.current.value) >
+                Number(totalMarks.current.value)
+              ) {
+                toast.error(
+                  "Obtained Marks can't be Greater than Total Marks."
+                );
+
                 return;
               }
 
@@ -816,8 +740,7 @@ export default function CV() {
                 totalMarks: totalMarks.current.value,
               });
 
-              message.textContent = "Education added Successfully";
-              message.classList.add("cv-success");
+              toast.success("Education added Successfully");
 
               // Reset values
               educationLevel.current.value = "";
@@ -828,13 +751,8 @@ export default function CV() {
               totalMarks.current.value = "";
             }
           } else {
-            message.value = "Required all the info";
-            message.classList.add("cv-error");
+            toast.error("Required all the Education info");
           }
-
-          setTimeout(() => {
-            message.classList.remove("cv-success", "cv-error");
-          }, 2000);
         }}
       >
         Add Education
@@ -861,16 +779,12 @@ export default function CV() {
         placeholder="Technologies, Tools, Frameworks (separated by commas)"
         ref={skills}
       />
-      <p className="cv-message choose4">Success/Failure Message</p>
       <button
         className="cv-add-information-button"
         onClick={() => {
-          const message = document.querySelector(".choose4");
-          message.textContent = "";
-
           if (!fetchedUser) {
-            message.textContent = "CV for the User has not been Created.";
-            message.classList.add("cv-error");
+            toast.error("CV for the User has not been Created.");
+
             return;
           }
           if (skillName.current.value !== "" && skills.current.value !== "") {
@@ -885,19 +799,13 @@ export default function CV() {
               name: skillName.current.value,
               skills: skills.current.value,
             });
+            toast.success("Skills added Successfully");
 
-            message.textContent = "Skills added Successfully";
-            message.classList.add("cv-success");
             skillName.current.value = "";
             skills.current.value = "";
           } else {
-            message.classList.add("cv-error");
-            message.textContent = "Required all the info";
+            toast.error("Required all the Skills info");
           }
-
-          setTimeout(() => {
-            message.classList.remove("cv-success", "cv-error");
-          }, 2000);
         }}
       >
         Add Technical Skills
@@ -926,7 +834,6 @@ export default function CV() {
         <p className="cv-mini-inner-heading">To</p>
         <input className="cv-input-field" type="date" ref={endExperienceDate} />
       </div>
-      <p className="cv-message choose6">Success/Failure Message </p>
       <textarea
         className="cv-textarea-field"
         name=""
@@ -938,13 +845,8 @@ export default function CV() {
       <button
         className="cv-add-information-button"
         onClick={() => {
-          const message = document.querySelector(".choose6");
-          message.classList.remove("cv-error");
-          message.classList.remove("cv-success");
-
           if (!fetchedUser) {
-            message.textContent = "CV for the User has not been Created.";
-            message.classList.add("cv-error");
+            toast.error("CV for the User has not been Created.");
             return;
           }
           if (
@@ -957,8 +859,8 @@ export default function CV() {
             const endDate = new Date(endExperienceDate.current.value);
 
             if (startDate > endDate) {
-              message.textContent = "Start Date can't Exceed from End Date.";
-              message.classList.add("cv-error");
+              toast.error("Start Date can't Exceed from End Date.");
+
               return;
             }
 
@@ -979,21 +881,15 @@ export default function CV() {
               description: experienceDescription.current.value,
             });
 
-            message.textContent = "Experince added Successfully";
-            message.classList.add("cv-success");
+            toast.success("Experince added Successfully");
 
             experienceCompany.current.value = "";
             startExperienceDate.current.value = "";
             endExperienceDate.current.value = "";
             experienceDescription.current.value = "";
           } else {
-            message.textContent = "Required all the info";
-            message.classList.add("cv-error");
+            toast.error("Required all the Experience info");
           }
-
-          setTimeout(() => {
-            message.classList.remove("cv-error", "cv-success");
-          }, 2000);
         }}
       >
         Add Experience
@@ -1029,15 +925,12 @@ export default function CV() {
         rows={"6"}
         ref={projectDescription}
       ></textarea>
-      <p className="cv-message choose3">Success/Failure Message </p>
       <button
         className="cv-add-information-button"
         onClick={() => {
-          const message = document.querySelector(".choose3");
-
           if (!fetchedUser) {
-            message.textContent = "CV for the User has not been Created.";
-            message.classList.add("cv-error");
+            toast.error("CV for the User has not been Created.");
+
             return;
           }
           if (
@@ -1059,20 +952,14 @@ export default function CV() {
               description: projectDescription.current.value,
             });
 
-            message.textContent = "Project added Successfully";
-
-            message.classList.add("cv-success");
+            toast.success("Project added Successfully");
 
             projectName.current.value = "";
             technologies.current.value = "";
             projectDescription.current.value = "";
           } else {
-            message.classList.add("cv-error");
-            message.textContent = "Required all the info";
+            toast.error("Required all the Project info");
           }
-          setTimeout(() => {
-            message.classList.remove("cv-success", "cv-error");
-          }, 2000);
         }}
       >
         Add Project
@@ -1103,15 +990,12 @@ export default function CV() {
           ref={certificateEarnedDate}
         />
       </div>
-      <p className="cv-message choose5">Success/Failure Message</p>
       <button
         className="cv-add-information-button"
         onClick={() => {
-          const message = document.querySelector(".choose5");
-          message.textContent = "";
           if (!fetchedUser) {
-            message.textContent = "CV for the User has not been Created.";
-            message.classList.add("cv-error");
+            toast.error("CV for the User has not been Created.");
+
             return;
           }
           if (
@@ -1133,20 +1017,15 @@ export default function CV() {
               certificateInstitute: certificateInstitute.current.value,
               certificateEarnedDate: certificateEarnedDate.current.value,
             });
-            message.textContent = "Link added Successfully";
 
-            message.classList.add("cv-success");
+            toast.success("Link added Successfully");
 
             certificateName.current.value = "";
             certificateInstitute.current.value = "";
             certificateEarnedDate.current.value = "";
           } else {
-            message.textContent = "Required all the info";
-            message.classList.add("cv-error");
+            toast.error("Required all the Certificate info");
           }
-          setTimeout(() => {
-            message.classList.remove("cv-error", "cv-success");
-          }, 2000);
         }}
       >
         Add Certificate

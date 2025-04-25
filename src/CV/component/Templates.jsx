@@ -26,71 +26,73 @@ export default function Templates({ setTemplates, userData }) {
   console.log(serializableUserData);
 
   return (
-    <>
-      <div className="cv-template-container-outerDiv">
-        <button
-          className="cv-template-container-closeButton"
+    <div className="modal-overlay">
+      <div className="cv-template-container-outerDiv modal-content container">
+        <p
+          className="dark to-right modal-cross"
           onClick={() => {
             setTemplates(false);
           }}
         >
-          X
-        </button>
+          &times;
+        </p>
 
         {/*-------------- CV Templates to get the Displlay Informajtion i various Types------------------ */}
 
-        <div className="cv-template-container-innerDiv">
-          <img
-            className="cv-template-container-cvTemplateImage"
-            src={templateImage1}
-            alt=""
-          />
-          <button
-            className="cv-template-container-preview-button"
-            onClick={() => {
-              navigate("/CV-template1", {
-                state: { userData: serializableUserData },
-              });
-            }}
-          >
-            Preview
-          </button>
-        </div>
-        <div className="cv-template-container-innerDiv">
-          <img
-            className="cv-template-container-cvTemplateImage"
-            src={templateImage2}
-            alt=""
-          />
-          <button
-            className="cv-template-container-preview-button"
-            onClick={() => {
-              navigate("/CV-template2", {
-                state: { userData: serializableUserData },
-              });
-            }}
-          >
-            Preview
-          </button>
-        </div>
-        <div className="cv-template-container-innerDiv">
-          <img
-            className="cv-template-container-cvTemplateImage"
-            src={templateImage3}
-            alt=""
-          />
-          <button
-            className="cv-template-container-preview-button"
-            onClick={() => {
-              navigate("/CV-template3", {
-                state: { userData: serializableUserData },
-              });
-            }}
-          >
-            Preview
-          </button>
+        <div className="cv-templates">
+          <div className="cv-template-container-innerDiv">
+            <img
+              className="cv-template-container-cvTemplateImage"
+              src={templateImage1}
+              alt=""
+            />
+            <button
+              className="cv-template-container-preview-button"
+              onClick={() => {
+                navigate("/CV-template1", {
+                  state: { userData: serializableUserData },
+                });
+              }}
+            >
+              Preview 1
+            </button>
+          </div>
+          <div className="cv-template-container-innerDiv">
+            <img
+              className="cv-template-container-cvTemplateImage"
+              src={templateImage2}
+              alt=""
+            />
+            <button
+              className="cv-template-container-preview-button"
+              onClick={() => {
+                navigate("/CV-template2", {
+                  state: { userData: serializableUserData },
+                });
+              }}
+            >
+              Preview 2
+            </button>
+          </div>
+          <div className="cv-template-container-innerDiv">
+            <img
+              className="cv-template-container-cvTemplateImage"
+              src={templateImage3}
+              alt=""
+            />
+            <button
+              className="cv-template-container-preview-button"
+              onClick={() => {
+                navigate("/CV-template3", {
+                  state: { userData: serializableUserData },
+                });
+              }}
+            >
+              Preview 3
+            </button>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

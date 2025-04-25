@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import "../Styles/template1.css";
 import generatePDF from "../JS/PdfGeneration";
+import { toast } from "react-toastify";
 
 export default function Template1() {
   const location = useLocation();
@@ -11,7 +12,7 @@ export default function Template1() {
   return (
     <div
       id="cv-template1-outer-container"
-      className="cv-template1-outer-ontainer"
+      className="cv-template1-outer-ontainer container"
     >
       <div className="cv-template1-personal-information">
         <h1 className="cv-template1-username">{userData.name}</h1>
@@ -197,6 +198,8 @@ export default function Template1() {
           document
             .querySelector(".cv-template1-outer-ontainer")
             .classList.remove("cv-template1-outerDiv");
+
+          toast.success("CV Downloaded Successfully");
         }}
       >
         Download PDF

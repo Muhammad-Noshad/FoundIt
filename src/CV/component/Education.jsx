@@ -1,5 +1,7 @@
 import "../Styles/teble.css";
 import useAPICVStore from "../../Store/cvStore";
+import { RiDeleteBin2Fill } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 export default function Education({ educationList, removeEducation }) {
   const { removeEducationList, cvData } = useAPICVStore();
@@ -34,16 +36,14 @@ export default function Education({ educationList, removeEducation }) {
               <td>{edu.totalMarks}</td>
               <td>{edu.dateOfCompeletion}</td>
               <td>
-                <button
-                  className="cv-table-remove-button"
+                <RiDeleteBin2Fill
+                  className="delete-icon"
                   onClick={() => {
-                    // console.log(educationList);
                     removeEducation(edu.id);
                     deleteEducation(edu.id);
+                    toast.success("Education Deleted Successfully");
                   }}
-                >
-                  Remove
-                </button>
+                />
               </td>
             </tr>
           ))}

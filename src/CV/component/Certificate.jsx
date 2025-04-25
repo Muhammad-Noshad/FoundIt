@@ -1,5 +1,7 @@
 import "../Styles/teble.css";
 import useAPICVStore from "../../Store/cvStore";
+import { RiDeleteBin2Fill } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 export default function Certificate({ certificateList, removeCertificate }) {
   const { removeCertificateList, cvData } = useAPICVStore();
@@ -9,7 +11,7 @@ export default function Certificate({ certificateList, removeCertificate }) {
   };
 
   return (
-    <>
+    <div className="table-container">
       <table border={"1"}>
         <thead>
           <tr>
@@ -28,20 +30,19 @@ export default function Certificate({ certificateList, removeCertificate }) {
               <td>{certificate.certificateInstitute}</td>
               <td>{certificate.certificateEarnedDate}</td>
               <td>
-                <button
-                  className="cv-table-remove-button"
+                <RiDeleteBin2Fill
+                  className="delete-icon"
                   onClick={() => {
                     removeCertificate(certificate.id);
                     deleteCertificate(certificate.id);
+                    toast.success("Certificate Deleted Successfully");
                   }}
-                >
-                  Remove
-                </button>
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

@@ -1,5 +1,7 @@
 import "../Styles/teble.css";
 import useAPICVStore from "../../Store/cvStore";
+import { RiDeleteBin2Fill } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 export default function Project({ projectList, removeProject }) {
   const { removeProjectList, cvData } = useAPICVStore();
@@ -9,7 +11,7 @@ export default function Project({ projectList, removeProject }) {
   };
 
   return (
-    <>
+    <div className="table-container">
       <table border={"1"}>
         <thead>
           <tr>
@@ -28,20 +30,19 @@ export default function Project({ projectList, removeProject }) {
               <td>{pro.technologies}</td>
               <td>{pro.description}</td>
               <td>
-                <button
-                  className="cv-table-remove-button"
+                <RiDeleteBin2Fill
+                  className="delete-icon"
                   onClick={() => {
                     removeProject(pro.id);
                     deleteProject(pro.id);
+                    toast.success("Project Deleted Successfully");
                   }}
-                >
-                  Remove
-                </button>
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

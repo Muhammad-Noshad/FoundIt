@@ -1,9 +1,8 @@
-
 .cv-main_container {
-  width: 50%;
-  margin-left: 25%;
+  max-width: 1000px;
   padding-top: 10rem;
   text-align: center;
+  padding-bottom: 6em;
 }
 
 .cv-dual-div {
@@ -16,8 +15,6 @@
   border: none;
   cursor: pointer;
   transition: 0.15s;
-  width: 2%;
-  height: 2%;
   border-radius: 50%;
   margin-right: 5%;
 }
@@ -79,6 +76,7 @@
   font-weight: bold;
   padding-bottom: 2%;
   margin: 0;
+  padding-top: 2em;
 }
 
 .cv-mini_container {
@@ -120,4 +118,16 @@
   color: green;
   display: block;
   margin-bottom: 1%;
+}
+
+@media (width< 500px) {
+  .cv-mini_container {
+    flex-direction: column;
+  }
+}
+
+@media (width< 730px) {
+  .cv-main_container {
+    padding-top: 12rem;
+  }
 }

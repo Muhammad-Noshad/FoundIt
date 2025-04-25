@@ -1,5 +1,7 @@
 import "../Styles/teble.css";
 import useAPICVStore from "../../Store/cvStore";
+import { RiDeleteBin2Fill } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 export default function Experience({ experienceList, removeExperience }) {
   const { removeExperienceList, cvData } = useAPICVStore();
@@ -8,7 +10,7 @@ export default function Experience({ experienceList, removeExperience }) {
     removeExperienceList(experienceId);
   };
   return (
-    <>
+    <div className="table-container">
       <table border={"1"}>
         <thead>
           <tr>
@@ -29,20 +31,19 @@ export default function Experience({ experienceList, removeExperience }) {
               <td>{exp.endDate}</td>
               <td>{exp.description}</td>
               <td>
-                <button
-                  className="cv-table-remove-button"
+                <RiDeleteBin2Fill
+                  className="delete-icon"
                   onClick={() => {
                     removeExperience(exp.id);
                     deleteExperience(exp.id);
+                    toast.success("Experience Deleted Successfully");
                   }}
-                >
-                  Remove
-                </button>
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

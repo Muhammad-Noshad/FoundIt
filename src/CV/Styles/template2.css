@@ -1,9 +1,7 @@
-
 .cv-template2-outer-ontainer {
-  padding-top: 10%;
-  margin-left: 25%;
-  margin-right: 25%;
-  padding-bottom: 3%;
+  padding-top: 16em;
+  max-width: 1000px;
+  padding-bottom: 6em;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -23,8 +21,8 @@
 }
 
 .cv-template2-contact-info {
-  margin-top: 5%;
-  margin-bottom: 3%;
+  margin-top: 2em;
+  margin-bottom: 1em;
   display: grid;
   grid-template-columns: 200px 1fr;
 }
@@ -91,11 +89,16 @@
   border: none;
   transition: 0.15s;
   cursor: pointer;
-  margin-top: 5%;
+  margin-top: 3em;
+  border: 1px solid transparent;
 }
 
 .cv-template2-downloadPDF-button:hover {
-  opacity: 0.8;
+  background-color: var(--primary-color);
+  border: solid;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  border-width: 1px;
 }
 
 .cv-template2-downloadPDF-button-remove {

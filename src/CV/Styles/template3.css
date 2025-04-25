@@ -1,9 +1,7 @@
-
 .cv-template3-outer-ontainer {
-  padding-top: 10%;
-  margin-left: 25%;
-  margin-right: 25%;
-  padding-bottom: 3%;
+  padding-top: 16em;
+  max-width: 1000px;
+  padding-bottom: 6em;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -64,10 +62,15 @@
   transition: 0.15s;
   cursor: pointer;
   margin-top: 5%;
+  border: 1px solid transparent;
 }
 
 .cv-template3-downloadPDF-button:hover {
-  opacity: 0.8;
+  background-color: var(--primary-color);
+  border: solid;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  border-width: 1px;
 }
 
 .cv-template3-downloadPDF-button-remove {

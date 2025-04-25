@@ -1,31 +1,17 @@
-
 .cv-template-container-outerDiv {
-  display: flex;
-  flex-direction: row;
-  column-gap: 2%;
-  margin: 5% 5%;
-  width: 50%;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 15%;
-  left: 20%;
-  background-color: var(--primary-color);
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-  border-radius: 1%;
+  max-width: 1200px;
 }
 
-.cv-template-container-innerDiv {
-  margin: 10%;
+.cv-templates {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .cv-template-container-cvTemplateImage {
-  width: 100%;
-  height: auto;
-  margin-bottom: 15%;
+  width: 400px;
+  height: 400px;
 }
 
 .cv-template-container-closeButton {
@@ -50,8 +36,13 @@
   cursor: pointer;
   border: none;
   transition: 0.15s;
+  border: 1px solid transparent;
 }
 
 .cv-template-container-preview-button:hover {
-  opacity: 0.8;
+  background-color: var(--primary-color);
+  border: solid;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  border-width: 1px;
 }
