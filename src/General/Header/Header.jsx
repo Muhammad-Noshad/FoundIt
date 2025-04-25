@@ -6,6 +6,7 @@ import downArrowImg from "../../images/icon/down-arrow.png";
 import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../../API/API";
+import EmailModal from "../../Modals/EmailModal/EmailModal";
 
 import userStore from "../../Store/userStore";
 import postedJobStore from "../../Store/postedJobStore";
@@ -20,6 +21,9 @@ const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const adminEmail = "admin@gmail.com";
 
   const { user, setUser } = userStore();
   const setPostedJobs = postedJobStore((state) => state.setPostedJobs);
@@ -172,9 +176,21 @@ const Header = () => {
               </div>
             )}
           </div>
+          {
+            user?.role !== "Admin"? 
+            <p onClick={() => setIsEmailModalOpen(true)}>Contact</p>
+            :
+            null
+          }
           <p onClick={logOut}>Log Out</p>
         </div>
       </div>
+      <EmailModal
+        isModalOpen={isEmailModalOpen}
+        onClose={() => setIsEmailModalOpen(false)}
+        userEmail={user?.email}
+        toEmail={adminEmail}
+      />
     </header>
   );
 };
