@@ -10,8 +10,9 @@ const generatePDF = async (Element) => {
   }
 
   const canvas = await html2canvas(cvElement, {
-    scale: 2, // better quality
+    scale: 1.5,
     useCORS: true,
+    backgroundColor: "#ffffff", // force white background
   });
 
   const pdf = new jsPDF("p", "mm", "a4");
@@ -30,10 +31,17 @@ const generatePDF = async (Element) => {
     const pageCanvas = document.createElement("canvas");
     const pageCtx = pageCanvas.getContext("2d");
 
-    const sliceHeight = (usableHeight * canvas.height) / imgHeight;
+    const sliceHeight = Math.min(
+      (usableHeight * canvas.height) / imgHeight,
+      canvas.height - (page * (usableHeight * canvas.height)) / imgHeight
+    );
 
     pageCanvas.width = canvas.width;
     pageCanvas.height = sliceHeight;
+
+    // Fill the background with white before drawing
+    pageCtx.fillStyle = "#ffffff";
+    pageCtx.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
 
     pageCtx.drawImage(
       canvas,
@@ -47,8 +55,18 @@ const generatePDF = async (Element) => {
       sliceHeight
     );
 
-    const imgData = pageCanvas.toDataURL("image/png");
-    pdf.addImage(imgData, "PNG", 10, topBottomMargin, imgWidth, usableHeight);
+    const imgData = pageCanvas.toDataURL("image/jpeg", 0.7);
+
+    const actualImgHeight = (sliceHeight * imgWidth) / canvas.width;
+
+    pdf.addImage(
+      imgData,
+      "JPEG",
+      10,
+      topBottomMargin,
+      imgWidth,
+      actualImgHeight
+    );
   }
 
   pdf.save("My_CV.pdf");
