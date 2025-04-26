@@ -15,6 +15,14 @@ const postedJobStore = create(
           console.error('Error fetching posts:', error);
         }
       },
+      fetchRelatedPostedJobs: async (userId) => {
+        try {
+          const response = await API.get(`user/relatedJobs/${userId}`);
+          set({ postedJobs: response.data });
+        } catch (error) {
+          console.error('Error fetching posts:', error);
+        }
+      },
       fetchPostedJobsByCompanyId: async (companyId) => {
         try {
           const response = await API.get(`/posted-job/${companyId}`);

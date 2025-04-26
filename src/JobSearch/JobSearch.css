@@ -15,7 +15,11 @@
   text-align: center;
 }
 
-.job-search > p.subtitle {
+.job-search > p {
+  margin-bottom: 0.5em;
+}
+
+.job-search > .job-personalization-filter {
   margin-bottom: 2.5em;
 }
 

@@ -1,0 +1,43 @@
+.job-personalization-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.job-personalization-filter > p {
+  font-weight: 600;
+}
+
+.switch {
+  width: 4rem;
+  height: 2rem;
+  background-color: grey;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch.on {
+  background-color: var(--secondary-color);
+}
+
+.switch.off {
+  background-color: var(--light-color);
+}
+
+.ball {
+  width: 1.7rem;
+  height: 1.7rem;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  transition: left 0.3s;
+}
+
+.switch.on .ball {
+  left: 2rem;
+}

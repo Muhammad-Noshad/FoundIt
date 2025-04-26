@@ -7,6 +7,7 @@ import SearchBar from "../Filters/SearchBar/SearchBar";
 import JobsList from "./JobsList/JobsList";
 import JobTypeFilter from "../Filters/JobTypeFilter/JobTypeFilter";
 import JobSalaryFilter from "../Filters/JobSalaryFilter/JobSalaryFilter";
+import JobPersonalizationFilter from "../Filters/JobPersonalizationFilter/JobPersonalizationFilter";
 
 const JobSearch = () => {
   const [filteredJobs, setFilteredJobs] = useState(postedJobStore.getState().postedJobs);
@@ -35,6 +36,9 @@ const JobSearch = () => {
     <section className="job-search container">
       <h1>Job Search</h1>
       <p className="dark subtitle">Search for your desired job matching skills.</p>
+      <JobPersonalizationFilter
+        setJobs={setFilteredJobs}
+      />
       <SearchBar 
         values={[jobTitle, jobLocation, companyName]}
         setters={[setJobTitle, setJobLocation, setCompanyName]}
