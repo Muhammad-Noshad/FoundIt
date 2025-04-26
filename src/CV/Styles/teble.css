@@ -9,6 +9,10 @@ td, th {
   text-align: center;
 }
 
+td {
+  font-size: 1.4rem;
+}
+
 .delete-icon {
   width: 25px;
   margin-top: 1rem;
@@ -21,9 +25,10 @@ td, th {
 }
 
 .cv-table-heading {
-  background-color: gray;
+  background-color: var(--secondary-color);
   color: var(--primary-color);
-  font-size: medium;
+  font-size: 1.6rem;
+  padding: 1em 0.5em;
 }
 
 .cv-table-remove-button {
